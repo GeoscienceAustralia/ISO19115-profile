@@ -8,6 +8,20 @@ This profile is used to ensure that some elements of the standard which are norm
 
 Some elements of this profile allow us to relate elements modelled here to other models. For example, the 'derivedFrom' relationship mentioned above can be interpreted as a 'wasDerivedFrom' relationship as used in the [PROV ontology](https://www.w3.org/TR/prov-o/) for provenance.
 
+### Schema
+
+This profile's schema file is stored in this code repository. The main differences between this schema and the main ISO19115-1's are that in this profile:
+
+* the **Lineage** field (`LI_Lineage`), describing the provenance of records, is compulsory, rather than optional
+* the **Association Types** (`DS_AssociationTypeCode`), linking records to other records, uses values from an extended codelist stored in the [codelists/](codelists/) folder of this repository
+* the **Protocol** field (++++) uses values from a codelist, rather than allowing free text
+* the **Service Type** field (++++) uses values from a codelist, rather than allowing free text
+
+
+### Codelists
+
+This profile extends one codelist from the ISO19115-1 standard, Association Type, and implements two other codelists in place of two of the standard's free text fields: Web Service type and Protocol. The codelists are generated from [SKOS vocabularies](https://www.w3.org/2004/02/skos/) that contain the codelist terms and stored here in the [codelists/](codelists/) folder as XML files. The scripts used to generate the codelists are also stored in the folder.
+
 
 ## Contacts
 **Nicholas Car**  
