@@ -1,3 +1,15 @@
+"""
+Routine to retrieve content from the Association Type SKOS vocabulary, convert to
+the ISO 19115-1:2014 codelist XML format, and write to the file system.
+
+Note the DS_AssociationTypeCode codelist is located in the ISO19115-3 file structure at
+iso19115-3/schema/standards.iso.org/iso/19115/-3/mri/1.0/codelists.xml.
+
+Created on 24 October 2017
+
+@author: Aaron Sedgmen
+"""
+
 from SPARQLWrapper import SPARQLWrapper
 import jinja2
 import os
@@ -5,13 +17,6 @@ import sys
 import logging
 import lxml.etree as ET
 
-
-# query vocab's SPARQL endpoint
-# query for leaf node terms only
-
-# build Jinja2 template
-
-# save codelist XML file here
 
 # DS_AssociationTypeCode codelist is located in the ISO19115-3 file structure at iso19115-3/schema/standards.iso.org/iso/19115/-3/mri/1.0/codelists.xml
 
@@ -28,9 +33,16 @@ if not logging.root.handlers:
     logging.root.addHandler(console_handler)
 
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)  # Initial logging level for this module
+logger.setLevel(logging.INFO)  # Initial logging level for this module
+
+vocab_sparql_endpoint = "http://vocabs.ands.org.au/repository/api/sparql/ga_association-type_v1-0"
 
 def get_associationTypes():
+    """
+    Query the Association Type SKOS vocabulary SPARQL endpoint to obtain Association Type names and definitions
+    
+    :return: returns SPARQL Query Results XML document as a string
+    """
     
     queryString = '''
         PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
@@ -42,7 +54,7 @@ def get_associationTypes():
         }
     '''
     
-    sparql = SPARQLWrapper("http://vocabs.ands.org.au/repository/api/sparql/ga_association-type_v1-0")
+    sparql = SPARQLWrapper(vocab_sparql_endpoint)
     sparql.setQuery(queryString)
     sparql.setReturnFormat('xml')
     ret = sparql.query()
@@ -53,7 +65,13 @@ def get_associationTypes():
     return associationTypes_sparql_xml_string
 
 def transform_to_codelist(associationTypes_sparql_xml_string):
+    """
+    Transform the input SPARQL Query Results XML document into an ISO 19115-1 codelist XML document
     
+    :param associationTypes_sparql_xml_string: SPARQL Query Results XML document as a string
+    :return: returns ISO 19115-1 codelist XML document as a string
+    """
+
     associationTypes_sparql_xml_et = ET.fromstring(associationTypes_sparql_xml_string)
     xslt = ET.parse("xslt/assoctype_skos_to_codelist.xsl")
     transform = ET .XSLT(xslt)
@@ -77,6 +95,8 @@ def main():
     # Write ISO 19115-1 codelist to current directory
     with open("assocType_codelist.xml", "w") as text_file:
         text_file.write(associationTypes_iso_codelist_xml_string)
+    
+    logger.info("Output written to {}".format(os.path.join(os.getcwd(), text_file.name)))
 
 if __name__ == "__main__":
     main()
