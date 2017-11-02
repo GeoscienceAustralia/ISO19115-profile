@@ -20,19 +20,18 @@
            xsi:schemaLocation="http://standards.iso.org/iso/19115/-3/cat/1.0 http://standards.iso.org/iso/19115/-3/cat/1.0/cat.xsd">
            <!--=====Catalogue description=====-->
            <cat:name>
-              <gco:CharacterString>Codelists from the Metadata for Resource Identification (mri) Namespace</gco:CharacterString>
+              <gco:CharacterString>Geoscience Australia profile codelist of the ISO 19115-1:2014 AssociationType codelist</gco:CharacterString>
            </cat:name>
            <cat:scope>
-              <gco:CharacterString>Codelists from the Metadata for Resource Identification (mri) Namespace</gco:CharacterString>
+              <gco:CharacterString>Version 1.0 of Geoscience Australia profile of ISO 19115-1:2014 standard</gco:CharacterString>
            </cat:scope>
            <cat:fieldOfApplication>
               <gco:CharacterString>ISO TC211 Metadata Standards</gco:CharacterString>
            </cat:fieldOfApplication>
            <cat:versionNumber>
-              <gco:CharacterString>0.1</gco:CharacterString>
+              <gco:CharacterString>see repository version</gco:CharacterString>
            </cat:versionNumber>
-           <cat:versionDate>
-              <gco:Date>2015-04-18</gco:Date>
+           <cat:versionDate>"auto-generated"2015-04-18</gco:Date>
            </cat:versionDate>
            <cat:locale>
               <lan:PT_Locale>
