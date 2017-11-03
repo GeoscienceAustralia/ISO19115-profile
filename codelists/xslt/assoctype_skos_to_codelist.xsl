@@ -2,6 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:sp="http://www.w3.org/2005/sparql-results#"
+    xmlns:date="http://exslt.org/dates-and-times"
     
     exclude-result-prefixes="xs"
     version="1.0">
@@ -20,19 +21,19 @@
            xsi:schemaLocation="http://standards.iso.org/iso/19115/-3/cat/1.0 http://standards.iso.org/iso/19115/-3/cat/1.0/cat.xsd">
            <!--=====Catalogue description=====-->
            <cat:name>
-              <gco:CharacterString>Codelists from the Metadata for Resource Identification (mri) Namespace</gco:CharacterString>
+              <gco:CharacterString>Geoscience Australia profile codelist of the ISO 19115-1:2014 AssociationType codelist</gco:CharacterString>
            </cat:name>
            <cat:scope>
-              <gco:CharacterString>Codelists from the Metadata for Resource Identification (mri) Namespace</gco:CharacterString>
+              <gco:CharacterString>Version 1.0 of Geoscience Australia profile of ISO 19115-1:2014 standard</gco:CharacterString>
            </cat:scope>
            <cat:fieldOfApplication>
               <gco:CharacterString>ISO TC211 Metadata Standards</gco:CharacterString>
            </cat:fieldOfApplication>
            <cat:versionNumber>
-              <gco:CharacterString>0.1</gco:CharacterString>
+              <gco:CharacterString>see repository version</gco:CharacterString>
            </cat:versionNumber>
            <cat:versionDate>
-              <gco:Date>2015-04-18</gco:Date>
+               <gco:Date><xsl:value-of select="date:year()"/>-<xsl:value-of select="format-number(date:month-in-year(),'00')"/>-<xsl:value-of select="format-number(date:day-in-month(),'00')"/></gco:Date>
            </cat:versionDate>
            <cat:locale>
               <lan:PT_Locale>
@@ -73,6 +74,7 @@
 
     <xsl:template match="sp:result">
         
+        <!-- Obtain string in last part of URI path -->
         <xsl:variable name="assocTypeName">DS_AssociationTypeCode_<xsl:call-template name="substring-after-last">
                 <xsl:with-param name="string" select="./sp:binding[@name='associationType']/sp:uri"/>
                 <xsl:with-param name="char" select="'/'"/>
@@ -93,6 +95,7 @@
 
     </xsl:template>
     
+    <!-- Routine to obtain substring after last occurrence of a separator -->
     <xsl:template name="substring-after-last">
         <xsl:param name="string"/>
         <xsl:param name="char"/>
