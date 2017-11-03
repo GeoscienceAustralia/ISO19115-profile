@@ -2,6 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:sp="http://www.w3.org/2005/sparql-results#"
+    xmlns:date="http://exslt.org/dates-and-times"
     
     exclude-result-prefixes="xs"
     version="1.0">
@@ -31,7 +32,8 @@
            <cat:versionNumber>
               <gco:CharacterString>see repository version</gco:CharacterString>
            </cat:versionNumber>
-           <cat:versionDate>"auto-generated"2015-04-18</gco:Date>
+           <cat:versionDate>
+               <gco:Date><xsl:value-of select="date:year()"/>-<xsl:value-of select="format-number(date:month-in-year(),'00')"/>-<xsl:value-of select="format-number(date:day-in-month(),'00')"/></gco:Date>
            </cat:versionDate>
            <cat:locale>
               <lan:PT_Locale>
@@ -72,6 +74,7 @@
 
     <xsl:template match="sp:result">
         
+        <!-- Obtain string in last part of URI path -->
         <xsl:variable name="assocTypeName">DS_AssociationTypeCode_<xsl:call-template name="substring-after-last">
                 <xsl:with-param name="string" select="./sp:binding[@name='associationType']/sp:uri"/>
                 <xsl:with-param name="char" select="'/'"/>
@@ -92,6 +95,7 @@
 
     </xsl:template>
     
+    <!-- Routine to obtain substring after last occurrence of a separator -->
     <xsl:template name="substring-after-last">
         <xsl:param name="string"/>
         <xsl:param name="char"/>
