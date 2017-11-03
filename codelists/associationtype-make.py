@@ -11,7 +11,6 @@ Created on 24 October 2017
 """
 
 from SPARQLWrapper import SPARQLWrapper
-import jinja2
 import os
 import sys
 import logging
