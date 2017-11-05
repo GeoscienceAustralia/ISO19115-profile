@@ -73,17 +73,17 @@
 
     <xsl:template match="sp:result">
         
-        <xsl:variable name="onlineFuncTypeName">CI_OnLineFunctionCode_<xsl:call-template name="substring-after-last">
-                <xsl:with-param name="string" select="./sp:binding[@name='onlineFunctionType']/sp:uri"/>
+        <xsl:variable name="onlineFunctionCodeName">CI_OnLineFunctionCode_<xsl:call-template name="substring-after-last">
+                <xsl:with-param name="string" select="./sp:binding[@name='onlineFunctionCode']/sp:uri"/>
                 <xsl:with-param name="char" select="'/'"/>
             </xsl:call-template>            
         </xsl:variable>
 
         <cat:codeEntry xmlns:cat="http://standards.iso.org/iso/19115/-3/cat/1.0"
             xmlns:gco="http://standards.iso.org/iso/19115/-3/gco/1.0">
-            <cat:CT_CodelistValue id="{$onlineFuncTypeName}">
+            <cat:CT_CodelistValue id="{$onlineFunctionCodeName}">
                 <cat:identifier>
-                    <gco:ScopedName codeSpace="http://standards.iso.org/iso/19115"><xsl:value-of select="$onlineFuncTypeName"/></gco:ScopedName>
+                    <gco:ScopedName codeSpace="http://standards.iso.org/iso/19115"><xsl:value-of select="$onlineFunctionCodeName"/></gco:ScopedName>
                 </cat:identifier>
                 <cat:definition>
                     <gco:CharacterString><xsl:value-of select=".//sp:binding[@name='definition']/sp:literal"/></gco:CharacterString>
