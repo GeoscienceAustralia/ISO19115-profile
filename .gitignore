@@ -109,3 +109,8 @@ venv.bak/
 # Pycharm
 .idea/
 
+# eclipse project file
+.settings/
+.classpath
+.project
+.pydevproject
