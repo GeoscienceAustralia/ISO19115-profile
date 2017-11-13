@@ -88,11 +88,8 @@ def main():
 
     # Obtain the set of online function codes from the SKOS online-function-code vocabulary in the SPARQL Query Results XML Format
     online_function_codes_sparql_xml_string = get_online_function_codes()
-    #print online_function_types_sparql_xml_string
-    #print "--------"
     # Transform SPARQL Query Results XML to ISO 19115-1 codelist XML
     online_function_codes_iso_codelist_xml_string = transform_to_codelist(online_function_codes_sparql_xml_string)
-    #print online_function_types_iso_codelist_xml_string
 
     # Write ISO 19115-1 codelist to current directory
     with open("onlineFunctionCode_codelist.xml", "w") as text_file:
