@@ -23,6 +23,10 @@ This profile's schema file is stored in this code repository. The main differenc
 This profile extends one codelist from the ISO19115-1 standard, Association Type, and implements two other codelists in place of two of the standard's free text fields: Web Service type and Protocol. The codelists are generated from [SKOS vocabularies](https://www.w3.org/2004/02/skos/) that contain the codelist terms and stored here in the [codelists/](codelists/) folder as XML files. The scripts used to generate the codelists are also stored in the folder.
 
 
+## License
+This repository is licensed under Creative Commons 4.0 International. See the [LICENSE deed](LICENSE) in this repository for details.
+
+
 ## Contacts
 **Nicholas Car**  
 *Data Architect*  
