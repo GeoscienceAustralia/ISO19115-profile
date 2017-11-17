@@ -44,8 +44,8 @@ def get_protocol_types():
         SELECT ?protocolType ?definition
         WHERE
         {
-            ?protocolType a skos:Concept.
-            ?protocolType skos:definition ?definition.
+            ?protocolType a skos:Concept .
+            OPTIONAL {?protocolType skos:definition ?definition .}
         }
     """
 
