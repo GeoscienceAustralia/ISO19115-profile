@@ -4,13 +4,15 @@
 ## Description
 This repository contains the files used to describe and generate Geoscience Australia's profile of the [ISO19115-1:2014 'Geographic information -- Metadata'](https://www.iso.org/standard/53798.html) standard.
 
-This profile is used to ensure that some elements of the standard which are normally optional are compulsory so that those elements, such as dataset lineage, are always filled out by GA staff recording metadata for datasets. Our profile also implements several new type codes for things such as AssociationType which allow us to characterise relationships between objects described with this profile in ways not possible with the un-profiled standard. These include type codes such as 'derivedFrom' which indicated that a dataset is generally derived from another dataset. This is more general than the standard's own 'revisionOf' whihc implies that the revised dataset is substantially the same as the original. 
+This profile extends the base ISO19115-1:2014 standard in accordance with Annex C "Metadata extensions and profiles" of the [ISO19115-1:2014 'Geographic information -- Metadata'](https://www.iso.org/standard/53798.html) documentation.  Our profile is used to ensure that some elements of the standard which are normally optional are compulsory so that those elements, such as dataset lineage, are always filled out by GA staff recording metadata for datasets. Our profile also implements several new type codes for things such as AssociationType which allow us to characterise relationships between objects described with this profile in ways not possible with the un-profiled standard. These include type codes such as 'derivedFrom' which indicated that a dataset is generally derived from another dataset. This is more general than the standard's own 'revisionOf' whihc implies that the revised dataset is substantially the same as the original. 
 
 Some elements of this profile allow us to relate elements modelled here to other models. For example, the 'derivedFrom' relationship mentioned above can be interpreted as a 'wasDerivedFrom' relationship as used in the [PROV ontology](https://www.w3.org/TR/prov-o/) for provenance.
 
 ### Schema
 
-This profile's schema file is stored in this code repository. The main differences between this schema and the main ISO19115-1's are that in this profile:
+This profile does not make any changes to the base XML Schema definition (XSD) and Schematron schema files provided by the ISO19115-3 XML implementation of the ISO19115-1:2014 standard.  Additional Schematron schema developed by GA are used to implement the rules defining the GA profile.
+
+This profile's Schematron schema file is stored in this code repository. The main differences between the GA profile and the main ISO19115-1 standard are that in this profile:
 
 * the **Lineage** field (`LI_Lineage`), describing the provenance of records, is compulsory, rather than optional
 * the **Association Types** (`DS_AssociationTypeCode`), linking records to other records, uses values from an extended codelist stored in the [codelists/](codelists/) folder of this repository
