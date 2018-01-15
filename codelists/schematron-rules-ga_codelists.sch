@@ -24,19 +24,19 @@
             
             <sch:let name="assocTypeCode" value="concat('DS_AssociationTypeCode_', @codeListValue)" />
             
-            <sch:let name="URI" value= "'assocType_codelist.xml'" /> <!-- the codelist document is expected to be in the same directory as this schematron file -->
+            <!--<sch:let name="URI" value= "'assocType_codelist.xml'" />--> <!-- the codelist document is expected to be in the same directory as this schematron file -->
+            
+            <sch:let name="URI" value= "'http://standards.iso.org/iso/19115/-3/mri/1.0/codelists.xml'" />
             
             <sch:let name="code-list-document" value="document( $URI )"/>
             
             <sch:let name="assocTypeCodeList" value=" $code-list-document//cat:CT_Codelist[ @id='DS_AssociationTypeCode' ]" />
             
-            <sch:let name="isInCodelist" value=" $assocTypeCodeList/cat:codeEntry/cat:CT_CodelistValue/cat:identifier[ gco:ScopedName = $assocTypeCode ]"/>
+            <sch:assert test="$assocTypeCodeList/cat:codeEntry/cat:CT_CodelistValue/cat:identifier[ gco:ScopedName = $assocTypeCode ]"
+                diagnostics="rule.ga.cit.validassoctypecode-failure-en" >fail <sch:value-of select="normalize-space($assocTypeCode)"/></sch:assert>
             
-            <sch:assert test="$isInCodelist"
-                diagnostics="rule.ga.cit.validassoctypecode-failure-en" />
-            
-            <sch:report test="not($isInCodelist)"
-                diagnostics="rule.ga.cit.validassoctypecode-success-en"/>
+            <sch:report test="$assocTypeCodeList/cat:codeEntry/cat:CT_CodelistValue/cat:identifier[ gco:ScopedName = $assocTypeCode ]"
+                diagnostics="rule.ga.cit.validassoctypecode-success-en" >pass <sch:value-of select="normalize-space($assocTypeCode)"/></sch:report>
             
         </sch:rule>
     </sch:pattern>
@@ -56,21 +56,21 @@
         
         <sch:rule context= "cit:function/cit:CI_OnLineFunctionCode"  >
             
-            <sch:let name="functionCode" value="concat('CI_OnLineFunctionCode_', @codeListValue)" />
+            <sch:let name="functionCode" value="concat('CI_OnLineFunctionCode_', @codeListValue)"/>
             
-            <sch:let name="URI" value= "'onlineFunction_codelist.xml'" /> <!-- the codelist document is expected to be in the same directory as this schematron file -->
+            <!--<sch:let name="URI" value= "'onlineFunction_codelist.xml'" />--> <!-- the codelist document is expected to be in the same directory as this schematron file -->
+            
+            <sch:let name="URI" value= "'http://standards.iso.org/iso/19115/-3/cit/1.0/codelists.xml'" />
             
             <sch:let name="code-list-document" value="document( $URI )"/>
             
             <sch:let name="functionCodeList" value=" $code-list-document//cat:CT_Codelist[ @id='CI_OnLineFunctionCode' ]" />
+
+            <sch:assert test="$functionCodeList/cat:codeEntry/cat:CT_CodelistValue/cat:identifier[ gco:ScopedName = $functionCode ]"
+                diagnostics="rule.ga.cit.validfunctioncode-failure-en">fail <sch:value-of select="normalize-space($functionCode)"/></sch:assert>
             
-            <sch:let name="isInCodelist" value=" $functionCodeList/cat:codeEntry/cat:CT_CodelistValue/cat:identifier[ gco:ScopedName = $functionCode ]"/>
-            
-            <sch:assert test="$isInCodelist"
-                diagnostics="rule.ga.cit.validfunctioncode-failure-en" />
-            
-            <sch:report test="not($isInCodelist)"
-                diagnostics="rule.ga.cit.validfunctioncode-success-en"/>
+            <sch:report test="$functionCodeList/cat:codeEntry/cat:CT_CodelistValue/cat:identifier[ gco:ScopedName = $functionCode ]"
+                diagnostics="rule.ga.cit.validfunctioncode-success-en">pass <sch:value-of select="normalize-space($functionCode)"/></sch:report>
 
         </sch:rule>
     </sch:pattern>
