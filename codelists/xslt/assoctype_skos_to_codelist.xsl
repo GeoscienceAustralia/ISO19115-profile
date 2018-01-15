@@ -88,7 +88,7 @@
                     <gco:ScopedName codeSpace="http://standards.iso.org/iso/19115"><xsl:value-of select="$assocTypeName"/></gco:ScopedName>                
                 </cat:identifier>
                 <cat:definition>
-                    <gco:CharacterString><xsl:value-of select=".//sp:binding[@name='definition']/sp:literal"/></gco:CharacterString>
+                    <gco:CharacterString><xsl:value-of select="normalize-space(.//sp:binding[@name='definition']/sp:literal)"/></gco:CharacterString>
                 </cat:definition>
             </cat:CT_CodelistValue>
         </cat:codeEntry>
