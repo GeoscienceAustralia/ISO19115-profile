@@ -14,14 +14,14 @@
         
         <cat:CT_CodelistCatalogue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xmlns:cat="http://standards.iso.org/iso/19115/-3/cat/1.0"
+           xmlns:lan="http://standards.iso.org/iso/19115/-3/lan/1.0"
            xmlns:gco="http://standards.iso.org/iso/19115/-3/gco/1.0"
            xmlns:xlink="http://www.w3.org/1999/xlink"
-           xmlns:lan="http://standards.iso.org/iso/19115/-3/lan/1.0"
            xmlns:gml="http://www.opengis.net/gml/3.2"
            xsi:schemaLocation="http://standards.iso.org/iso/19115/-3/cat/1.0 http://standards.iso.org/iso/19115/-3/cat/1.0/cat.xsd">
            <!--=====Catalogue description=====-->
            <cat:name>
-              <gco:CharacterString>Geoscience Australia profile codelist of the ISO 19115-1:2014 CI_OnlineFunctionCode codelist</gco:CharacterString>
+              <gco:CharacterString>Geoscience Australia profile codelist of the ISO 19115-1:2014 DS_AssociationTypeCode codelist</gco:CharacterString>
            </cat:name>
            <cat:scope>
               <gco:CharacterString>Version 1.0 of Geoscience Australia profile of ISO 19115-1:2014 standard</gco:CharacterString>
@@ -38,29 +38,29 @@
            <cat:locale>
               <lan:PT_Locale>
                  <lan:language>
-                    <lan:LanguageCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#LanguageCode" codeListValue="eng">eng</lan:LanguageCode>
+                    <lan:LanguageCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#LanguageCode" codeListValue="eng">eng</lan:LanguageCode>
                  </lan:language>
                  <lan:characterEncoding>
-                    <lan:MD_CharacterSetCode codeList="standards.iso.org/19115/-3/lan/1.0/codelists.xml#MD_CharacterSetCode"
+                    <lan:MD_CharacterSetCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_CharacterSetCode"
                        codeListValue="UTF-8">UTF-8</lan:MD_CharacterSetCode>
                  </lan:characterEncoding>
               </lan:PT_Locale>
            </cat:locale>
            <!--============================= Codelists =======================================-->
-           <!-- gapCI_OnLineFunctionCode  -->
+           <!-- gapDS_AssociationTypeCode  -->
            <cat:codelistItem>
-              <cat:CT_Codelist id="gapCI_OnLineFunctionCode">
+              <cat:CT_Codelist id="gapDS_AssociationTypeCode">
                  <cat:identifier>
-                    <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">gapCI_OnLineFunctionCode</gco:ScopedName>
+                    <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">gapDS_AssociationTypeCode</gco:ScopedName>
                  </cat:identifier>
                  <cat:name>
-                    <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">gapCI_OnLineFunctionCode</gco:ScopedName>
+                    <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">gapDS_AssociationTypeCode</gco:ScopedName>
                  </cat:name>
                  <cat:definition>
-                    <gco:CharacterString>function performed by the resource</gco:CharacterString>
+                    <gco:CharacterString>justification for the correlation of two resources</gco:CharacterString>
                  </cat:definition>
                  <cat:description>
-                    <gco:CharacterString>function performed by the resource</gco:CharacterString>
+                    <gco:CharacterString>justification for the correlation of two resources</gco:CharacterString>
                  </cat:description>
                  <xsl:apply-templates select=".//sp:result"/>
               </cat:CT_Codelist>
@@ -72,26 +72,28 @@
 
     <xsl:template match="sp:result">
         
-        <xsl:variable name="onlineFunctionCodeName">gapCI_OnLineFunctionCode_<xsl:call-template name="substring-after-last">
-                <xsl:with-param name="string" select="./sp:binding[@name='onlineFunctionCode']/sp:uri"/>
+        <!-- Obtain string in last part of URI path -->
+        <xsl:variable name="assocTypeName">gapDS_AssociationTypeCode_<xsl:call-template name="substring-after-last">
+                <xsl:with-param name="string" select="./sp:binding[@name='associationType']/sp:uri"/>
                 <xsl:with-param name="char" select="'/'"/>
             </xsl:call-template>            
         </xsl:variable>
 
         <cat:codeEntry xmlns:cat="http://standards.iso.org/iso/19115/-3/cat/1.0"
             xmlns:gco="http://standards.iso.org/iso/19115/-3/gco/1.0">
-            <cat:CT_CodelistValue id="{$onlineFunctionCodeName}">
+            <cat:CT_CodelistValue id="{$assocTypeName}">
                 <cat:identifier>
-                    <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016"><xsl:value-of select="$onlineFunctionCodeName"/></gco:ScopedName>
+                    <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016"><xsl:value-of select="$assocTypeName"/></gco:ScopedName>                
                 </cat:identifier>
                 <cat:definition>
-                    <gco:CharacterString><xsl:value-of select=".//sp:binding[@name='definition']/sp:literal"/></gco:CharacterString>
+                    <gco:CharacterString><xsl:value-of select="normalize-space(.//sp:binding[@name='definition']/sp:literal)"/></gco:CharacterString>
                 </cat:definition>
             </cat:CT_CodelistValue>
         </cat:codeEntry>
 
     </xsl:template>
     
+    <!-- Routine to obtain substring after last occurrence of a separator -->
     <xsl:template name="substring-after-last">
         <xsl:param name="string"/>
         <xsl:param name="char"/>

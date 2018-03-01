@@ -26,7 +26,9 @@
             
             <!--<sch:let name="URI" value= "'assocType_codelist.xml'" />--> <!-- the codelist document is expected to be in the same directory as this schematron file -->
             
-            <sch:let name="URI" value= "'http://standards.iso.org/iso/19115/-3/mri/1.0/codelists.xml'" />
+<!--            <sch:let name="URI" value= "'http://standards.iso.org/iso/19115/-3/mri/1.0/codelists.xml'" />
+-->            
+            <sch:let name="URI" value= "@codeList" />
             
             <sch:let name="code-list-document" value="document( $URI )"/>
             

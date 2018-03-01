@@ -7,6 +7,9 @@ iso19115-3/schema/standards.iso.org/iso/19115/-3/mri/1.0/codelists.xml.
 
 Created on 24 October 2017
 
+Updated 28 February 2018, A.Sedgmen
+    - Added command line argument handling
+
 @author: Aaron Sedgmen
 """
 
@@ -38,6 +41,7 @@ def get_associationTypes(vocab_sparql_endpoint):
     """
     Query the Association Type SKOS vocabulary SPARQL endpoint to obtain Association Type names and definitions
     
+    :param Vocabulary SPARQL endpoint
     :return: returns SPARQL Query Results XML document as a string
     """
     
@@ -70,7 +74,7 @@ def transform_to_codelist(associationTypes_sparql_xml_string):
     """
 
     associationTypes_sparql_xml_et = ET.fromstring(associationTypes_sparql_xml_string)
-    xslt = ET.parse("xslt/assoctype_skos_to_codelist.xsl")
+    xslt = ET.parse("xslt/assoctypecode_skos_to_codelist.xsl")
     transform = ET.XSLT(xslt)
     associationTypes_iso_codelist_et = transform(associationTypes_sparql_xml_et)
     
@@ -130,7 +134,7 @@ def main():
     associationTypes_iso_codelist_xml_string = transform_to_codelist(associationTypes_sparql_xml_string)
     
     # Write ISO 19115-1 codelist
-    with open(os.path.join(args.outputDir, "assocType_codelist.xml"), "w") as text_file:
+    with open(os.path.join(args.outputDir, "assocTypeCode_codelist.xml"), "w") as text_file:
         text_file.write(associationTypes_iso_codelist_xml_string)
     
     logger.info("Output written to {}".format(os.path.join(args.outputDir, text_file.name)))

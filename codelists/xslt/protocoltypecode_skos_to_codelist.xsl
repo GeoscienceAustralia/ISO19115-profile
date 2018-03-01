@@ -3,15 +3,15 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:sp="http://www.w3.org/2005/sparql-results#"
     xmlns:date="http://exslt.org/dates-and-times"
-    
+
     exclude-result-prefixes="xs"
     version="1.0">
-    
+
     <xsl:output method="xml" indent="yes"/>
     <xsl:strip-space elements="*"/>
-    
+
     <xsl:template match="/sp:sparql">
-        
+
         <cat:CT_CodelistCatalogue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xmlns:cat="http://standards.iso.org/iso/19115/-3/cat/1.0"
            xmlns:lan="http://standards.iso.org/iso/19115/-3/lan/1.0"
@@ -21,7 +21,7 @@
            xsi:schemaLocation="http://standards.iso.org/iso/19115/-3/cat/1.0 http://standards.iso.org/iso/19115/-3/cat/1.0/cat.xsd">
            <!--=====Catalogue description=====-->
            <cat:name>
-              <gco:CharacterString>Geoscience Australia profile codelist of the ISO 19115-1:2014 AssociationType codelist</gco:CharacterString>
+              <gco:CharacterString>Geoscience Australia profile codelist that constrains the ISO 19115-1:2014 cit:protocol free text metadata element</gco:CharacterString>
            </cat:name>
            <cat:scope>
               <gco:CharacterString>Version 1.0 of Geoscience Australia profile of ISO 19115-1:2014 standard</gco:CharacterString>
@@ -47,22 +47,20 @@
               </lan:PT_Locale>
            </cat:locale>
            <!--============================= Codelists =======================================-->
-           <!-- DS_AssociationTypeCode  -->
+           <!-- gapCI_ProtocolTypeCode  -->
            <cat:codelistItem>
-              <cat:CT_Codelist id="DS_AssociationTypeCode">
+              <cat:CT_Codelist id="gapCI_ProtocolTypeCode">
                  <cat:identifier>
-                    <gco:ScopedName codeSpace="http://standards.iso.org/iso/19115"
-                       >DS_AssociationTypeCode</gco:ScopedName>
+                    <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">gapCI_ProtocolTypeCode</gco:ScopedName>
                  </cat:identifier>
                  <cat:name>
-                    <gco:ScopedName codeSpace="http://standards.iso.org/iso/19115"
-                       >DS_AssociationTypeCode</gco:ScopedName>
+                    <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">gapCI_ProtocolTypeCode</gco:ScopedName>
                  </cat:name>
                  <cat:definition>
-                    <gco:CharacterString>justification for the correlation of two resources</gco:CharacterString>
+                    <gco:CharacterString>connection protocol to be used</gco:CharacterString>
                  </cat:definition>
                  <cat:description>
-                    <gco:CharacterString>justification for the correlation of two resources</gco:CharacterString>
+                    <gco:CharacterString>connection protocol to be used</gco:CharacterString>
                  </cat:description>
                  <xsl:apply-templates select=".//sp:result"/>
               </cat:CT_Codelist>
@@ -73,33 +71,31 @@
     </xsl:template>
 
     <xsl:template match="sp:result">
-        
-        <!-- Obtain string in last part of URI path -->
-        <xsl:variable name="assocTypeName">DS_AssociationTypeCode_<xsl:call-template name="substring-after-last">
-                <xsl:with-param name="string" select="./sp:binding[@name='associationType']/sp:uri"/>
+
+        <xsl:variable name="protocolTypeName">gapCI_ProtocolTypeCode_<xsl:call-template name="substring-after-last">
+                <xsl:with-param name="string" select="./sp:binding[@name='protocolType']/sp:uri"/>
                 <xsl:with-param name="char" select="'/'"/>
-            </xsl:call-template>            
+            </xsl:call-template>
         </xsl:variable>
 
         <cat:codeEntry xmlns:cat="http://standards.iso.org/iso/19115/-3/cat/1.0"
             xmlns:gco="http://standards.iso.org/iso/19115/-3/gco/1.0">
-            <cat:CT_CodelistValue id="{$assocTypeName}">
+            <cat:CT_CodelistValue id="{$protocolTypeName}">
                 <cat:identifier>
-                    <gco:ScopedName codeSpace="http://standards.iso.org/iso/19115"><xsl:value-of select="$assocTypeName"/></gco:ScopedName>                
+                    <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016"><xsl:value-of select="$protocolTypeName"/></gco:ScopedName>
                 </cat:identifier>
                 <cat:definition>
-                    <gco:CharacterString><xsl:value-of select="normalize-space(.//sp:binding[@name='definition']/sp:literal)"/></gco:CharacterString>
+                    <gco:CharacterString><xsl:value-of select=".//sp:binding[@name='definition']/sp:literal"/></gco:CharacterString>
                 </cat:definition>
             </cat:CT_CodelistValue>
         </cat:codeEntry>
 
     </xsl:template>
-    
-    <!-- Routine to obtain substring after last occurrence of a separator -->
+
     <xsl:template name="substring-after-last">
         <xsl:param name="string"/>
         <xsl:param name="char"/>
-        
+
         <xsl:choose>
             <xsl:when test="contains($string, $char)">
                 <xsl:call-template name="substring-after-last">
@@ -112,5 +108,5 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    
+
 </xsl:stylesheet>

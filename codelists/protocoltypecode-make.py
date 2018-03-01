@@ -4,15 +4,18 @@ the ISO 19115-1:2014 codelist XML format, and write to the file system.
 
 Created on 13 November 2017
 
+Updated 1 March 2018, A.Sedgmen
+    - Added command line argument handling
+
 @author: Vaughan Edgell
 """
 
 from SPARQLWrapper import SPARQLWrapper
-import jinja2
 import os
 import sys
 import logging
 import lxml.etree as ET
+import argparse
 
 os.environ["HTTP_PROXY"] = "http://sun-web-intdev.ga.gov.au:2710"
 os.environ["HTTPS_PROXY"] = "https://sun-web-intdev.ga.gov.au:2710"
@@ -29,10 +32,8 @@ if not logging.root.handlers:
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)  # Initial logging level for this module
 
-vocab_sparql_endpoint = "http://vocabs.ands.org.au/repository/api/sparql/ga_protocol-type_v1-0"
 
-
-def get_protocol_types():
+def get_protocol_types(vocab_sparql_endpoint):
     """
     Query the Protocol Type SKOS vocabulary SPARQL endpoint to obtain Protocol Type names and definitions
 
@@ -69,7 +70,7 @@ def transform_to_codelist(protocol_types_sparql_xml_string):
     """
 
     protocol_types_sparql_xml_et = ET.fromstring(protocol_types_sparql_xml_string)
-    xslt = ET.parse("xslt/protocoltype_skos_to_codelist.xsl")
+    xslt = ET.parse("xslt/protocoltypecode_skos_to_codelist.xsl")
     transform = ET.XSLT(xslt)
     protocol_types_iso_codelist_et = transform(protocol_types_sparql_xml_et)
 
@@ -79,17 +80,58 @@ def transform_to_codelist(protocol_types_sparql_xml_string):
 
 
 def main():
-    """
+    
+    '''
     Main function
-    """
+    '''
+    def get_args():
+        """
+        Handles all the arguments that are passed into the script
 
+        :return: Returns a parsed version of the arguments.
+        """
+        parser = argparse.ArgumentParser(
+            description='Retrieves content from the Protocol Type SKOS vocabulary, converts it to the ISO 19115-1:2014 codelist XML format, and writes it to the file system.')
+        parser.add_argument("-v", "--vSPARQL",
+                            help="Vocabulary SPARQL endpoint (default is http://vocabs.ands.org.au/repository/api/sparql/ga_protocol-type_v1-0)",
+                            dest="vocab_sparql_endpoint",
+                            default="http://vocabs.ands.org.au/repository/api/sparql/ga_protocol-type_v1-0")
+        parser.add_argument("-o", "--outputDir",
+                            help="Output directory for generated ISO 19115-1:2014 codelist XML file (default is current working directory)",
+                            dest="outputDir",
+                            default=os.getcwd())
+        parser.add_argument("-l", "--loggingLevel",
+                            help="Logging level (ERROR, WARNING, INFO, DEBUG)",
+                            dest="logging_level",
+                            default="INFO")
+        parser.add_argument("-p", "--proxy",
+                            help="Proxy server and port for HTTP and HTTPS requests, e.g. proxy.net.au:8080",
+                            dest="proxy",
+                            default=None)
+        parser.add_argument("-n", "--noProxy",
+                            help="Domains not to be accessed by a proxy (comma delimited list)",
+                            dest="noProxy",
+                            default="services.ga.gov.au, intranet.ga.gov.au, intranet-test.ga.gov.au, np.ga.gov.au, www.ga.gov.au")
+        return parser.parse_args()
+
+    args = get_args()
+
+    # Set logging level    
+    logger.setLevel(args.logging_level)
+    
+    # Set proxy if provided
+    if args.proxy != None:
+        os.environ["HTTP_PROXY"] = "http://{}".format(args.proxy)
+        os.environ["HTTPS_PROXY"] = "https://{}".format(args.proxy)
+        os.environ["no_proxy"] = args.noProxy
+        
     # Obtain the set of protocol types from the SKOS protocol-type vocabulary in the SPARQL Query Results XML Format
-    protocol_types_sparql_xml_string = get_protocol_types()
+    protocol_types_sparql_xml_string = get_protocol_types(args.vocab_sparql_endpoint)
     # Transform SPARQL Query Results XML to ISO 19115-1 codelist XML
     protocol_types_iso_codelist_xml_string = transform_to_codelist(protocol_types_sparql_xml_string)
 
     # Write ISO 19115-1 codelist to current directory
-    with open("protocolType_codelist.xml", "w") as text_file:
+    with open("protocolTypeCode_codelist.xml", "w") as text_file:
         text_file.write(protocol_types_iso_codelist_xml_string)
 
     logger.info("Output written to {}".format(os.path.join(os.getcwd(), text_file.name)))
