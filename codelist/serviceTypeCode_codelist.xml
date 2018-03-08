@@ -12,7 +12,7 @@
     <gco:CharacterString>see repository version</gco:CharacterString>
   </cat:versionNumber>
   <cat:versionDate>
-    <gco:Date>2018-03-01</gco:Date>
+    <gco:Date>2018-03-02</gco:Date>
   </cat:versionDate>
   <cat:locale>
     <lan:PT_Locale>
@@ -38,6 +38,16 @@
       <cat:description>
         <gco:CharacterString>type of service</gco:CharacterString>
       </cat:description>
+      <cat:codeEntry>
+        <cat:CT_CodelistValue id="gapSV_ServiceTypeCode_WPS">
+          <cat:identifier>
+            <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">gapSV_ServiceTypeCode_WPS</gco:ScopedName>
+          </cat:identifier>
+          <cat:definition>
+            <gco:CharacterString>Open Geospatial Consortium's Web Processing Service</gco:CharacterString>
+          </cat:definition>
+        </cat:CT_CodelistValue>
+      </cat:codeEntry>
       <cat:codeEntry>
         <cat:CT_CodelistValue id="gapSV_ServiceTypeCode_ESRI">
           <cat:identifier>
@@ -124,7 +134,7 @@
             <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">gapSV_ServiceTypeCode_CSW</gco:ScopedName>
           </cat:identifier>
           <cat:definition>
-            <gco:CharacterString>Open Ggeospatial Consortium's Catalogue Service for the Web</gco:CharacterString>
+            <gco:CharacterString>Open Geospatial Consortium's Catalogue Service for the Web</gco:CharacterString>
           </cat:definition>
         </cat:CT_CodelistValue>
       </cat:codeEntry>
@@ -184,7 +194,7 @@
             <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">gapSV_ServiceTypeCode_SOS</gco:ScopedName>
           </cat:identifier>
           <cat:definition>
-            <gco:CharacterString>Open Ggeospatial Consortium's Sensor Observation Service</gco:CharacterString>
+            <gco:CharacterString>Open Geospatial Consortium's Sensor Observation Service</gco:CharacterString>
           </cat:definition>
         </cat:CT_CodelistValue>
       </cat:codeEntry>
@@ -194,7 +204,7 @@
             <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">gapSV_ServiceTypeCode_WCS</gco:ScopedName>
           </cat:identifier>
           <cat:definition>
-            <gco:CharacterString>Open Ggeospatial Consortium's Web Coverage Service</gco:CharacterString>
+            <gco:CharacterString>Open Geospatial Consortium's Web Coverage Service</gco:CharacterString>
           </cat:definition>
         </cat:CT_CodelistValue>
       </cat:codeEntry>
@@ -204,7 +214,7 @@
             <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">gapSV_ServiceTypeCode_WFS</gco:ScopedName>
           </cat:identifier>
           <cat:definition>
-            <gco:CharacterString>Open Ggeospatial Consortium's Web Feature Service</gco:CharacterString>
+            <gco:CharacterString>Open Geospatial Consortium's Web Feature Service</gco:CharacterString>
           </cat:definition>
         </cat:CT_CodelistValue>
       </cat:codeEntry>
@@ -214,7 +224,7 @@
             <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">gapSV_ServiceTypeCode_WMS</gco:ScopedName>
           </cat:identifier>
           <cat:definition>
-            <gco:CharacterString>Open Ggeospatial Consortium's Web Map Service</gco:CharacterString>
+            <gco:CharacterString>Open Geospatial Consortium's Web Map Service</gco:CharacterString>
           </cat:definition>
         </cat:CT_CodelistValue>
       </cat:codeEntry>
@@ -224,17 +234,7 @@
             <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">gapSV_ServiceTypeCode_WMTS</gco:ScopedName>
           </cat:identifier>
           <cat:definition>
-            <gco:CharacterString>Open Ggeospatial Consortium's Web Map Tile Service</gco:CharacterString>
-          </cat:definition>
-        </cat:CT_CodelistValue>
-      </cat:codeEntry>
-      <cat:codeEntry>
-        <cat:CT_CodelistValue id="gapSV_ServiceTypeCode_WPS">
-          <cat:identifier>
-            <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">gapSV_ServiceTypeCode_WPS</gco:ScopedName>
-          </cat:identifier>
-          <cat:definition>
-            <gco:CharacterString>Open Ggeospatial Consortium's Web Processing Service</gco:CharacterString>
+            <gco:CharacterString>Open Geospatial Consortium's Web Map Tile Service</gco:CharacterString>
           </cat:definition>
         </cat:CT_CodelistValue>
       </cat:codeEntry>

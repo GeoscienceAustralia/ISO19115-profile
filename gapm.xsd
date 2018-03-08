@@ -2,7 +2,7 @@
 <xs:schema targetNamespace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016" xmlns:gmd="http://www.isotc211.org/2005/gmd" elementFormDefault="qualified" version="2018-02-27" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gapm="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">
     <!-- ================================= Annotation ================================ -->
     <xs:annotation>
-        <xs:documentation>This file consists of the ISO19115-3 XML schema profile of the GA Metadata profile of ISO19115-1:2014</xs:documentation>
+        <xs:documentation>This file defines the XML Schema components of the ISO19115-3 XML schema profile of the GA Metadata profile of ISO19115-1:2014</xs:documentation>
     </xs:annotation>
     <!-- ================================== Imports ================================== -->
     <xs:import namespace="http://standards.iso.org/iso/19115/-3/mdb/1.0" schemaLocation="http://standards.iso.org/iso/19115/-3/mdb/1.0/mdb.xsd"/>

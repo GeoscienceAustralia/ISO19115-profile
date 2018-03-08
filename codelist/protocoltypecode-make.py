@@ -42,11 +42,12 @@ def get_protocol_types(vocab_sparql_endpoint):
 
     query_string = """
         PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-        SELECT ?protocolType ?definition
+        SELECT ?altLabel ?definition
         WHERE
         {
-            ?protocolType a skos:Concept .
-            OPTIONAL {?protocolType skos:definition ?definition .}
+            ?protocolType a skos:Concept ;
+                          skos:altLabel ?altLabel .
+            OPTIONAL {?protocolType skos:definition ?definition}
         }
     """
 
