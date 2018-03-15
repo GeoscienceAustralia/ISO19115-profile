@@ -83,7 +83,7 @@
                     <gco:CharacterString>02 6249 9966</gco:CharacterString>
                   </cit:number>
                   <cit:numberType>
-                    <cit:CI_TelephoneTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_TelephoneTypeCode" codeListValue="voice"/>
+                    <cit:CI_TelephoneTypeCode codeList="codeListLocation#CI_TelephoneTypeCode" codeListValue="voice"/>
                   </cit:numberType>
                 </cit:CI_Telephone>
               </cit:phone>
@@ -210,7 +210,7 @@
         </msr:MD_Dimension>
       </msr:axisDimensionProperties>
       <msr:cellGeometry>
-        <msr:MD_CellGeometryCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_CellGeometryCode" codeListValue="point">point</msr:MD_CellGeometryCode>
+        <msr:MD_CellGeometryCode codeList="codeListLocation#MD_CellGeometryCode" codeListValue="point">point</msr:MD_CellGeometryCode>
       </msr:cellGeometry>
       <msr:transformationParameterAvailability></msr:transformationParameterAvailability>
     </msr:MD_GridSpatialRepresentation>
@@ -259,7 +259,7 @@
             <mex:MD_ObligationCode>conditional</mex:MD_ObligationCode>
           </mex:obligation>
           <mex:dataType>
-            <mex:MD_DatatypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_DatatypeCode" codeListValue="class"/>
+            <mex:MD_DatatypeCode codeList="codeListLocation#MD_DatatypeCode" codeListValue="class"/>
           </mex:dataType>
           <mex:parentEntity></mex:parentEntity>
           <mex:rule></mex:rule>
@@ -347,7 +347,7 @@
           <cit:citedResponsibleParty>
             <cit:CI_Responsibility>
               <cit:role>
-                <cit:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="author"/>
+                <cit:CI_RoleCode codeList="codeListLocation#CI_RoleCode" codeListValue="author"/>
               </cit:role>
               <cit:party>
                 <cit:CI_Individual>
@@ -535,7 +535,7 @@
                     <gco:DateTime>2008-03-31T00:00:00+11:00</gco:DateTime>
                   </cit:date>
                   <cit:dateType>
-                    <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="publication"/>
+                    <cit:CI_DateTypeCode codeList="codeListLocation#CI_DateTypeCode" codeListValue="publication"/>
                   </cit:dateType>
                 </cit:CI_Date>
               </cit:date>

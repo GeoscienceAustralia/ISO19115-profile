@@ -11,8 +11,9 @@ For each codelist element being validated, the codelist attribute is expected to
 document and codelist id, seperated by a hash (#).  For example: http://example.org.au/codelists.xml#codelistId  
 
 If the codelist attribute value does not match the expected pattern, the validation will fail.  If the codelist 
-attribute is empty, the official ISO 19115-3 CAT 1.0 codelist URL and ID for that element is applied.  URLs for 
-community profile codelists may be provided, although the codelists must conform to the CAT 1.0 schema. 
+attribute is empty or contains the string 'codeListLocation', the official ISO 19115-3 CAT 1.0 codelist URL and ID for 
+that element is applied.  URLs for community profile codelists may be provided, although the codelists must conform to 
+the CAT 1.0 schema. 
 
 The code attribute and text value of the element being validated is checked against the relevant codelist. To 
 conform with the naming convention of codes in CAT 1.0 codelists, the codelist id is prepended to the code, 
@@ -48,7 +49,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
     <sch:ns prefix="mex" uri="http://standards.iso.org/iso/19115/-3/mex/1.0"  />
     <sch:ns prefix="mmi" uri="http://standards.iso.org/iso/19115/-3/mmi/1.0"  />
     <sch:ns prefix="gml" uri="http://www.opengis.net/gml/3.2"  />
-
+    
+    <sch:let name="default_codelist_uri" value="'http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml'"/>
+    
     <!-- cit:CI_DateTypeCode -->
 
     <!-- ========================================================================================================================== -->
@@ -76,7 +79,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
         
         <sch:rule context= "cit:CI_DateTypeCode"  >
             
-            <sch:let name="URI" value= "concat(substring-before(@codeList ,'#'),substring('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml',1,number(not(string-length(@codeList) > 0))*string-length('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml')))"/>
+            <sch:let name="URI" value= "concat(replace(substring-before(@codeList ,'#'), 'codeListLocation', '' ),
+                                               substring($default_codelist_uri,1,number(substring-before(@codeList ,'#') = 'codeListLocation')*string-length($default_codelist_uri)),
+                                               substring($default_codelist_uri,1,number(not(string-length(@codeList) > 0))*string-length($default_codelist_uri)))"/>
             
             <sch:let name="code-list-name" value= "concat(substring-after(@codeList ,'#'),substring('CI_DateTypeCode',1,number(not(string-length(@codeList) > 0))*string-length('CI_DateTypeCode')))" />
             
@@ -144,7 +149,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
         
         <sch:rule context= "cit:CI_OnLineFunctionCode"  >
             
-            <sch:let name="URI" value= "concat(substring-before(@codeList ,'#'),substring('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml',1,number(not(string-length(@codeList) > 0))*string-length('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml')))"/>
+            <sch:let name="URI" value= "concat(replace(substring-before(@codeList ,'#'), 'codeListLocation', '' ),
+                substring($default_codelist_uri,1,number(substring-before(@codeList ,'#') = 'codeListLocation')*string-length($default_codelist_uri)),
+                substring($default_codelist_uri,1,number(not(string-length(@codeList) > 0))*string-length($default_codelist_uri)))"/>
             
             <sch:let name="code-list-name" value= "concat(substring-after(@codeList ,'#'),substring('CI_OnLineFunctionCode',1,number(not(string-length(@codeList) > 0))*string-length('CI_OnLineFunctionCode')))" />
             
@@ -211,7 +218,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
         
         <sch:rule context= "cit:presentationForm/cit:CI_PresentationFormCode"  >
             
-            <sch:let name="URI" value= "concat(substring-before(@codeList ,'#'),substring('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml',1,number(not(string-length(@codeList) > 0))*string-length('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml')))"/>
+            <sch:let name="URI" value= "concat(replace(substring-before(@codeList ,'#'), 'codeListLocation', '' ),
+                substring($default_codelist_uri,1,number(substring-before(@codeList ,'#') = 'codeListLocation')*string-length($default_codelist_uri)),
+                substring($default_codelist_uri,1,number(not(string-length(@codeList) > 0))*string-length($default_codelist_uri)))"/>
             
             <sch:let name="code-list-name" value= "concat(substring-after(@codeList ,'#'),substring('CI_PresentationFormCode',1,number(not(string-length(@codeList) > 0))*string-length('CI_PresentationFormCode')))" />
             
@@ -278,7 +287,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
         
         <sch:rule context= "cit:CI_RoleCode"  >
             
-            <sch:let name="URI" value= "concat(substring-before(@codeList ,'#'),substring('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml',1,number(not(string-length(@codeList) > 0))*string-length('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml')))"/>
+            <sch:let name="URI" value= "concat(replace(substring-before(@codeList ,'#'), 'codeListLocation', '' ),
+                substring($default_codelist_uri,1,number(substring-before(@codeList ,'#') = 'codeListLocation')*string-length($default_codelist_uri)),
+                substring($default_codelist_uri,1,number(not(string-length(@codeList) > 0))*string-length($default_codelist_uri)))"/>
             
             <sch:let name="code-list-name" value= "concat(substring-after(@codeList ,'#'),substring('CI_RoleCode',1,number(not(string-length(@codeList) > 0))*string-length('CI_RoleCode')))" />
             
@@ -345,7 +356,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
         
         <sch:rule context= "cit:CI_TelephoneTypeCode"  >
             
-            <sch:let name="URI" value= "concat(substring-before(@codeList ,'#'),substring('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml',1,number(not(string-length(@codeList) > 0))*string-length('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml')))"/>
+            <sch:let name="URI" value= "concat(replace(substring-before(@codeList ,'#'), 'codeListLocation', '' ),
+                substring($default_codelist_uri,1,number(substring-before(@codeList ,'#') = 'codeListLocation')*string-length($default_codelist_uri)),
+                substring($default_codelist_uri,1,number(not(string-length(@codeList) > 0))*string-length($default_codelist_uri)))"/>
             
             <sch:let name="code-list-name" value= "concat(substring-after(@codeList ,'#'),substring('CI_TelephoneTypeCode',1,number(not(string-length(@codeList) > 0))*string-length('CI_TelephoneTypeCode')))" />
             
@@ -413,7 +426,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
         
         <sch:rule context= "mri:DS_AssociationTypeCode"  >
             
-            <sch:let name="URI" value= "concat(substring-before(@codeList ,'#'),substring('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml',1,number(not(string-length(@codeList) > 0))*string-length('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml')))"/>
+            <sch:let name="URI" value= "concat(replace(substring-before(@codeList ,'#'), 'codeListLocation', '' ),
+                substring($default_codelist_uri,1,number(substring-before(@codeList ,'#') = 'codeListLocation')*string-length($default_codelist_uri)),
+                substring($default_codelist_uri,1,number(not(string-length(@codeList) > 0))*string-length($default_codelist_uri)))"/>
             
             <sch:let name="code-list-name" value= "concat(substring-after(@codeList ,'#'),substring('DS_AssociationTypeCode',1,number(not(string-length(@codeList) > 0))*string-length('DS_AssociationTypeCode')))" />
             
@@ -480,7 +495,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
         
         <sch:rule context= "srv:distributedComputingPlatform/srv:DCPList"  >
             
-            <sch:let name="URI" value= "concat(substring-before(@codeList ,'#'),substring('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml',1,number(not(string-length(@codeList) > 0))*string-length('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml')))"/>
+            <sch:let name="URI" value= "concat(replace(substring-before(@codeList ,'#'), 'codeListLocation', '' ),
+                substring($default_codelist_uri,1,number(substring-before(@codeList ,'#') = 'codeListLocation')*string-length($default_codelist_uri)),
+                substring($default_codelist_uri,1,number(not(string-length(@codeList) > 0))*string-length($default_codelist_uri)))"/>
             
             <sch:let name="code-list-name" value= "concat(substring-after(@codeList ,'#'),substring('DCPList',1,number(not(string-length(@codeList) > 0))*string-length('DCPList')))" />
             
@@ -547,7 +564,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
         
         <sch:rule context= "mri:DS_InitiativeTypeCode"  >
             
-            <sch:let name="URI" value= "concat(substring-before(@codeList ,'#'),substring('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml',1,number(not(string-length(@codeList) > 0))*string-length('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml')))"/>
+            <sch:let name="URI" value= "concat(replace(substring-before(@codeList ,'#'), 'codeListLocation', '' ),
+                substring($default_codelist_uri,1,number(substring-before(@codeList ,'#') = 'codeListLocation')*string-length($default_codelist_uri)),
+                substring($default_codelist_uri,1,number(not(string-length(@codeList) > 0))*string-length($default_codelist_uri)))"/>
             
             <sch:let name="code-list-name" value= "concat(substring-after(@codeList ,'#'),substring('DS_InitiativeTypeCode',1,number(not(string-length(@codeList) > 0))*string-length('DS_InitiativeTypeCode')))" />
             
@@ -618,7 +637,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
         
         <sch:rule context= "msr:MD_CellGeometryCode"  >
             
-            <sch:let name="URI" value= "concat(substring-before(@codeList ,'#'),substring('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml',1,number(not(string-length(@codeList) > 0))*string-length('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml')))"/>
+            <sch:let name="URI" value= "concat(replace(substring-before(@codeList ,'#'), 'codeListLocation', '' ),
+                substring($default_codelist_uri,1,number(substring-before(@codeList ,'#') = 'codeListLocation')*string-length($default_codelist_uri)),
+                substring($default_codelist_uri,1,number(not(string-length(@codeList) > 0))*string-length($default_codelist_uri)))"/>
             
             <sch:let name="code-list-name" value= "concat(substring-after(@codeList ,'#'),substring('MD_CellGeometryCode',1,number(not(string-length(@codeList) > 0))*string-length('MD_CellGeometryCode')))" />
             
@@ -685,7 +706,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
         
         <sch:rule context= "mco:MD_ClassificationCode"  >
             
-            <sch:let name="URI" value= "concat(substring-before(@codeList ,'#'),substring('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml',1,number(not(string-length(@codeList) > 0))*string-length('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml')))"/>
+            <sch:let name="URI" value= "concat(replace(substring-before(@codeList ,'#'), 'codeListLocation', '' ),
+                substring($default_codelist_uri,1,number(substring-before(@codeList ,'#') = 'codeListLocation')*string-length($default_codelist_uri)),
+                substring($default_codelist_uri,1,number(not(string-length(@codeList) > 0))*string-length($default_codelist_uri)))"/>
             
             <sch:let name="code-list-name" value= "concat(substring-after(@codeList ,'#'),substring('MD_ClassificationCode',1,number(not(string-length(@codeList) > 0))*string-length('MD_ClassificationCode')))" />
             
@@ -755,7 +778,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
         
         <sch:rule context= "mrc:MD_CoverageContentTypeCode"  >
             
-            <sch:let name="URI" value= "concat(substring-before(@codeList ,'#'),substring('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml',1,number(not(string-length(@codeList) > 0))*string-length('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml')))"/>
+            <sch:let name="URI" value= "concat(replace(substring-before(@codeList ,'#'), 'codeListLocation', '' ),
+                substring($default_codelist_uri,1,number(substring-before(@codeList ,'#') = 'codeListLocation')*string-length($default_codelist_uri)),
+                substring($default_codelist_uri,1,number(not(string-length(@codeList) > 0))*string-length($default_codelist_uri)))"/>
             
             <sch:let name="code-list-name" value= "concat(substring-after(@codeList ,'#'),substring('MD_CoverageContentTypeCode',1,number(not(string-length(@codeList) > 0))*string-length('MD_CoverageContentTypeCode')))" />
             
@@ -822,7 +847,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
         
         <sch:rule context= "mex:MD_DatatypeCode"  >
             
-            <sch:let name="URI" value= "concat(substring-before(@codeList ,'#'),substring('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml',1,number(not(string-length(@codeList) > 0))*string-length('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml')))"/>
+            <sch:let name="URI" value= "concat(replace(substring-before(@codeList ,'#'), 'codeListLocation', '' ),
+                substring($default_codelist_uri,1,number(substring-before(@codeList ,'#') = 'codeListLocation')*string-length($default_codelist_uri)),
+                substring($default_codelist_uri,1,number(not(string-length(@codeList) > 0))*string-length($default_codelist_uri)))"/>
             
             <sch:let name="code-list-name" value= "concat(substring-after(@codeList ,'#'),substring('MD_DatatypeCode',1,number(not(string-length(@codeList) > 0))*string-length('MD_DatatypeCode')))" />
             
@@ -889,7 +916,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
         
         <sch:rule context= "msr:MD_DimensionNameTypeCode"  >
             
-            <sch:let name="URI" value= "concat(substring-before(@codeList ,'#'),substring('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml',1,number(not(string-length(@codeList) > 0))*string-length('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml')))"/>
+            <sch:let name="URI" value= "concat(replace(substring-before(@codeList ,'#'), 'codeListLocation', '' ),
+                substring($default_codelist_uri,1,number(substring-before(@codeList ,'#') = 'codeListLocation')*string-length($default_codelist_uri)),
+                substring($default_codelist_uri,1,number(not(string-length(@codeList) > 0))*string-length($default_codelist_uri)))"/>
             
             <sch:let name="code-list-name" value= "concat(substring-after(@codeList ,'#'),substring('MD_DatatypeCode',1,number(not(string-length(@codeList) > 0))*string-length('MD_DatatypeCode')))" />
             
@@ -956,7 +985,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
         
         <sch:rule context= "msr:MD_GeometricObjectTypeCode"  >
             
-            <sch:let name="URI" value= "concat(substring-before(@codeList ,'#'),substring('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml',1,number(not(string-length(@codeList) > 0))*string-length('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml')))"/>
+            <sch:let name="URI" value= "concat(replace(substring-before(@codeList ,'#'), 'codeListLocation', '' ),
+                substring($default_codelist_uri,1,number(substring-before(@codeList ,'#') = 'codeListLocation')*string-length($default_codelist_uri)),
+                substring($default_codelist_uri,1,number(not(string-length(@codeList) > 0))*string-length($default_codelist_uri)))"/>
             
             <sch:let name="code-list-name" value= "concat(substring-after(@codeList ,'#'),substring('MD_GeometricObjectTypeCode',1,number(not(string-length(@codeList) > 0))*string-length('MD_GeometricObjectTypeCode')))" />
             
@@ -1023,7 +1054,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
         
         <sch:rule context= "mrc:MD_ImagingConditionCode"  >
             
-            <sch:let name="URI" value= "concat(substring-before(@codeList ,'#'),substring('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml',1,number(not(string-length(@codeList) > 0))*string-length('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml')))"/>
+            <sch:let name="URI" value= "concat(replace(substring-before(@codeList ,'#'), 'codeListLocation', '' ),
+                substring($default_codelist_uri,1,number(substring-before(@codeList ,'#') = 'codeListLocation')*string-length($default_codelist_uri)),
+                substring($default_codelist_uri,1,number(not(string-length(@codeList) > 0))*string-length($default_codelist_uri)))"/>
             
             <sch:let name="code-list-name" value= "concat(substring-after(@codeList ,'#'),substring('MD_ImagingConditionCode',1,number(not(string-length(@codeList) > 0))*string-length('MD_ImagingConditionCode')))" />
             
@@ -1090,7 +1123,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
         
         <sch:rule context= "mri:MD_KeywordTypeCode"  >
             
-            <sch:let name="URI" value= "concat(substring-before(@codeList ,'#'),substring('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml',1,number(not(string-length(@codeList) > 0))*string-length('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml')))"/>
+            <sch:let name="URI" value= "concat(replace(substring-before(@codeList ,'#'), 'codeListLocation', '' ),
+                substring($default_codelist_uri,1,number(substring-before(@codeList ,'#') = 'codeListLocation')*string-length($default_codelist_uri)),
+                substring($default_codelist_uri,1,number(not(string-length(@codeList) > 0))*string-length($default_codelist_uri)))"/>
             
             <sch:let name="code-list-name" value= "concat(substring-after(@codeList ,'#'),substring('MD_KeywordTypeCode',1,number(not(string-length(@codeList) > 0))*string-length('MD_KeywordTypeCode')))" />
             
@@ -1157,7 +1192,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
         
         <sch:rule context= "mmi:maintenanceAndUpdateFrequency/mmi:MD_MaintenanceFrequencyCode"  >
             
-            <sch:let name="URI" value= "concat(substring-before(@codeList ,'#'),substring('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml',1,number(not(string-length(@codeList) > 0))*string-length('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml')))"/>
+            <sch:let name="URI" value= "concat(replace(substring-before(@codeList ,'#'), 'codeListLocation', '' ),
+                substring($default_codelist_uri,1,number(substring-before(@codeList ,'#') = 'codeListLocation')*string-length($default_codelist_uri)),
+                substring($default_codelist_uri,1,number(not(string-length(@codeList) > 0))*string-length($default_codelist_uri)))"/>
             
             <sch:let name="code-list-name" value= "concat(substring-after(@codeList ,'#'),substring('MD_KeywordTypeCode',1,number(not(string-length(@codeList) > 0))*string-length('MD_KeywordTypeCode')))" />
             
@@ -1224,7 +1261,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
         
         <sch:rule context= "mrd:MD_MediumFormatCode"  >
             
-            <sch:let name="URI" value= "concat(substring-before(@codeList ,'#'),substring('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml',1,number(not(string-length(@codeList) > 0))*string-length('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml')))"/>
+            <sch:let name="URI" value= "concat(replace(substring-before(@codeList ,'#'), 'codeListLocation', '' ),
+                substring($default_codelist_uri,1,number(substring-before(@codeList ,'#') = 'codeListLocation')*string-length($default_codelist_uri)),
+                substring($default_codelist_uri,1,number(not(string-length(@codeList) > 0))*string-length($default_codelist_uri)))"/>
             
             <sch:let name="code-list-name" value= "concat(substring-after(@codeList ,'#'),substring('MD_MediumFormatCode',1,number(not(string-length(@codeList) > 0))*string-length('MD_MediumFormatCode')))" />
             
@@ -1297,7 +1336,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
         
         <sch:rule context= "mri:status/mcc:MD_ProgressCode"  >
             
-            <sch:let name="URI" value= "concat(substring-before(@codeList ,'#'),substring('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml',1,number(not(string-length(@codeList) > 0))*string-length('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml')))"/>
+            <sch:let name="URI" value= "concat(replace(substring-before(@codeList ,'#'), 'codeListLocation', '' ),
+                substring($default_codelist_uri,1,number(substring-before(@codeList ,'#') = 'codeListLocation')*string-length($default_codelist_uri)),
+                substring($default_codelist_uri,1,number(not(string-length(@codeList) > 0))*string-length($default_codelist_uri)))"/>
             
             <sch:let name="code-list-name" value= "concat(substring-after(@codeList ,'#'),substring('MD_ProgressCode',1,number(not(string-length(@codeList) > 0))*string-length('MD_ProgressCode')))" />
             
@@ -1364,7 +1405,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
         
         <sch:rule context= "mrs:referenceSystemType/mrs:MD_ReferenceSystemTypeCode"  >
             
-            <sch:let name="URI" value= "concat(substring-before(@codeList ,'#'),substring('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml',1,number(not(string-length(@codeList) > 0))*string-length('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml')))"/>
+            <sch:let name="URI" value= "concat(replace(substring-before(@codeList ,'#'), 'codeListLocation', '' ),
+                substring($default_codelist_uri,1,number(substring-before(@codeList ,'#') = 'codeListLocation')*string-length($default_codelist_uri)),
+                substring($default_codelist_uri,1,number(not(string-length(@codeList) > 0))*string-length($default_codelist_uri)))"/>
             
             <sch:let name="code-list-name" value= "concat(substring-after(@codeList ,'#'),substring('MD_ReferenceSystemTypeCode',1,number(not(string-length(@codeList) > 0))*string-length('MD_ReferenceSystemTypeCode')))" />
             
@@ -1431,7 +1474,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
         
         <sch:rule context= "mco:MD_RestrictionCode"  >
             
-            <sch:let name="URI" value= "concat(substring-before(@codeList ,'#'),substring('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml',1,number(not(string-length(@codeList) > 0))*string-length('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml')))"/>
+            <sch:let name="URI" value= "concat(replace(substring-before(@codeList ,'#'), 'codeListLocation', '' ),
+                substring($default_codelist_uri,1,number(substring-before(@codeList ,'#') = 'codeListLocation')*string-length($default_codelist_uri)),
+                substring($default_codelist_uri,1,number(not(string-length(@codeList) > 0))*string-length($default_codelist_uri)))"/>
             
             <sch:let name="code-list-name" value= "concat(substring-after(@codeList ,'#'),substring('MD_RestrictionCode',1,number(not(string-length(@codeList) > 0))*string-length('MD_RestrictionCode')))" />
             
@@ -1498,7 +1543,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
         
         <sch:rule context= "mcc:MD_ScopeCode"  >
             
-            <sch:let name="URI" value= "concat(substring-before(@codeList ,'#'),substring('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml',1,number(not(string-length(@codeList) > 0))*string-length('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml')))"/>
+            <sch:let name="URI" value= "concat(replace(substring-before(@codeList ,'#'), 'codeListLocation', '' ),
+                substring($default_codelist_uri,1,number(substring-before(@codeList ,'#') = 'codeListLocation')*string-length($default_codelist_uri)),
+                substring($default_codelist_uri,1,number(not(string-length(@codeList) > 0))*string-length($default_codelist_uri)))"/>
             
             <sch:let name="code-list-name" value= "concat(substring-after(@codeList ,'#'),substring('MD_ScopeCode',1,number(not(string-length(@codeList) > 0))*string-length('MD_ScopeCode')))" />
             
@@ -1565,7 +1612,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
         
         <sch:rule context= "mcc:MD_SpatialRepresentationTypeCode"  >
             
-            <sch:let name="URI" value= "concat(substring-before(@codeList ,'#'),substring('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml',1,number(not(string-length(@codeList) > 0))*string-length('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml')))"/>
+            <sch:let name="URI" value= "concat(replace(substring-before(@codeList ,'#'), 'codeListLocation', '' ),
+                substring($default_codelist_uri,1,number(substring-before(@codeList ,'#') = 'codeListLocation')*string-length($default_codelist_uri)),
+                substring($default_codelist_uri,1,number(not(string-length(@codeList) > 0))*string-length($default_codelist_uri)))"/>
             
             <sch:let name="code-list-name" value= "concat(substring-after(@codeList ,'#'),substring('MD_SpatialRepresentationTypeCode',1,number(not(string-length(@codeList) > 0))*string-length('MD_SpatialRepresentationTypeCode')))" />
             
@@ -1635,7 +1684,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
         
         <sch:rule context= "msr:MD_TopologyLevelCode"  >
             
-            <sch:let name="URI" value= "concat(substring-before(@codeList ,'#'),substring('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml',1,number(not(string-length(@codeList) > 0))*string-length('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml')))"/>
+            <sch:let name="URI" value= "concat(replace(substring-before(@codeList ,'#'), 'codeListLocation', '' ),
+                substring($default_codelist_uri,1,number(substring-before(@codeList ,'#') = 'codeListLocation')*string-length($default_codelist_uri)),
+                substring($default_codelist_uri,1,number(not(string-length(@codeList) > 0))*string-length($default_codelist_uri)))"/>
             
             <sch:let name="code-list-name" value= "concat(substring-after(@codeList ,'#'),substring('MD_TopologyLevelCode',1,number(not(string-length(@codeList) > 0))*string-length('MD_TopologyLevelCode')))" />
             
@@ -1702,7 +1753,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
         
         <sch:rule context= "srv:SV_CouplingType"  >
             
-            <sch:let name="URI" value= "concat(substring-before(@codeList ,'#'),substring('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml',1,number(not(string-length(@codeList) > 0))*string-length('http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml')))"/>
+            <sch:let name="URI" value= "concat(replace(substring-before(@codeList ,'#'), 'codeListLocation', '' ),
+                substring($default_codelist_uri,1,number(substring-before(@codeList ,'#') = 'codeListLocation')*string-length($default_codelist_uri)),
+                substring($default_codelist_uri,1,number(not(string-length(@codeList) > 0))*string-length($default_codelist_uri)))"/>
             
             <sch:let name="code-list-name" value= "concat(substring-after(@codeList ,'#'),substring('SV_CouplingType',1,number(not(string-length(@codeList) > 0))*string-length('SV_CouplingType')))" />
             
