@@ -66,16 +66,16 @@ Schematron schema and XML Schema have been developed to implement and faciliate 
 ##### Schematron schema
 | Name | Purpose |
 | --- | --- |
-| schematron-rules-ga.sch | validation of additional constraints imposed on ISO 19115-1 elements by the GA profile |
+| schematron-rules-ga.sch | validation of constraints imposed on ISO 19115-1 elements by the GA profile |
 | schematron-rules-ga_codelists.sch | validation of codelist values for elements that have new or extended codelists imposed by the GA profile |
 | schematron-rules-all_codelists.sch | validation of codelist values for all elements that are constrained by a codelist (ISO 19115-1 or a profile extension) |
 
 ##### XML Schema
 | Name | Purpose |
 | --- | --- |
-| gapm.xsd |  |
-| gapmCharacterString.xsd |  |
-| gapmGenericName.xsd |  |
+| gapm.xsd | defines the XML Schema components of the ISO19115-3 XML schema profile of the GA Metadata profile of ISO19115-1:2014 |
+| gapmCharacterString.xsd | defines the gapMD_ProtocolTypeCode_PropertyType XML type, an extension of the gco:CharacterString_PropertyType XML type, for the purpose of constraining the cit:protocol element to a codelist |
+| gapmGenericName.xsd | defines the gapMD_ServiceTypeCode_PropertyType XML type, an extension of the gco:GenericName_PropertyType XML type, for the purpose of constraining the srv:serviceType element to a codelist |
 
 The Schematron schema and XML Schema files are stored in the root directory of this code repository.
 
