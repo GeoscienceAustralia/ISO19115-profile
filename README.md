@@ -8,6 +8,12 @@ This profile extends the base ISO19115-1:2014 standard in accordance with Annex 
 
 Some elements of this profile allow us to relate elements modelled here to other models. For example, the 'derivedFrom' relationship mentioned above can be interpreted as a 'wasDerivedFrom' relationship as used in the [PROV ontology](https://www.w3.org/TR/prov-o/) for provenance.
 
+| Name        | Definition          | Change from ISO 19115-1  |
+| ------------- |-------------| -----|
+| metadataIdentifier | unique identifier for this metadata record | Optional -> Mandatory |
+| parentMetadata | identification of the parent metadata record |  Conditional -> Conditional (changed condition) |
+| referenceSystemInfo | description of the spatial and temporal reference systems used in the resource | Optional -> Conditional |
+
 ### Schema
 
 This profile does not make any changes to the base XML Schema definition (XSD) and Schematron schema files provided by the ISO19115-3 XML implementation of the ISO19115-1:2014 standard.  Additional Schematron schema developed by GA are used to implement the rules defining the GA profile.
@@ -30,8 +36,6 @@ This repository is licensed under Creative Commons 4.0 International. See the [L
 
 
 ## Contacts
-**Nicholas Car**  
-*Data Architect*  
+**Aaron Sedgmen**  
 Geoscience Australia  
-<nicholas.car@ga.gov.au>  
-<http://orcid.org/0000-0002-8742-7730>
+<aaron.sedgmen@ga.gov.au>
