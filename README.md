@@ -57,12 +57,27 @@ Two new codelists have been implemented to constrain ISO 19115-1 elements that a
 * **Service Type (serviceType -> gapMD_ServiceTypeCode_PropertyType)**
 * **Protocol (protocol -> gapCI_ProtocolTypeCode_PropertyType)**
 
-The authoritative values in the above codelists are maintained in [SKOS vocabularies](https://www.w3.org/2004/02/skos/) hosted by [Research Vocabularies Australia](https://vocabs.ands.org.au/).  The codelists are extracted from the vocabularies as XML files conforming to the CAT 1.0 schema.  The resulting codelist files, as well as scripts used to generate the codelists are stored in the [codelist/](codelist/) folder.
+The authoritative values in the above codelists are maintained in [SKOS vocabularies](https://www.w3.org/2004/02/skos/) hosted by [Research Vocabularies Australia](https://vocabs.ands.org.au/).  The codelists are extracted from the vocabularies as XML files conforming to the CAT 1.0 schema.  The resulting codelist files, as well as the scripts used to generate the codelists are stored in the [codelist/](codelist/) folder.
 
 
 ### Schema
 
-Additional Schematron schema and XML Schema have been developed by GA to implement the rules defining the GA profile.  This profile's Schematron schema and XML Schema files are stored in this code repository.
+Schematron schema and XML Schema have been developed to implement and faciliate validation of the extensions defined by the GA profile.
+##### Schematron schema
+| Name | Purpose |
+| --- | --- |
+| schematron-rules-ga.sch | validation of additional constraints imposed on ISO 19115-1 elements by the GA profile |
+| schematron-rules-ga_codelists.sch | validation of codelist values for elements that have new or extended codelists imposed by the GA profile |
+| schematron-rules-all_codelists.sch | validation of codelist values for all elements that are constrained by a codelist (ISO 19115-1 or a profile extension) |
+
+##### XML Schema
+| Name | Purpose |
+| --- | --- |
+| gapm.xsd |  |
+| gapmCharacterString.xsd |  |
+| gapmGenericName.xsd |  |
+
+The Schematron schema and XML Schema files are stored in the root directory of this code repository.
 
 
 
