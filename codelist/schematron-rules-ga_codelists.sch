@@ -1,30 +1,32 @@
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" >
     
-<!-- ===========================================================================
-This Schematron schema applies rules that validate XML content against the 
-codelists defined in the GA Profile of ISO 19115-1:2014.
+<!-- =========================================================================================================================
+This Schematron schema applies rules that validate XML content against the codelists defined in the GA Profile of 
+ISO 19115-1:2014.  All GA profile codelists conform to the CAT 1.0 schema.
+
 These rules apply in addition to:
 [1] XML Schema Validation using the ISO ISO19115-3 schema
 [2] the additional conformance rules implemented as Schematron schema schematron-rules-iso.sch provided by ISO19115-3
 [3] the additional conformance rules implemented as Schematron schema schematron-rules-ga.sch that apply GA Profile extensions
 
 This script was developed by Geoscience Australia in March 2018.
-================================================================================
+==============================================================================================================================
 History:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 DATE			VERSION		AUTHOR				DESCRIPTION
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2018-03-01		0.1			Aaron Sedgmen		Initial Version.
-================================================================================
+==============================================================================================================================
 -->
     
-    <sch:title>Geoscience Australia profile Schematron schema for checking that codes in ISO 19115-1:2014 instance documents are drawn from the standard codelists</sch:title>
+    <sch:title>Geoscience Australia profile Schematron schema for checking that codes in ISO 19115-1:2014 metadata documents correspond to the respective GA profile codelists</sch:title>
     
     <sch:ns prefix="cat" uri="http://standards.iso.org/iso/19115/-3/cat/1.0"  />
     <sch:ns prefix="cit" uri="http://standards.iso.org/iso/19115/-3/cit/1.0"  />
     <sch:ns prefix="gco" uri="http://standards.iso.org/iso/19115/-3/gco/1.0"  />
     <sch:ns prefix="mri" uri="http://standards.iso.org/iso/19115/-3/mri/1.0"  />
     <sch:ns prefix="srv" uri="http://standards.iso.org/iso/19115/-3/srv/2.0"  />
+
     
     <!-- mri:associationType/mri:DS_AssociationTypeCode -->
     
@@ -60,6 +62,7 @@ DATE			VERSION		AUTHOR				DESCRIPTION
         </sch:rule>
     </sch:pattern>
 
+
     <!-- cit:function/cit:CI_OnLineFunctionCode -->
     
     <!-- ========================================================================================================================= -->
@@ -93,6 +96,7 @@ DATE			VERSION		AUTHOR				DESCRIPTION
 
         </sch:rule>
     </sch:pattern>
+
     
     <!-- srv:serviceType -->
     
@@ -128,6 +132,7 @@ DATE			VERSION		AUTHOR				DESCRIPTION
             
         </sch:rule>
     </sch:pattern>
+
 
     <!-- cit:protocol -->
     
