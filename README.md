@@ -11,11 +11,24 @@ Some elements of this profile allow us to relate elements modelled here to other
 ### Profile Extensions
 ##### Metadata entity set information (MD_Metadata)
 
-| Name        | Definition          | Change from ISO 19115-1  |
-| ------------- |-------------| -----|
+| Name | Definition | Change from ISO 19115-1 |
+| --- | --- | --- |
 | metadataIdentifier | unique identifier for this metadata record | Optional -> Mandatory |
 | parentMetadata | identification of the parent metadata record |  Conditional -> Conditional (changed condition) |
 | referenceSystemInfo | description of the spatial and temporal reference systems used in the resource | Optional -> Conditional |
+| metadataConstraints | restrictions on the access and use of metadata | Optional -> Mandatory |
+| metadataScope | the scope/type of resource for which metadata is provided  | Conditional -> Mandatory |
+| resourceLineage | information about the provenance, source(s), and/or the production process(es) applied to the resource | Optional -> Mandatory |
+
+##### Identification information (MD_Identification)
+| Name | Definition | Change from ISO 19115-1 |
+| --- | --- | --- |
+| pointOfContact | identification of, and means of communication with, person(s) and organization(s) associated with the resource(s) | Optional -> Mandatory |
+| topicCategory | main theme(s) of the resource | Conditional -> Mandatory |
+| resourceMaintenance | information about the frequency of resource updates, and the scope of those updates | Optional -> Mandatory |
+| resourceFormat | a description of the format of the resource(s) | Optional -> Mandatory |
+| resourceConstraints | information about constraints which apply to the resource(s) | Optional -> Mandatory |
+| descriptiveKeywords | category keywords, their type, and reference source | Optional -> Mandatory |
 
 
 ### Schema
