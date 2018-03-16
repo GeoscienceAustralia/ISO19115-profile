@@ -10,7 +10,7 @@ Some elements of this profile allow us to relate elements modelled here to other
 
 ### Profile Extensions
 ##### Metadata entity set information (MD_Metadata)
-#
+
 | Name        | Definition          | Change from ISO 19115-1  |
 | ------------- |-------------| -----|
 | metadataIdentifier | unique identifier for this metadata record | Optional -> Mandatory |
