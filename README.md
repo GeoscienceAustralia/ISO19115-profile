@@ -30,6 +30,22 @@ Some elements of this profile allow us to relate elements modelled here to other
 | resourceConstraints | information about constraints which apply to the resource(s) | Optional -> Mandatory |
 | descriptiveKeywords | category keywords, their type, and reference source | Optional -> Mandatory |
 
+##### Constraint information (MD_Constraints)
+| Name | Definition | Change from ISO 19115-1 |
+| --- | --- | --- |
+| reference | citation for the limitation or constraint, example: Copyright statement, licence agreement, etc. | Optional -> Mandatory |
+
+##### Lineage information (LI_Lineage)
+| Name | Definition | Change from ISO 19115-1 |
+| --- | --- | --- |
+| statement | general explanation of the data producer’s knowledge about the lineage of a dataset | Optional -> Mandatory |
+| source | information about the source data used in creating the data specified by the scope | Conditional -> Mandatory |
+
+##### Distribution information (MD_Distribution)
+| Name | Definition | Change from ISO 19115-1 |
+| --- | --- | --- |
+| distributionFormat | provides a description of the format of the data to be distributed | Optional -> Mandatory |
+
 
 ### Schema
 
