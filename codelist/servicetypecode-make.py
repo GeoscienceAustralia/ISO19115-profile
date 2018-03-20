@@ -7,6 +7,9 @@ Created on 8 November 2017
 Updated 1 March 2018, A.Sedgmen
     - Added command line argument handling
 
+Updated 20 March 2018, A.Sedgmen
+    - Revised SPARQL query to retrieve altLabel values
+
 @author: Vaughan Edgell
 """
 
@@ -41,11 +44,12 @@ def get_service_types(vocab_sparql_endpoint):
 
     query_string = """
         PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-        SELECT ?serviceType ?definition
+        SELECT ?altLabel ?definition
         WHERE
         {
-            ?serviceType a skos:Concept.
-            ?serviceType skos:definition ?definition.
+            ?serviceType a skos:Concept ;
+                          skos:altLabel ?altLabel .
+            OPTIONAL {?serviceType skos:definition ?definition}
         }
     """
 
@@ -92,9 +96,9 @@ def main():
         parser = argparse.ArgumentParser(
             description='Retrieves content from the Service Type SKOS vocabulary, converts it to the ISO 19115-1:2014 codelist XML format, and writes it to the file system.')
         parser.add_argument("-v", "--vSPARQL",
-                            help="Vocabulary SPARQL endpoint (default is http://vocabs.ands.org.au/repository/api/sparql/ga_service-type_v1-0)",
+                            help="Vocabulary SPARQL endpoint (default is http://vocabs.ands.org.au/repository/api/sparql/ga_service-type_v1-1)",
                             dest="vocab_sparql_endpoint",
-                            default="http://vocabs.ands.org.au/repository/api/sparql/ga_service-type_v1-0")
+                            default="http://vocabs.ands.org.au/repository/api/sparql/ga_service-type_v1-1")
         parser.add_argument("-o", "--outputDir",
                             help="Output directory for generated ISO 19115-1:2014 codelist XML file (default is current working directory)",
                             dest="outputDir",

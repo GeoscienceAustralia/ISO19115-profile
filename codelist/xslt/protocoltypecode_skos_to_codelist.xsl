@@ -73,7 +73,7 @@
     <xsl:template match="sp:result">
 
         <xsl:variable name="protocolTypeName">gapCI_ProtocolTypeCode_<xsl:call-template name="substring-after-last">
-                <xsl:with-param name="string" select="./sp:binding[@name='altLabel']/sp:literal"/>
+                <xsl:with-param name="string" select="normalize-space(./sp:binding[@name='altLabel']/sp:literal)"/>
                 <xsl:with-param name="char" select="'/'"/>
             </xsl:call-template>
         </xsl:variable>
@@ -85,7 +85,7 @@
                     <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016"><xsl:value-of select="$protocolTypeName"/></gco:ScopedName>
                 </cat:identifier>
                 <cat:definition>
-                    <gco:CharacterString><xsl:value-of select=".//sp:binding[@name='definition']/sp:literal"/></gco:CharacterString>
+                    <gco:CharacterString><xsl:value-of select="normalize-space(.//sp:binding[@name='definition']/sp:literal)"/></gco:CharacterString>
                 </cat:definition>
             </cat:CT_CodelistValue>
         </cat:codeEntry>

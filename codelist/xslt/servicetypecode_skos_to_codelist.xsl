@@ -73,7 +73,7 @@
     <xsl:template match="sp:result">
 
         <xsl:variable name="serviceTypeName">gapSV_ServiceTypeCode_<xsl:call-template name="substring-after-last">
-                <xsl:with-param name="string" select="./sp:binding[@name='serviceType']/sp:uri"/>
+                <xsl:with-param name="string" select="normalize-space(./sp:binding[@name='altLabel']/sp:literal)"/>
                 <xsl:with-param name="char" select="'/'"/>
             </xsl:call-template>
         </xsl:variable>
