@@ -20,6 +20,10 @@ import logging
 import lxml.etree as ET
 import argparse
 
+os.environ["HTTP_PROXY"] = "http://sun-web-intdev.ga.gov.au:2710"
+os.environ["HTTPS_PROXY"] = "https://sun-web-intdev.ga.gov.au:2710"
+os.environ["no_proxy"] = "localhost, services.ga.gov.au, intranet.ga.gov.au, np.ga.gov.au, www.ga.gov.au"
+
 # Set handler for root logger to standard output if no handler exists
 if not logging.root.handlers:
     console_handler = logging.StreamHandler(sys.stdout)
@@ -133,7 +137,6 @@ def main():
         text_file.write(online_function_codes_iso_codelist_xml_string)
 
     logger.info("Output written to {}".format(os.path.join(args.outputDir, text_file.name)))
-
 
 if __name__ == "__main__":
     main()

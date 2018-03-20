@@ -168,5 +168,4 @@ DATE			VERSION		AUTHOR				DESCRIPTION
             
         </sch:rule>
     </sch:pattern>
-
 </sch:schema>

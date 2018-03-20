@@ -22,9 +22,9 @@ import argparse
 
 # DS_AssociationTypeCode codelist is located in the ISO19115-3 file structure at iso19115-3/schema/standards.iso.org/iso/19115/-3/mri/1.0/codelists.xml
 
-# os.environ["HTTP_PROXY"] = "http://sun-web-intdev.ga.gov.au:2710"
-# os.environ["HTTPS_PROXY"] = "https://sun-web-intdev.ga.gov.au:2710"
-# os.environ["no_proxy"] = "localhost, services.ga.gov.au, intranet.ga.gov.au, np.ga.gov.au, www.ga.gov.au"
+os.environ["HTTP_PROXY"] = "http://sun-web-intdev.ga.gov.au:2710"
+os.environ["HTTPS_PROXY"] = "https://sun-web-intdev.ga.gov.au:2710"
+os.environ["no_proxy"] = "localhost, services.ga.gov.au, intranet.ga.gov.au, np.ga.gov.au, www.ga.gov.au"
 
 # Set handler for root logger to standard output if no handler exists
 if not logging.root.handlers:
