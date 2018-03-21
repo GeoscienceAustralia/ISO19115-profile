@@ -10,6 +10,9 @@ Created on 24 October 2017
 Updated 28 February 2018, A.Sedgmen
     - Added command line argument handling
 
+Updated 21 March 2018, A.Sedgmen
+    - Addded HTML codelist output
+
 @author: Aaron Sedgmen
 """
 
@@ -19,6 +22,7 @@ import sys
 import logging
 import lxml.etree as ET
 import argparse
+from bs4 import BeautifulSoup
 
 # DS_AssociationTypeCode codelist is located in the ISO19115-3 file structure at iso19115-3/schema/standards.iso.org/iso/19115/-3/mri/1.0/codelists.xml
 
@@ -47,10 +51,12 @@ def get_associationTypes(vocab_sparql_endpoint):
     
     queryString = '''
         PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-        SELECT ?associationType ?definition
+        PREFIX perl: <http://purl.org/dc/terms/>
+        SELECT ?associationType ?source ?definition
         WHERE
         {
             ?associationType a skos:Concept .
+            OPTIONAL {?associationType perl:source ?source} .
             ?associationType skos:definition ?definition .
         }
     '''
@@ -65,7 +71,7 @@ def get_associationTypes(vocab_sparql_endpoint):
     
     return associationTypes_sparql_xml_string
 
-def transform_to_codelist(associationTypes_sparql_xml_string):
+def transform_to_xml_codelist(associationTypes_sparql_xml_string):
     """
     Transform the input SPARQL Query Results XML document into an ISO 19115-1 codelist XML document
     
@@ -74,13 +80,33 @@ def transform_to_codelist(associationTypes_sparql_xml_string):
     """
 
     associationTypes_sparql_xml_et = ET.fromstring(associationTypes_sparql_xml_string)
-    xslt = ET.parse("xslt/assoctypecode_skos_to_codelist.xsl")
+    xslt = ET.parse("xslt/assoctypecode_skos_to_xml_codelist.xsl")
     transform = ET.XSLT(xslt)
     associationTypes_iso_codelist_et = transform(associationTypes_sparql_xml_et)
     
     logger.debug(ET.tostring(associationTypes_iso_codelist_et, pretty_print=True))
     
     return ET.tostring(associationTypes_iso_codelist_et, pretty_print=True)
+
+def transform_to_html_codelist(associationTypes_sparql_xml_string):
+    """
+    Transform the input SPARQL Query Results XML document into an ISO 19115-1 codelist HTML document
+    
+    :param associationTypes_sparql_xml_string: SPARQL Query Results XML document as a string
+    :return: returns ISO 19115-1 codelist HTML document as a string
+    """
+
+    associationTypes_sparql_xml_et = ET.fromstring(associationTypes_sparql_xml_string)
+    xslt = ET.parse("xslt/assoctypecode_skos_to_html_codelist.xsl")
+    transform = ET.XSLT(xslt)
+    associationTypes_iso_codelist_et = transform(associationTypes_sparql_xml_et)
+    
+    soup=BeautifulSoup(ET.tostring(associationTypes_iso_codelist_et), 'html.parser')
+    prettyHTML=soup.prettify()
+    
+    logger.debug(prettyHTML)
+    
+    return prettyHTML
 
 def main():
     '''
@@ -129,15 +155,21 @@ def main():
         
     # Obtain the set of association types from the SKOS association-type vocabulary in the SPARQL Query Results XML Format
     associationTypes_sparql_xml_string = get_associationTypes(args.vocab_sparql_endpoint)
+    logger.debug(associationTypes_sparql_xml_string)
     
     # Transform SPARQL Query Results XML to ISO 19115-1 codelist XML
-    associationTypes_iso_codelist_xml_string = transform_to_codelist(associationTypes_sparql_xml_string)
+    associationTypes_iso_codelist_xml_string = transform_to_xml_codelist(associationTypes_sparql_xml_string)
+
+    # Transform SPARQL Query Results XML to ISO 19115-1 codelist HTML
+    associationTypes_iso_codelist_html_string = transform_to_html_codelist(associationTypes_sparql_xml_string)
     
     # Write ISO 19115-1 codelist
     with open(os.path.join(args.outputDir, "assocTypeCode_codelist.xml"), "w") as text_file:
         text_file.write(associationTypes_iso_codelist_xml_string)
-    
     logger.info("Output written to {}".format(os.path.join(args.outputDir, text_file.name)))
-
+    with open(os.path.join(args.outputDir, "assocTypeCode_codelist.html"), "w") as text_file:
+        text_file.write(associationTypes_iso_codelist_html_string)
+    logger.info("Output written to {}".format(os.path.join(args.outputDir, text_file.name)))
+    
 if __name__ == "__main__":
     main()

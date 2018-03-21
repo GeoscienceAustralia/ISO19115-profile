@@ -9,6 +9,9 @@ Created on 31 October 2017
 
 Updated 28 February 2018, A.Sedgmen
     - Added command line argument handling
+    
+Updated 21 March 2018, A.Sedgmen
+    - Addded HTML codelist output
 
 @author: Vaughan Edgell
 """
@@ -19,6 +22,7 @@ import sys
 import logging
 import lxml.etree as ET
 import argparse
+from bs4 import BeautifulSoup
 
 os.environ["HTTP_PROXY"] = "http://sun-web-intdev.ga.gov.au:2710"
 os.environ["HTTPS_PROXY"] = "https://sun-web-intdev.ga.gov.au:2710"
@@ -44,11 +48,13 @@ def get_online_function_codes(vocab_sparql_endpoint):
 
     query_string = """
         PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-        SELECT ?onlineFunctionCode ?definition
+        PREFIX perl: <http://purl.org/dc/terms/>
+        SELECT ?onlineFunctionCode ?source ?definition
         WHERE
         {
-            ?onlineFunctionCode a skos:Concept.
-            ?onlineFunctionCode skos:definition ?definition.
+            ?onlineFunctionCode a skos:Concept .
+            OPTIONAL {?onlineFunctionCode perl:source ?source} .
+            ?onlineFunctionCode skos:definition ?definition .
         }
     """
 
@@ -63,7 +69,7 @@ def get_online_function_codes(vocab_sparql_endpoint):
     return online_function_codes_sparql_xml_string
 
 
-def transform_to_codelist(online_function_codes_sparql_xml_string):
+def transform_to_xml_codelist(online_function_codes_sparql_xml_string):
     """
     Transform the input SPARQL Query Results XML document into an ISO 19115-1 codelist XML document
 
@@ -72,7 +78,7 @@ def transform_to_codelist(online_function_codes_sparql_xml_string):
     """
 
     online_function_codes_sparql_xml_et = ET.fromstring(online_function_codes_sparql_xml_string)
-    xslt = ET.parse("xslt/onlinefunctioncode_skos_to_codelist.xsl")
+    xslt = ET.parse("xslt/onlinefunctioncode_skos_to_xml_codelist.xsl")
     transform = ET.XSLT(xslt)
     online_function_codes_iso_codelist_et = transform(online_function_codes_sparql_xml_et)
 
@@ -80,6 +86,25 @@ def transform_to_codelist(online_function_codes_sparql_xml_string):
 
     return ET.tostring(online_function_codes_iso_codelist_et, pretty_print=True)
 
+def transform_to_html_codelist(online_function_codes_sparql_xml_string):
+    """
+    Transform the input SPARQL Query Results XML document into an ISO 19115-1 codelist HTML document
+    
+    :param online_function_codes_sparql_xml_string: SPARQL Query Results XML document as a string
+    :return: returns ISO 19115-1 codelist HTML document as a string
+    """
+
+    online_function_codes_sparql_xml_et = ET.fromstring(online_function_codes_sparql_xml_string)
+    xslt = ET.parse("xslt/onlinefunctioncode_skos_to_html_codelist.xsl")
+    transform = ET.XSLT(xslt)
+    online_function_codes_iso_codelist_et = transform(online_function_codes_sparql_xml_et)
+    
+    soup=BeautifulSoup(ET.tostring(online_function_codes_iso_codelist_et), 'html.parser')
+    prettyHTML=soup.prettify()
+    
+    logger.debug(prettyHTML)
+    
+    return prettyHTML
 
 def main():
 
@@ -129,14 +154,22 @@ def main():
         
     # Obtain the set of online function codes from the SKOS online-function-code vocabulary in the SPARQL Query Results XML Format
     online_function_codes_sparql_xml_string = get_online_function_codes(args.vocab_sparql_endpoint)
+    logger.debug(online_function_codes_sparql_xml_string)
+    
     # Transform SPARQL Query Results XML to ISO 19115-1 codelist XML
-    online_function_codes_iso_codelist_xml_string = transform_to_codelist(online_function_codes_sparql_xml_string)
+    online_function_codes_iso_codelist_xml_string = transform_to_xml_codelist(online_function_codes_sparql_xml_string)
+    
+    # Transform SPARQL Query Results XML to ISO 19115-1 codelist HTML
+    online_function_codes_iso_codelist_html_string = transform_to_html_codelist(online_function_codes_sparql_xml_string)
 
     # Write ISO 19115-1 codelist to current directory
     with open("onlineFunctionCode_codelist.xml", "w") as text_file:
         text_file.write(online_function_codes_iso_codelist_xml_string)
-
     logger.info("Output written to {}".format(os.path.join(args.outputDir, text_file.name)))
+    with open(os.path.join(args.outputDir, "onlineFunctionCode_codelist.html"), "w") as text_file:
+        text_file.write(online_function_codes_iso_codelist_html_string)
+    logger.info("Output written to {}".format(os.path.join(args.outputDir, text_file.name)))
+
 
 if __name__ == "__main__":
     main()

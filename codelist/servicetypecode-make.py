@@ -7,9 +7,10 @@ Created on 8 November 2017
 Updated 1 March 2018, A.Sedgmen
     - Added command line argument handling
 
-Updated 20 March 2018, A.Sedgmen
+Updated 21 March 2018, A.Sedgmen
     - Revised SPARQL query to retrieve altLabel values
-
+    - Addded HTML codelist output
+    
 @author: Vaughan Edgell
 """
 
@@ -19,6 +20,7 @@ import sys
 import logging
 import lxml.etree as ET
 import argparse
+from bs4 import BeautifulSoup
 
 os.environ["HTTP_PROXY"] = "http://sun-web-intdev.ga.gov.au:2710"
 os.environ["HTTPS_PROXY"] = "https://sun-web-intdev.ga.gov.au:2710"
@@ -44,12 +46,14 @@ def get_service_types(vocab_sparql_endpoint):
 
     query_string = """
         PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-        SELECT ?altLabel ?definition
+        PREFIX perl: <http://purl.org/dc/terms/>
+        SELECT ?altLabel ?source ?definition
         WHERE
         {
             ?serviceType a skos:Concept ;
                           skos:altLabel ?altLabel .
-            OPTIONAL {?serviceType skos:definition ?definition}
+            OPTIONAL {?serviceType perl:source ?source} .
+            OPTIONAL {?serviceType skos:definition ?definition} .
         }
     """
 
@@ -64,7 +68,7 @@ def get_service_types(vocab_sparql_endpoint):
     return service_types_sparql_xml_string
 
 
-def transform_to_codelist(service_types_sparql_xml_string):
+def transform_to_xml_codelist(service_types_sparql_xml_string):
     """
     Transform the input SPARQL Query Results XML document into an ISO 19115-1 codelist XML document
 
@@ -73,7 +77,7 @@ def transform_to_codelist(service_types_sparql_xml_string):
     """
 
     service_types_sparql_xml_et = ET.fromstring(service_types_sparql_xml_string)
-    xslt = ET.parse("xslt/servicetypecode_skos_to_codelist.xsl")
+    xslt = ET.parse("xslt/servicetypecode_skos_to_xml_codelist.xsl")
     transform = ET.XSLT(xslt)
     service_types_iso_codelist_et = transform(service_types_sparql_xml_et)
 
@@ -81,6 +85,25 @@ def transform_to_codelist(service_types_sparql_xml_string):
 
     return ET.tostring(service_types_iso_codelist_et, pretty_print=True)
 
+def transform_to_html_codelist(service_types_sparql_xml_string):
+    """
+    Transform the input SPARQL Query Results XML document into an ISO 19115-1 codelist HTML document
+
+    :param service_types_sparql_xml_string: SPARQL Query Results XML document as a string
+    :return: returns ISO 19115-1 codelist XML document as a string
+    """
+
+    service_types_sparql_xml_et = ET.fromstring(service_types_sparql_xml_string)
+    xslt = ET.parse("xslt/servicetypecode_skos_to_html_codelist.xsl")
+    transform = ET.XSLT(xslt)
+    service_types_iso_codelist_et = transform(service_types_sparql_xml_et)
+
+    soup=BeautifulSoup(ET.tostring(service_types_iso_codelist_et), 'html.parser')
+    prettyHTML=soup.prettify()
+    
+    logger.debug(prettyHTML)
+    
+    return prettyHTML
 
 def main():
     
@@ -130,13 +153,20 @@ def main():
         
     # Obtain the set of service types from the SKOS service-type vocabulary in the SPARQL Query Results XML Format
     service_types_sparql_xml_string = get_service_types(args.vocab_sparql_endpoint)
+    logger.debug(service_types_sparql_xml_string)
+    
     # Transform SPARQL Query Results XML to ISO 19115-1 codelist XML
-    service_types_iso_codelist_xml_string = transform_to_codelist(service_types_sparql_xml_string)
+    service_types_iso_codelist_xml_string = transform_to_xml_codelist(service_types_sparql_xml_string)
+
+    # Transform SPARQL Query Results XML to ISO 19115-1 codelist HTML
+    service_types_iso_codelist_html_string = transform_to_html_codelist(service_types_sparql_xml_string)
 
     # Write ISO 19115-1 codelist to current directory
     with open("serviceTypeCode_codelist.xml", "w") as text_file:
         text_file.write(service_types_iso_codelist_xml_string)
-
+    logger.info("Output written to {}".format(os.path.join(os.getcwd(), text_file.name)))
+    with open("serviceTypeCode_codelist.html", "w") as text_file:
+        text_file.write(service_types_iso_codelist_html_string)
     logger.info("Output written to {}".format(os.path.join(os.getcwd(), text_file.name)))
 
 

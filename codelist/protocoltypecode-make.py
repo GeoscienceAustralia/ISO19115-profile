@@ -6,6 +6,9 @@ Created on 13 November 2017
 
 Updated 1 March 2018, A.Sedgmen
     - Added command line argument handling
+    
+Updated 21 March 2018, A.Sedgmen
+    - Addded HTML codelist output
 
 @author: Vaughan Edgell
 """
@@ -16,6 +19,7 @@ import sys
 import logging
 import lxml.etree as ET
 import argparse
+from bs4 import BeautifulSoup
 
 os.environ["HTTP_PROXY"] = "http://sun-web-intdev.ga.gov.au:2710"
 os.environ["HTTPS_PROXY"] = "https://sun-web-intdev.ga.gov.au:2710"
@@ -42,11 +46,13 @@ def get_protocol_types(vocab_sparql_endpoint):
 
     query_string = """
         PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-        SELECT ?altLabel ?definition
+        PREFIX perl: <http://purl.org/dc/terms/>
+        SELECT ?altLabel ?source ?definition
         WHERE
         {
             ?protocolType a skos:Concept ;
                           skos:altLabel ?altLabel .
+            OPTIONAL {?protocolType perl:source ?source} .
             OPTIONAL {?protocolType skos:definition ?definition}
         }
     """
@@ -62,7 +68,7 @@ def get_protocol_types(vocab_sparql_endpoint):
     return protocol_types_sparql_xml_string
 
 
-def transform_to_codelist(protocol_types_sparql_xml_string):
+def transform_to_xml_codelist(protocol_types_sparql_xml_string):
     """
     Transform the input SPARQL Query Results XML document into an ISO 19115-1 codelist XML document
 
@@ -71,7 +77,7 @@ def transform_to_codelist(protocol_types_sparql_xml_string):
     """
 
     protocol_types_sparql_xml_et = ET.fromstring(protocol_types_sparql_xml_string)
-    xslt = ET.parse("xslt/protocoltypecode_skos_to_codelist.xsl")
+    xslt = ET.parse("xslt/protocoltypecode_skos_to_xml_codelist.xsl")
     transform = ET.XSLT(xslt)
     protocol_types_iso_codelist_et = transform(protocol_types_sparql_xml_et)
 
@@ -79,6 +85,25 @@ def transform_to_codelist(protocol_types_sparql_xml_string):
 
     return ET.tostring(protocol_types_iso_codelist_et, pretty_print=True)
 
+def transform_to_html_codelist(protocol_types_sparql_xml_string):
+    """
+    Transform the input SPARQL Query Results XML document into an ISO 19115-1 codelist HTML document
+
+    :param protocol_types_sparql_xml_string: SPARQL Query Results XML document as a string
+    :return: returns ISO 19115-1 codelist XML document as a string
+    """
+
+    protocol_types_sparql_xml_et = ET.fromstring(protocol_types_sparql_xml_string)
+    xslt = ET.parse("xslt/protocoltypecode_skos_to_html_codelist.xsl")
+    transform = ET.XSLT(xslt)
+    protocol_types_iso_codelist_et = transform(protocol_types_sparql_xml_et)
+
+    soup=BeautifulSoup(ET.tostring(protocol_types_iso_codelist_et), 'html.parser')
+    prettyHTML=soup.prettify()
+    
+    logger.debug(prettyHTML)
+    
+    return prettyHTML
 
 def main():
     
@@ -128,13 +153,20 @@ def main():
         
     # Obtain the set of protocol types from the SKOS protocol-type vocabulary in the SPARQL Query Results XML Format
     protocol_types_sparql_xml_string = get_protocol_types(args.vocab_sparql_endpoint)
+    logger.debug(protocol_types_sparql_xml_string)
+    
     # Transform SPARQL Query Results XML to ISO 19115-1 codelist XML
-    protocol_types_iso_codelist_xml_string = transform_to_codelist(protocol_types_sparql_xml_string)
+    protocol_types_iso_codelist_xml_string = transform_to_xml_codelist(protocol_types_sparql_xml_string)
+
+    # Transform SPARQL Query Results XML to ISO 19115-1 codelist HTML
+    protocol_types_iso_codelist_html_string = transform_to_html_codelist(protocol_types_sparql_xml_string)
 
     # Write ISO 19115-1 codelist to current directory
     with open("protocolTypeCode_codelist.xml", "w") as text_file:
         text_file.write(protocol_types_iso_codelist_xml_string)
-
+    logger.info("Output written to {}".format(os.path.join(os.getcwd(), text_file.name)))
+    with open("protocolTypeCode_codelist.html", "w") as text_file:
+        text_file.write(protocol_types_iso_codelist_html_string)
     logger.info("Output written to {}".format(os.path.join(os.getcwd(), text_file.name)))
 
 
