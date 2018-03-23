@@ -622,7 +622,7 @@
           </mri:initiativeType>
         </mri:MD_AssociatedResource>
       </mri:associatedResource>
-      <srv:serviceType xsi:type="gapm:gapMD_ServiceTypeCode_PropertyType" codeList="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/serviceTypeCode_codelist.xml#gapSV_ServiceTypeCode" codeListValue="WMS">
+      <srv:serviceType xsi:type="gapm:gapMD_ServiceTypeCode_PropertyType" codeList="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/serviceTypeCode_codelist.xml#gapSV_ServiceTypeCode" codeListValue="OGC:WMS">
         <gco:ScopedName>WMS</gco:ScopedName>
       </srv:serviceType>
       <srv:serviceTypeVersion>
@@ -890,7 +890,7 @@
               <cit:linkage>
                 <gco:CharacterString>http://services.ga.gov.au/gis/services/DEM_LiDAR_25m/MapServer/WMSServer?request=GetCapabilities&amp;service=WMS</gco:CharacterString>
               </cit:linkage>
-              <cit:protocol xsi:type="gapm:gapCI_ProtocolTypeCode_PropertyType" codeList="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/protocolTypeCode_codelist.xml#gapCI_ProtocolTypeCode" codeListValue="WMS">
+              <cit:protocol xsi:type="gapm:gapCI_ProtocolTypeCode_PropertyType" codeList="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/protocolTypeCode_codelist.xml#gapCI_ProtocolTypeCode" codeListValue="OGC:WMS">
                 <gco:CharacterString>WMS</gco:CharacterString>
               </cit:protocol>
               <cit:name>
