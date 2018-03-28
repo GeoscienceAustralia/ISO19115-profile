@@ -55,6 +55,18 @@
       </lan:characterEncoding>
     </lan:PT_Locale>
   </mdb:defaultLocale>
+  <mdb:parentMetadata>
+    <cit:CI_Citation>
+      <cit:title></cit:title>
+      <cit:identifier>
+        <mcc:MD_Identifier>
+          <mcc:code>
+            <gco:CharacterString>1234</gco:CharacterString>
+          </mcc:code>
+        </mcc:MD_Identifier>
+      </cit:identifier>
+    </cit:CI_Citation>
+  </mdb:parentMetadata>
   <mdb:metadataScope xmlns:csw="http://www.opengis.net/cat/csw/2.0.2">
     <mdb:MD_MetadataScope>
       <mdb:resourceScope>
@@ -590,13 +602,29 @@
       </mri:descriptiveKeywords>
       <mri:resourceConstraints>
         <mco:MD_LegalConstraints>
+          <mco:reference>
+            <cit:CI_Citation>
+              <cit:title></cit:title>
+            </cit:CI_Citation>
+          </mco:reference>
           <mco:accessConstraints>
             <mco:MD_RestrictionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_RestrictionCode" codeListValue="licence">licence</mco:MD_RestrictionCode>
           </mco:accessConstraints>
+          <mco:useConstraints>
+            <mco:MD_RestrictionCode codeList="" codeListValue=""></mco:MD_RestrictionCode>
+          </mco:useConstraints>
         </mco:MD_LegalConstraints>
       </mri:resourceConstraints>
       <mri:resourceConstraints>
         <mco:MD_LegalConstraints>
+          <mco:reference>
+            <cit:CI_Citation>
+              <cit:title></cit:title>
+            </cit:CI_Citation>
+          </mco:reference>
+          <mco:accessConstraints>
+            <mco:MD_RestrictionCode codeList="" codeListValue=""></mco:MD_RestrictionCode>
+          </mco:accessConstraints>
           <mco:useConstraints>
             <mco:MD_RestrictionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_RestrictionCode" codeListValue="licence">licence</mco:MD_RestrictionCode>
           </mco:useConstraints>
@@ -607,6 +635,11 @@
       </mri:resourceConstraints>
       <mri:resourceConstraints>
         <mco:MD_SecurityConstraints>
+          <mco:reference>
+            <cit:CI_Citation>
+              <cit:title></cit:title>
+            </cit:CI_Citation>
+          </mco:reference>
           <mco:classification>
             <mco:MD_ClassificationCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_ClassificationCode" codeListValue="unclassified"/>
           </mco:classification>
@@ -946,9 +979,36 @@
   </mdb:resourceLineage>
   <mdb:metadataConstraints xmlns:csw="http://www.opengis.net/cat/csw/2.0.2">
     <mco:MD_SecurityConstraints>
+      <mco:reference>
+        <cit:CI_Citation>
+          <cit:title>
+            <gco:CharacterString>test</gco:CharacterString>
+          </cit:title>
+        </cit:CI_Citation>
+      </mco:reference>
       <mco:classification>
         <mco:MD_ClassificationCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_ClassificationCode" codeListValue="unclassified">unclassified</mco:MD_ClassificationCode>
       </mco:classification>
     </mco:MD_SecurityConstraints>
+  </mdb:metadataConstraints>
+  <mdb:metadataConstraints>
+    <mco:MD_Constraints>
+      <mco:reference>
+        <cit:CI_Citation>
+          <cit:title>
+            <gco:CharacterString>test2</gco:CharacterString>
+          </cit:title>
+        </cit:CI_Citation>
+      </mco:reference>
+    </mco:MD_Constraints>
+  </mdb:metadataConstraints>
+  <mdb:metadataConstraints>
+    <mco:MD_LegalConstraints>
+      <mco:reference>
+        <cit:CI_Citation>
+          <cit:title></cit:title>
+        </cit:CI_Citation>
+      </mco:reference>
+    </mco:MD_LegalConstraints>
   </mdb:metadataConstraints>
 </mdb:MD_Metadata>
