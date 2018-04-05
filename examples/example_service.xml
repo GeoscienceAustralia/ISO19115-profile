@@ -611,7 +611,7 @@
             <mco:MD_RestrictionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_RestrictionCode" codeListValue="licence">licence</mco:MD_RestrictionCode>
           </mco:accessConstraints>
           <mco:useConstraints>
-            <mco:MD_RestrictionCode codeList="" codeListValue=""></mco:MD_RestrictionCode>
+            <mco:MD_RestrictionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_RestrictionCode" codeListValue="licence">licence</mco:MD_RestrictionCode>
           </mco:useConstraints>
         </mco:MD_LegalConstraints>
       </mri:resourceConstraints>
@@ -623,7 +623,7 @@
             </cit:CI_Citation>
           </mco:reference>
           <mco:accessConstraints>
-            <mco:MD_RestrictionCode codeList="" codeListValue=""></mco:MD_RestrictionCode>
+            <mco:MD_RestrictionCode codeList="blah" codeListValue="blah"></mco:MD_RestrictionCode>
           </mco:accessConstraints>
           <mco:useConstraints>
             <mco:MD_RestrictionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_RestrictionCode" codeListValue="licence">licence</mco:MD_RestrictionCode>

@@ -121,9 +121,9 @@ def main():
         parser = argparse.ArgumentParser(
             description='Retrieves content from the Association Type SKOS vocabulary, converts it to the ISO 19115-1:2014 codelist XML format, and writes it to the file system.')
         parser.add_argument("-v", "--vSPARQL",
-                            help="Vocabulary SPARL endpoint (default is http://vocabs.ands.org.au/repository/api/sparql/ga_association-type_v1-0)",
+                            help="Vocabulary SPARL endpoint (default is http://vocabs.ands.org.au/repository/api/sparql/ga_association-type_v1-1)",
                             dest="vocab_sparql_endpoint",
-                            default="http://vocabs.ands.org.au/repository/api/sparql/ga_association-type_v1-0")
+                            default="http://vocabs.ands.org.au/repository/api/sparql/ga_association-type_v1-1")
         parser.add_argument("-o", "--outputDir",
                             help="Output directory for generated ISO 19115-1:2014 codelist XML file (default is current working directory)",
                             dest="outputDir",
