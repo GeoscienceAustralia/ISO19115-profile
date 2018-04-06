@@ -59,6 +59,7 @@ def get_associationTypes(vocab_sparql_endpoint):
             OPTIONAL {?associationType perl:source ?source} .
             ?associationType skos:definition ?definition .
         }
+        ORDER BY DESC(?source) ?associationType
     '''
     
     sparql = SPARQLWrapper(vocab_sparql_endpoint)

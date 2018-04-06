@@ -24,7 +24,7 @@
               <gco:CharacterString>Geoscience Australia profile codelist that constrains the ISO 19115-1:2014 srv:serviceType free text metadata element</gco:CharacterString>
            </cat:name>
            <cat:scope>
-              <gco:CharacterString>Version 1.0 of Geoscience Australia profile of ISO 19115-1:2014 standard</gco:CharacterString>
+              <gco:CharacterString>Geoscience Australia profile of ISO 19115-1:2014 standard</gco:CharacterString>
            </cat:scope>
            <cat:fieldOfApplication>
               <gco:CharacterString>ISO TC211 Metadata Standards</gco:CharacterString>

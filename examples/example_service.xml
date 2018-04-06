@@ -973,6 +973,13 @@
           <mrl:description>
             <gco:CharacterString>Source data not available.</gco:CharacterString>
           </mrl:description>
+          <mrl:sourceCitation>
+            <cit:CI_Citation>
+              <cit:title>
+                <gco:CharacterString>test</gco:CharacterString>
+              </cit:title>
+            </cit:CI_Citation>
+          </mrl:sourceCitation>
         </mrl:LI_Source>
       </mrl:source>
     </mrl:LI_Lineage>

@@ -16,7 +16,7 @@
 			
 		   <head>
 		      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		      <title> GA Profile codelist for protocol element in the Citation (cit) Namespace </title>
+		      <title> Geoscience Australia Profile codelist for protocol element in the Citation (cit) Namespace </title>
 		   </head>
 		   <body><a name="top"></a><h1>ISO 19115-3 Codelist Report</h1>
 		      <h2> Geoscience Australia Profile codelist for protocol element in the Citation (cit) Namespace </h2>

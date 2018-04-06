@@ -56,6 +56,7 @@ def get_online_function_codes(vocab_sparql_endpoint):
             OPTIONAL {?onlineFunctionCode perl:source ?source} .
             ?onlineFunctionCode skos:definition ?definition .
         }
+        ORDER BY DESC(?source) ?onlineFunctionCode
     """
 
     sparql = SPARQLWrapper(vocab_sparql_endpoint)

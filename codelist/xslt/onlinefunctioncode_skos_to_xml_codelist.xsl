@@ -21,10 +21,10 @@
            xsi:schemaLocation="http://standards.iso.org/iso/19115/-3/cat/1.0 http://standards.iso.org/iso/19115/-3/cat/1.0/cat.xsd">
            <!--=====Catalogue description=====-->
            <cat:name>
-              <gco:CharacterString>Geoscience Australia profile codelist of the ISO 19115-1:2014 CI_OnlineFunctionCode codelist</gco:CharacterString>
+              <gco:CharacterString>Geoscience Australia profile of the ISO 19115-1:2014 CI_OnlineFunctionCode codelist</gco:CharacterString>
            </cat:name>
            <cat:scope>
-              <gco:CharacterString>Version 1.0 of Geoscience Australia profile of ISO 19115-1:2014 standard</gco:CharacterString>
+              <gco:CharacterString>Geoscience Australia profile of ISO 19115-1:2014 standard</gco:CharacterString>
            </cat:scope>
            <cat:fieldOfApplication>
               <gco:CharacterString>ISO TC211 Metadata Standards</gco:CharacterString>

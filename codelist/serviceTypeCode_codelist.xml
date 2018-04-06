@@ -3,7 +3,7 @@
     <gco:CharacterString>Geoscience Australia profile codelist that constrains the ISO 19115-1:2014 srv:serviceType free text metadata element</gco:CharacterString>
   </cat:name>
   <cat:scope>
-    <gco:CharacterString>Version 1.0 of Geoscience Australia profile of ISO 19115-1:2014 standard</gco:CharacterString>
+    <gco:CharacterString>Geoscience Australia profile of ISO 19115-1:2014 standard</gco:CharacterString>
   </cat:scope>
   <cat:fieldOfApplication>
     <gco:CharacterString>ISO TC211 Metadata Standards</gco:CharacterString>
@@ -12,7 +12,7 @@
     <gco:CharacterString>see repository version</gco:CharacterString>
   </cat:versionNumber>
   <cat:versionDate>
-    <gco:Date>2018-03-21</gco:Date>
+    <gco:Date>2018-04-06</gco:Date>
   </cat:versionDate>
   <cat:locale>
     <lan:PT_Locale>
@@ -39,52 +39,12 @@
         <gco:CharacterString>type of service</gco:CharacterString>
       </cat:description>
       <cat:codeEntry>
-        <cat:CT_CodelistValue id="gapSV_ServiceTypeCode_ESRI:ArcIMS">
-          <cat:identifier>
-            <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">gapSV_ServiceTypeCode_ESRI:ArcIMS</gco:ScopedName>
-          </cat:identifier>
-          <cat:definition>
-            <gco:CharacterString>ESRI's ArcIMS Service</gco:CharacterString>
-          </cat:definition>
-        </cat:CT_CodelistValue>
-      </cat:codeEntry>
-      <cat:codeEntry>
-        <cat:CT_CodelistValue id="gapSV_ServiceTypeCode_OGC:CSW">
-          <cat:identifier>
-            <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">gapSV_ServiceTypeCode_OGC:CSW</gco:ScopedName>
-          </cat:identifier>
-          <cat:definition>
-            <gco:CharacterString>Open Geospatial Consortium's Catalogue Service for the Web (CSW)</gco:CharacterString>
-          </cat:definition>
-        </cat:CT_CodelistValue>
-      </cat:codeEntry>
-      <cat:codeEntry>
         <cat:CT_CodelistValue id="gapSV_ServiceTypeCode_ESRI:ArcGIS:GPServer">
           <cat:identifier>
             <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">gapSV_ServiceTypeCode_ESRI:ArcGIS:GPServer</gco:ScopedName>
           </cat:identifier>
           <cat:definition>
             <gco:CharacterString>ESRI's ArcGIS Geoprocessing Server</gco:CharacterString>
-          </cat:definition>
-        </cat:CT_CodelistValue>
-      </cat:codeEntry>
-      <cat:codeEntry>
-        <cat:CT_CodelistValue id="gapSV_ServiceTypeCode_W3C:HTML:DOWNLOAD">
-          <cat:identifier>
-            <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">gapSV_ServiceTypeCode_W3C:HTML:DOWNLOAD</gco:ScopedName>
-          </cat:identifier>
-          <cat:definition>
-            <gco:CharacterString>Download</gco:CharacterString>
-          </cat:definition>
-        </cat:CT_CodelistValue>
-      </cat:codeEntry>
-      <cat:codeEntry>
-        <cat:CT_CodelistValue id="gapSV_ServiceTypeCode_W3C:HTML:INFORMATION">
-          <cat:identifier>
-            <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">gapSV_ServiceTypeCode_W3C:HTML:INFORMATION</gco:ScopedName>
-          </cat:identifier>
-          <cat:definition>
-            <gco:CharacterString>HTML Information</gco:CharacterString>
           </cat:definition>
         </cat:CT_CodelistValue>
       </cat:codeEntry>
@@ -109,12 +69,22 @@
         </cat:CT_CodelistValue>
       </cat:codeEntry>
       <cat:codeEntry>
-        <cat:CT_CodelistValue id="gapSV_ServiceTypeCode_OPeNDAP:OPeNDAP">
+        <cat:CT_CodelistValue id="gapSV_ServiceTypeCode_ESRI:ArcIMS">
           <cat:identifier>
-            <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">gapSV_ServiceTypeCode_OPeNDAP:OPeNDAP</gco:ScopedName>
+            <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">gapSV_ServiceTypeCode_ESRI:ArcIMS</gco:ScopedName>
           </cat:identifier>
           <cat:definition>
-            <gco:CharacterString>Open-source Project for a Network Data Access Protocol (OPeNDAP) root URL</gco:CharacterString>
+            <gco:CharacterString>ESRI's ArcIMS Service</gco:CharacterString>
+          </cat:definition>
+        </cat:CT_CodelistValue>
+      </cat:codeEntry>
+      <cat:codeEntry>
+        <cat:CT_CodelistValue id="gapSV_ServiceTypeCode_OGC:CSW">
+          <cat:identifier>
+            <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">gapSV_ServiceTypeCode_OGC:CSW</gco:ScopedName>
+          </cat:identifier>
+          <cat:definition>
+            <gco:CharacterString>Open Geospatial Consortium's Catalogue Service for the Web (CSW)</gco:CharacterString>
           </cat:definition>
         </cat:CT_CodelistValue>
       </cat:codeEntry>
@@ -179,6 +149,16 @@
         </cat:CT_CodelistValue>
       </cat:codeEntry>
       <cat:codeEntry>
+        <cat:CT_CodelistValue id="gapSV_ServiceTypeCode_OPeNDAP:OPeNDAP">
+          <cat:identifier>
+            <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">gapSV_ServiceTypeCode_OPeNDAP:OPeNDAP</gco:ScopedName>
+          </cat:identifier>
+          <cat:definition>
+            <gco:CharacterString>Open-source Project for a Network Data Access Protocol (OPeNDAP) root URL</gco:CharacterString>
+          </cat:definition>
+        </cat:CT_CodelistValue>
+      </cat:codeEntry>
+      <cat:codeEntry>
         <cat:CT_CodelistValue id="gapSV_ServiceTypeCode_REST">
           <cat:identifier>
             <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">gapSV_ServiceTypeCode_REST</gco:ScopedName>
@@ -189,22 +169,42 @@
         </cat:CT_CodelistValue>
       </cat:codeEntry>
       <cat:codeEntry>
-        <cat:CT_CodelistValue id="gapSV_ServiceTypeCode_W3C:SPARQL">
-          <cat:identifier>
-            <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">gapSV_ServiceTypeCode_W3C:SPARQL</gco:ScopedName>
-          </cat:identifier>
-          <cat:definition>
-            <gco:CharacterString>W3C's SPARQL service</gco:CharacterString>
-          </cat:definition>
-        </cat:CT_CodelistValue>
-      </cat:codeEntry>
-      <cat:codeEntry>
         <cat:CT_CodelistValue id="gapSV_ServiceTypeCode_UKST">
           <cat:identifier>
             <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">gapSV_ServiceTypeCode_UKST</gco:ScopedName>
           </cat:identifier>
           <cat:definition>
             <gco:CharacterString>Unknown service type</gco:CharacterString>
+          </cat:definition>
+        </cat:CT_CodelistValue>
+      </cat:codeEntry>
+      <cat:codeEntry>
+        <cat:CT_CodelistValue id="gapSV_ServiceTypeCode_W3C:HTML:DOWNLOAD">
+          <cat:identifier>
+            <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">gapSV_ServiceTypeCode_W3C:HTML:DOWNLOAD</gco:ScopedName>
+          </cat:identifier>
+          <cat:definition>
+            <gco:CharacterString>Download</gco:CharacterString>
+          </cat:definition>
+        </cat:CT_CodelistValue>
+      </cat:codeEntry>
+      <cat:codeEntry>
+        <cat:CT_CodelistValue id="gapSV_ServiceTypeCode_W3C:HTML:INFORMATION">
+          <cat:identifier>
+            <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">gapSV_ServiceTypeCode_W3C:HTML:INFORMATION</gco:ScopedName>
+          </cat:identifier>
+          <cat:definition>
+            <gco:CharacterString>HTML Information</gco:CharacterString>
+          </cat:definition>
+        </cat:CT_CodelistValue>
+      </cat:codeEntry>
+      <cat:codeEntry>
+        <cat:CT_CodelistValue id="gapSV_ServiceTypeCode_W3C:SPARQL">
+          <cat:identifier>
+            <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">gapSV_ServiceTypeCode_W3C:SPARQL</gco:ScopedName>
+          </cat:identifier>
+          <cat:definition>
+            <gco:CharacterString>W3C's SPARQL service</gco:CharacterString>
           </cat:definition>
         </cat:CT_CodelistValue>
       </cat:codeEntry>

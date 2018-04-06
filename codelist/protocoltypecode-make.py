@@ -55,6 +55,7 @@ def get_protocol_types(vocab_sparql_endpoint):
             OPTIONAL {?protocolType perl:source ?source} .
             OPTIONAL {?protocolType skos:definition ?definition}
         }
+        ORDER BY ?altLabel
     """
 
     sparql = SPARQLWrapper(vocab_sparql_endpoint)

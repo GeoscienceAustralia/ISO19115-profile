@@ -55,6 +55,7 @@ def get_service_types(vocab_sparql_endpoint):
             OPTIONAL {?serviceType perl:source ?source} .
             OPTIONAL {?serviceType skos:definition ?definition} .
         }
+        ORDER BY ?altLabel
     """
 
     sparql = SPARQLWrapper(vocab_sparql_endpoint)
