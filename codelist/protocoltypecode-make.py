@@ -21,9 +21,9 @@ import lxml.etree as ET
 import argparse
 from bs4 import BeautifulSoup
 
-os.environ["HTTP_PROXY"] = "http://sun-web-intdev.ga.gov.au:2710"
-os.environ["HTTPS_PROXY"] = "https://sun-web-intdev.ga.gov.au:2710"
-os.environ["no_proxy"] = "localhost, services.ga.gov.au, intranet.ga.gov.au, np.ga.gov.au, www.ga.gov.au"
+# os.environ["HTTP_PROXY"] = "http://sun-web-intdev.ga.gov.au:2710"
+# os.environ["HTTPS_PROXY"] = "https://sun-web-intdev.ga.gov.au:2710"
+# os.environ["no_proxy"] = "localhost, services.ga.gov.au, intranet.ga.gov.au, np.ga.gov.au, www.ga.gov.au"
 
 # Set handler for root logger to standard output if no handler exists
 if not logging.root.handlers:
@@ -163,7 +163,7 @@ def main():
     protocol_types_iso_codelist_html_string = transform_to_html_codelist(protocol_types_sparql_xml_string)
 
     # Write ISO 19115-1 codelist to current directory
-    with open("protocolTypeCode_codelist.xml", "w") as text_file:
+    with open("protocolTypeCode_codelist.xml", "wb") as text_file:
         text_file.write(protocol_types_iso_codelist_xml_string)
     logger.info("Output written to {}".format(os.path.join(os.getcwd(), text_file.name)))
     with open("protocolTypeCode_codelist.html", "w") as text_file:

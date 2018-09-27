@@ -163,7 +163,7 @@ def main():
     service_types_iso_codelist_html_string = transform_to_html_codelist(service_types_sparql_xml_string)
 
     # Write ISO 19115-1 codelist to current directory
-    with open("serviceTypeCode_codelist.xml", "w") as text_file:
+    with open("serviceTypeCode_codelist.xml", "wb") as text_file:
         text_file.write(service_types_iso_codelist_xml_string)
     logger.info("Output written to {}".format(os.path.join(os.getcwd(), text_file.name)))
     with open("serviceTypeCode_codelist.html", "w") as text_file:

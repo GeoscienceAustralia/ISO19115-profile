@@ -165,7 +165,7 @@ def main():
     associationTypes_iso_codelist_html_string = transform_to_html_codelist(associationTypes_sparql_xml_string)
     
     # Write ISO 19115-1 codelist
-    with open(os.path.join(args.outputDir, "assocTypeCode_codelist.xml"), "w") as text_file:
+    with open(os.path.join(args.outputDir, "assocTypeCode_codelist.xml"), "wb") as text_file:
         text_file.write(associationTypes_iso_codelist_xml_string)
     logger.info("Output written to {}".format(os.path.join(args.outputDir, text_file.name)))
     with open(os.path.join(args.outputDir, "assocTypeCode_codelist.html"), "w") as text_file:

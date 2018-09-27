@@ -146,7 +146,7 @@
         <gco:DateTime>2017-12-06T02:52:40</gco:DateTime>
       </cit:date>
       <cit:dateType>
-        <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="revision"/>
+        <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="creation"/>
       </cit:dateType>
     </cit:CI_Date>
   </mdb:dateInfo>
@@ -623,7 +623,7 @@
             </cit:CI_Citation>
           </mco:reference>
           <mco:accessConstraints>
-            <mco:MD_RestrictionCode codeList="blah" codeListValue="blah"></mco:MD_RestrictionCode>
+            <mco:MD_RestrictionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_RestrictionCode" codeListValue="licence"></mco:MD_RestrictionCode>
           </mco:accessConstraints>
           <mco:useConstraints>
             <mco:MD_RestrictionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_RestrictionCode" codeListValue="licence">licence</mco:MD_RestrictionCode>
@@ -656,7 +656,7 @@
         </mri:MD_AssociatedResource>
       </mri:associatedResource>
       <srv:serviceType xsi:type="gapm:gapMD_ServiceTypeCode_PropertyType" codeList="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/serviceTypeCode_codelist.xml#gapSV_ServiceTypeCode" codeListValue="OGC:WMS">
-        <gco:ScopedName>WMS</gco:ScopedName>
+        <gco:ScopedName>OGC:WMS</gco:ScopedName>
       </srv:serviceType>
       <srv:serviceTypeVersion>
         <gco:CharacterString>1.3.0</gco:CharacterString>
@@ -924,7 +924,7 @@
                 <gco:CharacterString>http://services.ga.gov.au/gis/services/DEM_LiDAR_25m/MapServer/WMSServer?request=GetCapabilities&amp;service=WMS</gco:CharacterString>
               </cit:linkage>
               <cit:protocol xsi:type="gapm:gapCI_ProtocolTypeCode_PropertyType" codeList="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/protocolTypeCode_codelist.xml#gapCI_ProtocolTypeCode" codeListValue="OGC:WMS">
-                <gco:CharacterString>WMS</gco:CharacterString>
+                <gco:CharacterString>OGC:WMS</gco:CharacterString>
               </cit:protocol>
               <cit:name>
                 <gco:CharacterString>Digital Elevation Model (DEM) of Australia derived from LiDAR 25 Metre Grid - WMS</gco:CharacterString>

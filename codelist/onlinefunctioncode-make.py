@@ -164,7 +164,7 @@ def main():
     online_function_codes_iso_codelist_html_string = transform_to_html_codelist(online_function_codes_sparql_xml_string)
 
     # Write ISO 19115-1 codelist to current directory
-    with open("onlineFunctionCode_codelist.xml", "w") as text_file:
+    with open("onlineFunctionCode_codelist.xml", "wb") as text_file:
         text_file.write(online_function_codes_iso_codelist_xml_string)
     logger.info("Output written to {}".format(os.path.join(args.outputDir, text_file.name)))
     with open(os.path.join(args.outputDir, "onlineFunctionCode_codelist.html"), "w") as text_file:
