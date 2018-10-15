@@ -55,21 +55,21 @@ DATE            VERSION     AUTHOR              DESCRIPTION
         </sch:rule>
     </sch:pattern>
 	
-	<!-- =================================================================================================================== -->
-	<!-- Assert that parentMetadata element is conditionally present if MD_MetadataScope/resourceScope is one of             -->
-	<!-- "feature", "featureType", "attribute" or "attributeType"                                                            -->
-	<!-- See section 2.7.2 'Metadata Extension for "parentMetadata"' of the Geoscience Australia Profile of ISO 19115-1:2014 -->
-	<!-- =================================================================================================================== -->
-	<sch:pattern id="rule.ga.mdb.metadataparentpresent">
-	    <sch:title>Metadata record must have a metadata parent if resource scope is one of 'feature', 'featureType', 'attribute' or 'attributeType'.</sch:title>
-		
-		<sch:rule context="/mdb:MD_Metadata[mdb:metadataScope/mdb:MD_MetadataScope/mdb:resourceScope/mcc:MD_ScopeCode[@codeListValue='feature' or @codeListValue='featureType' or @codeListValue='attribute' or @codeListValue='attributeType']]">
-			<sch:let name="scopeCode" value="mdb:metadataScope/mdb:MD_MetadataScope/mdb:resourceScope/mcc:MD_ScopeCode/@codeListValue"/>
-			
-		    <sch:assert test="count(mdb:parentMetadata/cit:CI_Citation/*)>0">The metadata record does not have metadata parent information, required when resource scope is '<sch:value-of select="normalize-space($scopeCode)"/>'.</sch:assert>
-		    <sch:report test="count(mdb:parentMetadata/cit:CI_Citation/*)>0">The metadata record has metadata parent information.</sch:report>
-		</sch:rule>
-	</sch:pattern>
+    <!-- =================================================================================================================== -->
+    <!-- Assert that parentMetadata element is conditionally present if MD_MetadataScope/resourceScope is one of             -->
+    <!-- "feature", "featureType", "attribute" or "attributeType"                                                            -->
+    <!-- See section 2.7.2 'Metadata Extension for "parentMetadata"' of the Geoscience Australia Profile of ISO 19115-1:2014 -->
+    <!-- =================================================================================================================== -->
+    <sch:pattern id="rule.ga.mdb.metadataparentpresent">
+        <sch:title>Metadata record must have a metadata parent if resource scope is one of 'feature', 'featureType', 'attribute' or 'attributeType'.</sch:title>
+
+        <sch:rule context="/mdb:MD_Metadata[mdb:metadataScope/mdb:MD_MetadataScope/mdb:resourceScope/mcc:MD_ScopeCode[@codeListValue='feature' or @codeListValue='featureType' or @codeListValue='attribute' or @codeListValue='attributeType']]">
+            <sch:let name="scopeCode" value="mdb:metadataScope/mdb:MD_MetadataScope/mdb:resourceScope/mcc:MD_ScopeCode/@codeListValue"/>
+
+            <sch:assert test="count(mdb:parentMetadata/cit:CI_Citation/*)>0">The metadata record does not have metadata parent information, required when resource scope is '<sch:value-of select="normalize-space($scopeCode)"/>'.</sch:assert>
+            <sch:report test="count(mdb:parentMetadata/cit:CI_Citation/*)>0">The metadata record has metadata parent information.</sch:report>
+        </sch:rule>
+    </sch:pattern>
 
     <!-- ============================================================================================================================= -->
     <!-- Assert that Parent Metadata has the required descendent identifier element.                                                   -->
