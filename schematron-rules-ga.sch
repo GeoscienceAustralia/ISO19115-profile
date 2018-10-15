@@ -5,7 +5,7 @@
 This Schematron provides validation of constraints imposed by the Geoscience Australia Profile of ISO 19115-1:2014
 (see http://pid.geoscience.gov.au/dataset/ga/122551).
     
-This script was developed by Geoscience Australia in March 2018.
+This script was developed by Geoscience Australia, initial version March 2018.
 =====================================================================================================================
 History:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
