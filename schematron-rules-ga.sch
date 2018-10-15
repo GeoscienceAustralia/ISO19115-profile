@@ -37,9 +37,9 @@ DATE            VERSION     AUTHOR              DESCRIPTION
     <sch:ns prefix="xsi" uri="http://www.w3.org/2001/XMLSchema"/>
 
 
-	<!-- ======================================================================================================================= -->
+    <!-- ======================================================================================================================= -->
     <!-- Assert that metadataIdentifier is present                                                                               -->
-	<!-- See section 2.7.1 'Metadata Extension for "metadataIdentifier"' of the Geoscience Australia Profile of ISO 19115-1:2014 -->
+    <!-- See section 2.7.1 'Metadata Extension for "metadataIdentifier"' of the Geoscience Australia Profile of ISO 19115-1:2014 -->
     <!-- ======================================================================================================================= -->
     <sch:pattern id="rule.ga.mdb.metadataidentifierpresent">
     	<sch:title>Metadata record must have an identifier.</sch:title>
@@ -315,7 +315,7 @@ DATE            VERSION     AUTHOR              DESCRIPTION
 
     <!-- ===================================================================================================================== -->
     <!-- Assert that at least one of Resource Format or Distribution Format is present.                                        -->
-	<!-- See following sections of the Geoscience Australia Profile of ISO 19115-1:2014:                                       -->
+    <!-- See following sections of the Geoscience Australia Profile of ISO 19115-1:2014:                                       -->
     <!--        2.7.19 'Metadata extension for "resourceFormat"'                                                               -->
     <!--        2.7.20 'Metadata extension for "distributionFormat"'                                                           -->
     <!-- ===================================================================================================================== -->
