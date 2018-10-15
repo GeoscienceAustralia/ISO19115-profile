@@ -9,9 +9,9 @@ This script was developed by Geoscience Australia in March 2018.
 =====================================================================================================================
 History:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-DATE			VERSION		AUTHOR				DESCRIPTION
+DATE            VERSION     AUTHOR              DESCRIPTION
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-2018-03-30		0.1			Aaron Sedgmen		Initial Version.
+2018-03-30      0.1         Aaron Sedgmen       Initial Version.
 2018-09-26      1.0         Aaron Sedgmen       Revision based on finalisation of the GA Profile
 ===================================================================================================================== -->
 	
@@ -57,7 +57,7 @@ DATE			VERSION		AUTHOR				DESCRIPTION
 	
 	<!-- =================================================================================================================== -->
 	<!-- Assert that parentMetadata element is conditionally present if MD_MetadataScope/resourceScope is one of             -->
-	<!-- “feature”, “featureType”, “attribute” or “attributeType”                                                               -->
+	<!-- "feature", "featureType", "attribute" or "attributeType"                                                            -->
 	<!-- See section 2.7.2 'Metadata Extension for "parentMetadata"' of the Geoscience Australia Profile of ISO 19115-1:2014 -->
 	<!-- =================================================================================================================== -->
 	<sch:pattern id="rule.ga.mdb.metadataparentpresent">
@@ -73,7 +73,7 @@ DATE			VERSION		AUTHOR				DESCRIPTION
 
     <!-- ============================================================================================================================= -->
     <!-- Assert that Parent Metadata has the required descendent identifier element.                                                   -->
-    <!-- See section 2.7.3 'Metadata extension for “identifier” (parent)' of the Geoscience Australia Profile of ISO 19115-1:2014       -->
+    <!-- See section 2.7.3 'Metadata extension for "identifier" (parent)' of the Geoscience Australia Profile of ISO 19115-1:2014      -->
     <!-- ============================================================================================================================= -->
     <sch:pattern id="rule.ga.mdb.metadataparentidentifierpresent">
         <sch:title>Metadata parent must have an identifier.</sch:title>
@@ -91,7 +91,7 @@ DATE			VERSION		AUTHOR				DESCRIPTION
 
     <!-- =============================================================================================================================== -->
     <!-- Assert that Resource Identification has the required descendant identifier element.                                             -->
-    <!-- See section 2.7.4 'Metadata extension for “identifier” (resource)' of the Geoscience Australia Profile of ISO 19115-1:2014       -->
+    <!-- See section 2.7.4 'Metadata extension for "identifier" (resource)' of the Geoscience Australia Profile of ISO 19115-1:2014      -->
     <!-- =============================================================================================================================== -->
     <sch:pattern id="rule.ga.mdb.resourceidentifierpresent">
         <sch:title>Resource identification information must have an identifier.</sch:title>
@@ -108,7 +108,7 @@ DATE			VERSION		AUTHOR				DESCRIPTION
     <!-- =============================================================================================================================== -->
     <!-- Assert that Constraints (MD_Constraints element, and its MD_SecurityConstraint and MD_LegalConstraint specialisations), for     -->
     <!-- both the Resource Identification and Metadata, have the required descendent reference element.                                  -->
-    <!-- See section 2.7.5 'Metadata extension for “reference”' of the Geoscience Australia Profile of ISO 19115-1:2014                   -->
+    <!-- See section 2.7.5 'Metadata extension for "reference"' of the Geoscience Australia Profile of ISO 19115-1:2014                  -->
     <!-- =============================================================================================================================== -->
     <sch:pattern id="rule.ga.mdb.constraintreferencepresent">
         <sch:title>Reference information is mandatory for constraints, including security constraints and legal constraints.</sch:title>
@@ -123,7 +123,7 @@ DATE			VERSION		AUTHOR				DESCRIPTION
 
     <!-- =============================================================================================================================== -->
     <!-- Assert that Metadata has the required descendant MD_SecurityConstraints element.                                                -->
-    <!-- See section 2.7.6 'Metadata extension for “metadataConstraints”' of the Geoscience Australia Profile of ISO 19115-1:2014         -->
+    <!-- See section 2.7.6 'Metadata extension for "metadataConstraints"' of the Geoscience Australia Profile of ISO 19115-1:2014        -->
     <!-- =============================================================================================================================== -->
     <sch:pattern id="rule.ga.mdb.metadatasecurityconstraintpresent">
         <sch:title>Metadata record must have a security constraint.</sch:title>
@@ -136,7 +136,7 @@ DATE			VERSION		AUTHOR				DESCRIPTION
 
     <!-- ========================================================================================================================== -->
     <!-- Assert that Resource Identification has the required descendant pointOfContact element.                                    -->
-    <!-- See section 2.7.7 'Metadata extension for “pointOfContact”' of the Geoscience Australia Profile of ISO 19115-1:2014         -->
+    <!-- See section 2.7.7 'Metadata extension for "pointOfContact"' of the Geoscience Australia Profile of ISO 19115-1:2014        -->
     <!-- ========================================================================================================================== -->
     <sch:pattern id="rule.ga.mri.pointofcontact">
         <sch:title>Resource identification information must have a point of contact.</sch:title>
@@ -150,7 +150,7 @@ DATE			VERSION		AUTHOR				DESCRIPTION
 
     <!-- =========================================================================================================================== -->
     <!-- Assert that Resource Identification has the required descendant resourceMaintenance element.                                -->
-    <!-- See section 2.7.8 'Metadata extension for “resourceMaintenance”' of the Geoscience Australia Profile of ISO 19115-1:2014     -->
+    <!-- See section 2.7.8 'Metadata extension for "resourceMaintenance"' of the Geoscience Australia Profile of ISO 19115-1:2014    -->
     <!-- =========================================================================================================================== -->
     <sch:pattern id="rule.ga.mmi.maintenanceinformation">
         <sch:title>Resource identification information must have maintenance information.</sch:title>
@@ -164,7 +164,7 @@ DATE			VERSION		AUTHOR				DESCRIPTION
 
     <!-- ===================================================================================================================================== -->
     <!-- Assert that Resource Identification Maintenance Information has the required maintenanceAndUpdateFrequency element.                   -->
-    <!-- See section 2.7.9 'Metadata extension for “maintenanceAndUpdateFrequency”' of the Geoscience Australia Profile of ISO 19115-1:2014     -->
+    <!-- See section 2.7.9 'Metadata extension for "maintenanceAndUpdateFrequency"' of the Geoscience Australia Profile of ISO 19115-1:2014    -->
     <!-- ===================================================================================================================================== -->
     <sch:pattern id="rule.ga.mmi.maintenanceupdatefrequency">
         <sch:title>Maintenance information in the resource identification must have a maintenance and update frequency.</sch:title>
@@ -178,7 +178,7 @@ DATE			VERSION		AUTHOR				DESCRIPTION
     
     <!-- =============================================================================================================================== -->
     <!-- Assert that Resource Identification has the required descendant MD_LegalConstraints and MD_SecurityConstraints elements.        -->
-    <!-- See section 2.7.10 'Metadata extension for “metadataConstraints”' of the Geoscience Australia Profile of ISO 19115-1:2014        -->
+    <!-- See section 2.7.10 'Metadata extension for "metadataConstraints"' of the Geoscience Australia Profile of ISO 19115-1:2014       -->
     <!-- =============================================================================================================================== -->
     <sch:pattern id="rule.ga.mri.resourcesecurityconstraintpresent">
         <sch:title>Resource identification information must have a security constraint.</sch:title>
@@ -202,7 +202,7 @@ DATE			VERSION		AUTHOR				DESCRIPTION
 
     <!-- ================================================================================================================================== -->
     <!-- Assert that Resource Identification Legal Constraints has the required descendant accessConstraints element.                       -->
-    <!-- See section 2.7.11 'Metadata extension for “accessConstraints”' of the Geoscience Australia Profile of ISO 19115-1:2014             -->
+    <!-- See section 2.7.11 'Metadata extension for "accessConstraints"' of the Geoscience Australia Profile of ISO 19115-1:2014            -->
     <!-- ================================================================================================================================== -->
     <sch:pattern id="rule.ga.mco.resourcelegalaccesconstraintpresent">
         <sch:title>Legal constraint in the resource identification information must have an access constraint.</sch:title>
@@ -216,7 +216,7 @@ DATE			VERSION		AUTHOR				DESCRIPTION
     
     <!-- ================================================================================================================================== -->
     <!-- Assert that Resource Identification Legal Constraints has the required descendant useConstraints element.                          -->
-    <!-- See section 2.7.12 'Metadata extension for “useConstraints”' of the Geoscience Australia Profile of ISO 19115-1:2014                -->
+    <!-- See section 2.7.12 'Metadata extension for "useConstraints"' of the Geoscience Australia Profile of ISO 19115-1:2014               -->
     <!-- ================================================================================================================================== -->
     <sch:pattern id="rule.ga.mco.resourcelegaluseconstraintpresent">
         <sch:title>Legal constraint in the resource identification information must have a use constraint.</sch:title>
@@ -229,7 +229,7 @@ DATE			VERSION		AUTHOR				DESCRIPTION
 
     <!-- ===================================================================================================================== -->
     <!-- Assert that Resource Identification has the required descendant topicCategory element.                                -->
-    <!-- See section 2.7.13 'Metadata extension for “topicCategory”' of the Geoscience Australia Profile of ISO 19115-1:2014    -->
+    <!-- See section 2.7.13 'Metadata extension for "topicCategory"' of the Geoscience Australia Profile of ISO 19115-1:2014   -->
     <!-- ===================================================================================================================== -->
     <sch:pattern id="rule.ga.mri.topiccategorypresent">
         <sch:title>Resource identification information must have a topic category.</sch:title>
@@ -241,9 +241,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
     </sch:pattern>
     
     <!-- ======================================================================================================================== -->
-    <!-- Assert that Resource Identification has at least one of “geographicExtent“, “temporalExtent“ or “verticalExtent“           -->
+    <!-- Assert that Resource Identification has at least one of "geographicExtent", "temporalExtent" or "verticalExtent"         -->
     <!-- extent types if resource scope is 'dataset'.                                                                             -->
-    <!-- See section 2.7.14 'Metadata extension for “extent”' of the Geoscience Australia Profile of ISO 19115-1:2014              -->
+    <!-- See section 2.7.14 'Metadata extension for "extent"' of the Geoscience Australia Profile of ISO 19115-1:2014             -->
     <!-- ======================================================================================================================== -->
     <sch:pattern id="rule.ga.gex.extentpresent">
         <sch:title>Resource identification information must have at least one of 'geographicExtent', 'temporalExtent' or 'verticalExtent' extent types if metadataScope is 'dataset'.</sch:title>
@@ -259,7 +259,7 @@ DATE			VERSION		AUTHOR				DESCRIPTION
     
     <!-- ========================================================================================================================= -->
     <!-- Assert that Resource Identification has Reference System Information if resource scope is 'dataset'.                      -->
-    <!-- See section 2.7.15 'Metadata extension for “referenceSystemInfo”' of the Geoscience Australia Profile of ISO 19115-1:2014  -->
+    <!-- See section 2.7.15 'Metadata extension for "referenceSystemInfo"' of the Geoscience Australia Profile of ISO 19115-1:2014 -->
     <!-- ========================================================================================================================= -->
     <sch:pattern id="rule.ga.mdb.referencesysteminfopresent">
         <sch:title>Metadata record must have reference system information if resourceScope is 'dataset'.</sch:title>
@@ -275,7 +275,7 @@ DATE			VERSION		AUTHOR				DESCRIPTION
 
     <!-- ========================================================================================================================= -->
     <!-- Assert that Resource Identification has at least one descriptive keyword.                                                 -->
-    <!-- See section 2.7.16 'Metadata extension for “descriptiveKeywords”' of the Geoscience Australia Profile of ISO 19115-1:2014  -->
+    <!-- See section 2.7.16 'Metadata extension for "descriptiveKeywords"' of the Geoscience Australia Profile of ISO 19115-1:2014 -->
     <!-- ========================================================================================================================= -->
     <sch:pattern id="rule.ga.mri.descriptivekeywordpresent">
         <sch:title>Resource identification information must have at least one descriptive keyword.</sch:title>
@@ -289,7 +289,7 @@ DATE			VERSION		AUTHOR				DESCRIPTION
 
     <!-- ========================================================================================================================= -->
     <!-- Assert that Resource Lineage information is present.                                                                      -->
-    <!-- See section 2.7.17 'Metadata extension for “resourceLineage”' of the Geoscience Australia Profile of ISO 19115-1:2014      -->
+    <!-- See section 2.7.17 'Metadata extension for "resourceLineage"' of the Geoscience Australia Profile of ISO 19115-1:2014     -->
     <!-- ========================================================================================================================= -->
     <sch:pattern id="rule.ga.mrl.resourcelineagepresent">
         <sch:title>Metadata record must have resource lineage information.</sch:title>
@@ -302,7 +302,7 @@ DATE			VERSION		AUTHOR				DESCRIPTION
 
     <!-- =================================================================================================================== -->
     <!-- Assert that Resource Lineage has the required descendant statement element.                                         -->
-    <!-- See section 2.7.18 'Metadata extension for “statement”' of the Geoscience Australia Profile of ISO 19115-1:2014      -->
+    <!-- See section 2.7.18 'Metadata extension for "statement"' of the Geoscience Australia Profile of ISO 19115-1:2014     -->
     <!-- =================================================================================================================== -->
     <sch:pattern id="rule.ga.mrl.resourcelineagestatementpresent">
         <sch:title>Resource lineage information must include a statement.</sch:title>
@@ -316,8 +316,8 @@ DATE			VERSION		AUTHOR				DESCRIPTION
     <!-- ===================================================================================================================== -->
     <!-- Assert that at least one of Resource Format or Distribution Format is present.                                        -->
 	<!-- See following sections of the Geoscience Australia Profile of ISO 19115-1:2014:                                       -->
-    <!--        2.7.19 'Metadata extension for “resourceFormat”'                                                                -->
-    <!--        2.7.20 'Metadata extension for “distributionFormat”'                                                            -->
+    <!--        2.7.19 'Metadata extension for "resourceFormat"'                                                               -->
+    <!--        2.7.20 'Metadata extension for "distributionFormat"'                                                           -->
     <!-- ===================================================================================================================== -->
     <sch:pattern id="rule.ga.mri.resourceanddistributionformat">
         <sch:title>At least one of resource format in resource identification information, or distribution format in distribution information must exist.</sch:title>
