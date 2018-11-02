@@ -648,8 +648,8 @@
    <mdb:resourceLineage xmlns:gmw="http://standards.iso.org/iso/19115/-3/gmw/1.0"
       xmlns:geonet="http://www.fao.org/geonetwork">
       <mrl:LI_Lineage>
-         <mrl:statement gco:nilReason="missing">
-            <gco:CharacterString/>
+         <mrl:statement>
+            <gco:CharacterString>test</gco:CharacterString>
          </mrl:statement>
          <mrl:scope>
             <mcc:MD_Scope>

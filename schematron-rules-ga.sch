@@ -323,7 +323,7 @@ DATE            VERSION     AUTHOR              DESCRIPTION
         <sch:title>At least one of resource format in resource identification information, or distribution format in distribution information must exist.</sch:title>
         
         <sch:rule context="/mdb:MD_Metadata">
-            <sch:assert test="count(//mri:resourceFormat)>0 or count(//mrd:distributionFormat)>0">Resource format and distribution format are not present.</sch:assert>
+            <sch:assert test="count(//mri:resourceFormat)>0 or count(//mrd:distributionFormat)>0">Resource format and distribution format are not present, at least one is required.</sch:assert>
             <sch:report test="count(//mri:resourceFormat)>0 or count(//mrd:distributionFormat)>0">One of, or both resource format and distribution format are present.</sch:report>
         </sch:rule>
     </sch:pattern>
