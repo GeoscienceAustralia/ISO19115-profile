@@ -19,12 +19,12 @@ Following are the ISO 19115-1:2014 elements that have been extended by the GA pr
 | parentMetadata | identification of the parent metadata record |  Conditional -> Conditional (changed condition) |
 | referenceSystemInfo | description of the spatial and temporal reference systems used in the resource | Optional -> Conditional |
 | metadataConstraints | restrictions on the access and use of metadata | Optional -> Mandatory |
-| metadataScope | the scope/type of resource for which metadata is provided  | Conditional -> Mandatory |
 | resourceLineage | information about the provenance, source(s), and/or the production process(es) applied to the resource | Optional -> Mandatory |
 
 ##### Identification information (MD_Identification)
 | Name | Definition | Change from ISO 19115-1 |
 | --- | --- | --- |
+| (CI_Citation) identifier | value uniquely identifying an object within a namespace | Optional -> Mandatory |
 | pointOfContact | identification of, and means of communication with, person(s) and organization(s) associated with the resource(s) | Optional -> Mandatory |
 | topicCategory | main theme(s) of the resource | Conditional -> Mandatory |
 | resourceMaintenance | information about the frequency of resource updates, and the scope of those updates | Optional -> Mandatory |
@@ -36,12 +36,13 @@ Following are the ISO 19115-1:2014 elements that have been extended by the GA pr
 | Name | Definition | Change from ISO 19115-1 |
 | --- | --- | --- |
 | reference | citation for the limitation or constraint, example: Copyright statement, licence agreement, etc. | Optional -> Mandatory |
+| (MD_LegalConstraints) accessConstraints | access constraints applied to assure the protection of privacy or intellectual property, and any special restrictions or limitations on obtaining the resource or metadata | Conditional -> Conditional (changed condition) |
+| (MD_LegalConstraints) useConstraints | constraints applied to assure the protection of privacy or intellectual property, and any special restrictions or limitations or warnings on using the resource or metadata | Conditional -> Conditional (changed condition) |
 
 ##### Lineage information (LI_Lineage)
 | Name | Definition | Change from ISO 19115-1 |
 | --- | --- | --- |
 | statement | general explanation of the data producer’s knowledge about the lineage of a dataset | Optional -> Mandatory |
-| source | information about the source data used in creating the data specified by the scope | Conditional -> Mandatory |
 
 ##### Distribution information (MD_Distribution)
 | Name | Definition | Change from ISO 19115-1 |
