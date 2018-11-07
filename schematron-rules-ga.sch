@@ -13,6 +13,7 @@ DATE            VERSION     AUTHOR              DESCRIPTION
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2018-03-30      0.1         Aaron Sedgmen       Initial Version.
 2018-09-26      1.0         Aaron Sedgmen       Revision based on finalisation of the GA Profile
+2018-11-07      1.1         Aaron Sedgmen       Implemented rules for protocol and service type codelist extensions
 ===================================================================================================================== -->
 	
     <sch:ns prefix="gml" uri="http://www.opengis.net/gml/3.2"/>
@@ -325,6 +326,71 @@ DATE            VERSION     AUTHOR              DESCRIPTION
         <sch:rule context="/mdb:MD_Metadata">
             <sch:assert test="count(//mri:resourceFormat)>0 or count(//mrd:distributionFormat)>0">Resource format and distribution format are not present, at least one is required.</sch:assert>
             <sch:report test="count(//mri:resourceFormat)>0 or count(//mrd:distributionFormat)>0">One of, or both resource format and distribution format are present.</sch:report>
+        </sch:rule>
+    </sch:pattern>
+
+    <!-- ===================================================================================================================== -->
+    <!-- Assert that the online resource protocol element is extended by the GA Profile XML Schema extension that constrains   -->
+    <!-- the element to a codelist.                                                                                            -->
+    <!-- See section B.3.9 'ProtocolType <<CodeList>>'                                                                         -->
+    <!-- ===================================================================================================================== -->
+    <sch:pattern id="rule.ga.cit.protocolextendedforcodelist">
+        <sch:title>Online resource protocol must be extended by the GA Profile XML Schema that constrain the element to a codelist.</sch:title>
+        
+        <sch:rule context="//cit:CI_OnlineResource/cit:protocol">
+            
+            <sch:let name="hasTypeExtension" value="count (@*[local-name()='type' and namespace-uri()='http://www.w3.org/2001/XMLSchema-instance' and .='gapm:gapCI_ProtocolTypeCode_PropertyType'])"/>
+
+            <sch:assert test="$hasTypeExtension">Online resource protocol is not extended by the GA Profile XML Schema extension to constrain it to a codelist.</sch:assert>
+            <sch:report test="$hasTypeExtension">Online resource protocol is extended by the GA Profile XML Schema extension to constrain it to a codelist.</sch:report>
+        </sch:rule>
+    </sch:pattern>
+    
+    <!-- ===================================================================================================================================== -->
+    <!-- Assert that the online resource protocol element extended by the GA Profile XML Schema uses the GA Profile protocolTypeCode codelist. -->
+    <!-- See section B.3.9 'ProtocolType <<CodeList>>'                                                                                         -->
+    <!-- ===================================================================================================================================== -->
+    <sch:pattern id="rule.ga.cit.protocolcodelist">
+        <sch:title>Online resource protocol must use the GA Profile protocol type codelist.</sch:title>
+        
+        <sch:rule context="//cit:CI_OnlineResource/cit:protocol[@*[local-name()='type' and namespace-uri()='http://www.w3.org/2001/XMLSchema-instance' and .='gapm:gapCI_ProtocolTypeCode_PropertyType']]">
+            
+            <sch:let name="hasProtocolTypeCodeCodelist" value="count (@*[local-name()='codeList' and .='http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/protocolTypeCode_codelist.xml#gapCI_ProtocolTypeCode'])"/>
+            
+            <sch:assert test="$hasProtocolTypeCodeCodelist">Online resource protocol does not use to the GA Profile protocolTypeCode codelist, as defined by the codeList attribute in the cit:protocol element.</sch:assert>           
+            <sch:report test="$hasProtocolTypeCodeCodelist">Online resource protocol uses the GA Profile protocolTypeCode codelist, as defined by the codeList attribute in the cit:protocol element.</sch:report>
+        </sch:rule>
+    </sch:pattern>
+    
+    <!-- ================================================================================================================================== -->
+    <!-- Assert that the service type element is extended by the GA Profile XML Schema extension that constrains the element to a codelist. -->
+    <!-- See section B.3.11 'ServiceType <<CodeList>>'                                                                                      -->
+    <!-- ================================================================================================================================== -->
+    <sch:pattern id="rule.ga.srv.servicetypeextendedforcodelist">
+        <sch:title>Service type must be extended by the GA Profile XML Schema that constrains the element to a codelist.</sch:title>
+        
+        <sch:rule context="/mdb:MD_Metadata/mdb:identificationInfo/srv:SV_ServiceIdentification/srv:serviceType">
+
+            <sch:let name="hasTypeExtension" value="count (@*[local-name()='type' and namespace-uri()='http://www.w3.org/2001/XMLSchema-instance' and .='gapm:gapMD_ServiceTypeCode_PropertyType'])"/>
+            
+            <sch:assert test="$hasTypeExtension">Service type is not extended by the GA Profile XML Schema extension that constrains it to a codelist.</sch:assert>
+            <sch:report test="$hasTypeExtension">Service type is extended by the GA Profile XML Schema extension that constrain it to a codelist.</sch:report>
+        </sch:rule>
+    </sch:pattern>
+
+    <!-- ===================================================================================================================================== -->
+    <!-- Assert that the service type element extended by the GA Profile XML Schema uses the GA Profile serviceTypeCode codelist.              -->
+    <!-- See section B.3.11 'ServiceType <<CodeList>>'                                                                                         -->
+    <!-- ===================================================================================================================================== -->
+    <sch:pattern id="rule.ga.srv.servicetypecodelist">
+        <sch:title>Service type must be constrained by the GA Profile service type codelist.</sch:title>
+        
+        <sch:rule context="/mdb:MD_Metadata/mdb:identificationInfo/srv:SV_ServiceIdentification/srv:serviceType[@*[local-name()='type' and namespace-uri()='http://www.w3.org/2001/XMLSchema-instance' and .='gapm:gapMD_ServiceTypeCode_PropertyType']]">
+            
+            <sch:let name="hasServiceTypeCodeCodelist" value="count (@*[local-name()='codeList' and .='http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/serviceTypeCode_codelist.xml#gapSV_ServiceTypeCode'])"/>
+            
+            <sch:assert test="$hasServiceTypeCodeCodelist">Service type does not use the GA Profile serviceTypeCode codelist, as defined by the codeList attribute in the srv:serviceType element.</sch:assert>           
+            <sch:report test="$hasServiceTypeCodeCodelist">Service type uses the GA Profile serviceTypeCode codelist, as defined by the codeList attribute in the srv:serviceType element.</sch:report>
         </sch:rule>
     </sch:pattern>
 
