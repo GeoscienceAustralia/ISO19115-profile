@@ -641,7 +641,7 @@ class SchematronValidationTestCase(unittest.TestCase):
         results = schematron_validator(rules, xml)
         
         self.assertFalse(fail_assert_exist(results[1], 'rule.ga.mri.resourceanddistributionformat'),
-                         msg='schematron 2.7.19 resource format rule and schematron 2.7.20 distribution format rules did did not pass when validating a record with a resource format element and distribution format element.')
+                         msg='schematron 2.7.19 resource format rule and schematron 2.7.20 distribution format rules did not pass when validating a record with a resource format element and distribution format element.')
 
     def test_resource_and_distribution_format_fail(self):
         '''
@@ -657,7 +657,136 @@ class SchematronValidationTestCase(unittest.TestCase):
         results = schematron_validator(rules, xml)
         
         self.assertTrue(fail_assert_exist(results[1], 'rule.ga.mri.resourceanddistributionformat'),
-                         msg='schematron 2.7.19 resource format rule and schematron 2.7.20 distribution format rules did did not fail when validating a record with out a resource format element or distribution format element.')
+                         msg='schematron 2.7.19 resource format rule and schematron 2.7.20 distribution format rules did not fail when validating a record with out a resource format element or distribution format element.')
+
+    def test_protocolcodelist_extension_pass(self):
+        '''
+        Test to check that the online resource protocol codelist extension rule (B.3.9 'ProtocolType <<CodeList>>') passes when validating a record with an
+        online resource protocol element that has been extended by the GA Profile schema to be constrained to a codelist.
+        '''
+        logging.info("online resource protocol codelist extension pass test")
+        
+        # Open files
+        rules = open(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'schematron-rules-ga.sch'), 'r', encoding="utf-8")
+        xml = open(os.path.join(os.path.dirname(os.path.realpath(__file__)),'test_data', 'all_rules_pass.xml'), 'r', encoding="utf-8")
+        
+        results = schematron_validator(rules, xml)
+        
+        self.assertFalse(fail_assert_exist(results[1], 'rule.ga.cit.protocolextendedforcodelist'),
+                         msg='online resource protocol codelist extension rule did not pass when validating a record with an online resource protocol element that has been extended by the GA Profile to be constrained by a codelist.')
+
+    def test_protocolcodelist_extension_fail(self):
+        '''
+        Test to check that the online resource protocol codelist extension rule (B.3.9 'ProtocolType <<CodeList>>') fails when validating a record with an
+        online resource protocol element that has not been extended by the GA Profile schema to be constrained to a codelist.
+        '''
+        logging.info("online resource protocol codelist extension fail test")
+        
+        # Open files
+        rules = open(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'schematron-rules-ga.sch'), 'r', encoding="utf-8")
+        xml = open(os.path.join(os.path.dirname(os.path.realpath(__file__)),'test_data', 'rule_B.3.9_protocol_codelist_extension_fail.xml'), 'r', encoding="utf-8")
+        
+        results = schematron_validator(rules, xml)
+        
+        self.assertTrue(fail_assert_exist(results[1], 'rule.ga.cit.protocolextendedforcodelist'),
+                         msg='online resource protocol codelist extension rule did not fail when validating a record with an online resource protocol element that has not been extended by the GA Profile to be constrained by a codelist.')
+
+    def test_correct_protocolcodelist_pass(self):
+        '''
+        Test to check that the online resource protocol codelist rule (B.3.9 'ProtocolType <<CodeList>>') passes when validating a record with an
+        online resource protocol element that uses the protocolTypeCode codelist.
+        '''
+        logging.info("online resource protocol codelist pass test")
+        
+        # Open files
+        rules = open(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'schematron-rules-ga.sch'), 'r', encoding="utf-8")
+        xml = open(os.path.join(os.path.dirname(os.path.realpath(__file__)),'test_data', 'all_rules_pass.xml'), 'r', encoding="utf-8")
+        
+        results = schematron_validator(rules, xml)
+        
+        self.assertFalse(fail_assert_exist(results[1], 'rule.ga.cit.protocolcodelist'),
+                         msg='online resource protocol codelist rule did not pass when validating a record with an online resource protocol element that uses the protocolTypeCode codelist.')
+
+    def test_correct_protocolcodelist_fail(self):
+        '''
+        Test to check that the online resource protocol codelist rule (B.3.9 'ProtocolType <<CodeList>>') fails when validating a record with an
+        online resource protocol element that does not use the protocolTypeCode codelist.
+        '''
+        logging.info("online resource protocol codelist fail test")
+        
+        # Open files
+        rules = open(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'schematron-rules-ga.sch'), 'r', encoding="utf-8")
+        xml = open(os.path.join(os.path.dirname(os.path.realpath(__file__)),'test_data', 'rule_B.3.9_protocol_correct_codelist_fail.xml'), 'r', encoding="utf-8")
+        
+        results = schematron_validator(rules, xml)
+        
+        self.assertTrue(fail_assert_exist(results[1], 'rule.ga.cit.protocolcodelist'),
+                         msg='online resource protocol codelist rule did not fail when validating a record with an online resource protocol element that does not use the protocolTypeCode codelist.')
+
+    def test_servicetypecodelist_extension_pass(self):
+        '''
+        Test to check that the service type codelist extension rule (B.3.11 'ServiceType <<CodeList>>') passes when validating a record with a
+        service type element that has been extended by the GA Profile schema to be constrained to a codelist.
+        '''
+        logging.info("service type codelist extension pass test")
+        
+        # Open files
+        rules = open(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'schematron-rules-ga.sch'), 'r', encoding="utf-8")
+        xml = open(os.path.join(os.path.dirname(os.path.realpath(__file__)),'test_data', 'all_rules_pass.xml'), 'r', encoding="utf-8")
+        
+        results = schematron_validator(rules, xml)
+        
+        self.assertFalse(fail_assert_exist(results[1], 'rule.ga.srv.servicetypeextendedforcodelist'),
+                         msg='service type codelist extension rule did not pass when validating a record with a service type element that has been extended by the GA Profile to be constrained by a codelist.')
+
+    def test_servicetypecodelist_extension_fail(self):
+        '''
+        Test to check that the service type codelist extension rule (B.3.11 'ServiceType <<CodeList>>') fails when validating a record with a
+        service type element that has not been extended by the GA Profile schema to be constrained to a codelist.
+        '''
+        logging.info("service type codelist extension fail test")
+        
+        # Open files
+        rules = open(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'schematron-rules-ga.sch'), 'r', encoding="utf-8")
+        xml = open(os.path.join(os.path.dirname(os.path.realpath(__file__)),'test_data', 'rule_B.3.11_servicetype_codelist_extension_fail.xml'), 'r', encoding="utf-8")
+        
+        results = schematron_validator(rules, xml)
+        
+        self.assertTrue(fail_assert_exist(results[1], 'rule.ga.srv.servicetypeextendedforcodelist'),
+                         msg='service type codelist extension rule did not fail when validating a record with a service type element that has not been extended by the GA Profile to be constrained by a codelist.')
+
+    
+    def test_correct_servicetypecodelist_pass(self):
+        '''
+        Test to check that the service type codelist rule (B.3.11 'ServiceType <<CodeList>>') passes when validating a record with a
+        service type element that uses the serviceTypeCode codelist.
+        '''
+        logging.info("service type codelist pass test")
+        
+        # Open files
+        rules = open(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'schematron-rules-ga.sch'), 'r', encoding="utf-8")
+        xml = open(os.path.join(os.path.dirname(os.path.realpath(__file__)),'test_data', 'all_rules_pass.xml'), 'r', encoding="utf-8")
+        
+        results = schematron_validator(rules, xml)
+        
+        self.assertFalse(fail_assert_exist(results[1], 'rule.ga.srv.servicetypecodelist'),
+                         msg='service type codelist rule did not pass when validating a record with a service type resource element that uses the serviceTypeCode codelist.')
+
+    def test_correct_servicetypecodelist_fail(self):
+        '''
+        Test to check that the service type codelist rule (B.3.11 'ServiceType <<CodeList>>') fails when validating a record with a
+        service type element that does not use the serviceTypeCode codelist.
+        '''
+        logging.info("service type codelist fail test")
+        
+        # Open files
+        rules = open(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'schematron-rules-ga.sch'), 'r', encoding="utf-8")
+        xml = open(os.path.join(os.path.dirname(os.path.realpath(__file__)),'test_data', 'rule_B.3.11_servicetype_correct_codelist_fail.xml'), 'r', encoding="utf-8")
+        
+        results = schematron_validator(rules, xml)
+        
+        self.assertTrue(fail_assert_exist(results[1], 'rule.ga.srv.servicetypecodelist'),
+                         msg='service type codelist rule did not pass when validating a record with a service type resource element that uses the serviceTypeCode codelist.')
 
 if __name__ == '__main__':
     unittest.main()
