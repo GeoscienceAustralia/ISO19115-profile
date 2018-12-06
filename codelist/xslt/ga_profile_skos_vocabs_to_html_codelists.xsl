@@ -23,6 +23,7 @@
 	   		<table width="95%" border="1" cellpadding="2" cellspacing="2">
 	      		<tr>
 	         		<th valign="top">Entry</th>
+	         		<th valign="top">Source</th>
 	         		<th valign="top">Definition</th>
 	      		</tr>
 	      		<xsl:apply-templates select="./cat:codeEntry"/>
@@ -35,6 +36,7 @@
     <xsl:template match="cat:codeEntry">
       <tr>
          <td valign="top"><xsl:value-of select='normalize-space(./cat:CT_CodelistValue/cat:name/gco:ScopedName)'/></td>
+         <td valign="top"><xsl:value-of select='normalize-space(./cat:CT_CodelistValue/source)'/></td>
          <td valign="top"><xsl:value-of select='normalize-space(./cat:CT_CodelistValue/cat:definition/gco:CharacterString)'/></td>
       </tr>
     </xsl:template>

@@ -16,12 +16,13 @@ import argparse
 from bs4 import BeautifulSoup
 import datetime
 import re
+from io import StringIO
 
 # Set the global variables
 
-os.environ["HTTP_PROXY"] = "http://sun-web-intdev.ga.gov.au:2710"
-os.environ["HTTPS_PROXY"] = "https://sun-web-intdev.ga.gov.au:2710"
-os.environ["no_proxy"] = "localhost, services.ga.gov.au, intranet.ga.gov.au, np.ga.gov.au, www.ga.gov.au"
+#os.environ["HTTP_PROXY"] = "http://sun-web-intdev.ga.gov.au:2710"
+#os.environ["HTTPS_PROXY"] = "https://sun-web-intdev.ga.gov.au:2710"
+#os.environ["no_proxy"] = "localhost, services.ga.gov.au, intranet.ga.gov.au, np.ga.gov.au, www.ga.gov.au"
 
 associationType_vocab_sparql_endpoint = "http://vocabs.ands.org.au/repository/api/sparql/ga_association-type_v1-2"
 onlineFunction_vocab_sparql_endpoint = "http://vocabs.ands.org.au/repository/api/sparql/ga_online-function_v1-0"
@@ -46,7 +47,7 @@ codelist_catalogue_xml_template = '''<cat:CT_CodelistCatalogue xmlns:xsi="http:/
       <gco:CharacterString>ISO TC211 Metadata Standards</gco:CharacterString>
   </cat:fieldOfApplication>
   <cat:versionNumber>
-      <gco:CharacterString>see repository version</gco:CharacterString>
+      <gco:CharacterString>see repository version (https://github.com/GeoscienceAustralia/ISO19115-profile)</gco:CharacterString>
   </cat:versionNumber>
   <cat:versionDate>
       <gco:Date>{}</gco:Date>
@@ -83,7 +84,7 @@ codelist_catalogue_html_template = '''<html lang="en">
       <b>Name: </b>Codelists from the Geoscience Australia profile of ISO 19115-1:2014<br/>
       <b>Scope: </b>Codelists related to the Geoscience Australia profile of ISO 19115-1:2014<br/>
       <b>Field of application: </b>ISO TC211 Metadata Standards<br/>
-      <b>Version: </b>see repository version<br/>
+      <b>Version: </b>see repository version (https://github.com/GeoscienceAustralia/ISO19115-profile)<br/>
       <b>Date: </b>{}<br/>
       <b>Number of CodeLists: </b>{}<br/>
       <b>Number of items: </b>{}
@@ -244,7 +245,7 @@ def transform_to_xml_codelist(sparql_xml_string, xsl_file_location):
     transform = ET.XSLT(xslt)
     codelist_et = transform(sparql_xml_et)
     
-    logger.debug(ET.tostring(codelist_et, pretty_print=True).decode('utf-8'))
+    # logger.debug(ET.tostring(codelist_et, pretty_print=True).decode('utf-8'))
     
     return ET.tostring(codelist_et, pretty_print=True)
 
@@ -264,7 +265,7 @@ def transform_to_html_codelist(codelist_xml_string):
 #     soup=BeautifulSoup(ET.tostring(codelist_html_et), 'html.parser')
 #     prettyHTML=soup.prettify()
     
-    logger.debug(ET.tostring(codelist_html_et, pretty_print=True).decode('utf-8'))
+    # logger.debug(ET.tostring(codelist_html_et, pretty_print=True).decode('utf-8'))
     
     return ET.tostring(codelist_html_et).decode("utf-8")
 
@@ -339,8 +340,6 @@ def main():
     output_xml_et = ET.fromstring(output_xml)
     codelist_count = len(output_xml_et.findall("./cat:codelistItem", namespaces=output_xml_et.nsmap))
     codelist_item_count = len(output_xml_et.findall(".//cat:codeEntry", namespaces=output_xml_et.nsmap))
-    # "Prettify" the xml document
-    output_xml = ET.tostring(output_xml_et, pretty_print=True)
     
     # Transform the SPARQL Query Results XML into ISO 19115-1 codelist HTML fragments, to be combined in a single codelist catalogue HTML report
     associationTypes_codelist_html_fragment = transform_to_html_codelist(associationTypes_codelist_xml_fragment)
@@ -369,6 +368,12 @@ def main():
     soup=BeautifulSoup(output_html, 'html.parser')
     output_html=soup.prettify()
 
+    # Remove the source element from the codelist xml document, which was needed for the HTML generated from the xml
+    output_xml = re.sub(r"<source>[\s\S].*</source>", "", output_xml)
+    # "Prettify" the xml document - have to reparse string into etree object with no indentation, then reserialise as a string with pretty_print
+    parser = ET.XMLParser(remove_blank_text=True)
+    output_xml_et = ET.parse(StringIO(output_xml), parser)
+    output_xml = ET.tostring(output_xml_et, pretty_print=True)
 
      # Write ISO 19115-1 codelist
     with open(os.path.join(args.outputDir, "ga_profile_codelists.xml"), "wb") as text_file:

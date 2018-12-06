@@ -59,6 +59,7 @@
                 <cat:description>
                     <gco:CharacterString><xsl:value-of select=".//sp:binding[@name='definition']/sp:literal"/></gco:CharacterString>
                 </cat:description>
+                <source><xsl:value-of select="normalize-space(.//sp:binding[@name='source']/sp:literal)"/></source>
             </cat:CT_CodelistValue>
         </cat:codeEntry>
 
