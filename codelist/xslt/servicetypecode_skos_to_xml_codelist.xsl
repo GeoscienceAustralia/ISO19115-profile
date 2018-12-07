@@ -38,7 +38,7 @@
 
     <xsl:template match="sp:result">
 
-        <xsl:variable name="serviceTypeName">gapSV_ServiceTypeCode_<xsl:call-template name="substring-after-last">
+        <xsl:variable name="serviceTypeName"><xsl:call-template name="substring-after-last">
                 <xsl:with-param name="string" select="normalize-space(./sp:binding[@name='altLabel']/sp:literal)"/>
                 <xsl:with-param name="char" select="'/'"/>
             </xsl:call-template>
@@ -46,7 +46,7 @@
 
         <cat:codeEntry xmlns:cat="http://standards.iso.org/iso/19115/-3/cat/1.0"
             xmlns:gco="http://standards.iso.org/iso/19115/-3/gco/1.0">
-            <cat:CT_CodelistValue id="{translate($serviceTypeName, ':', '-')}">
+            <cat:CT_CodelistValue id="gapSV_ServiceTypeCode_{translate($serviceTypeName, ':', '-')}">
                 <cat:identifier>
                     <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016"><xsl:value-of select="$serviceTypeName"/></gco:ScopedName>
                 </cat:identifier>

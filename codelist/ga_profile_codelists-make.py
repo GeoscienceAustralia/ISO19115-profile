@@ -341,17 +341,19 @@ def main():
     codelist_count = len(output_xml_et.findall("./cat:codelistItem", namespaces=output_xml_et.nsmap))
     codelist_item_count = len(output_xml_et.findall(".//cat:codeEntry", namespaces=output_xml_et.nsmap))
     
-    # Transform the SPARQL Query Results XML into ISO 19115-1 codelist HTML fragments, to be combined in a single codelist catalogue HTML report
+    # Transform the codelist XML fragments into ISO 19115-1 codelist HTML fragments, to be combined in a single codelist catalogue HTML report
     associationTypes_codelist_html_fragment = transform_to_html_codelist(associationTypes_codelist_xml_fragment)
+    onlineFunctions_codelist_html_fragment = transform_to_html_codelist(onlineFunctions_codelist_xml_fragment)
+    protocolTypes_codelist_html_fragment = transform_to_html_codelist(protocolTypes_codelist_xml_fragment)
+    serviceTypes_codelist_html_fragment = transform_to_html_codelist(serviceTypes_codelist_xml_fragment)
+    
+    # Remove the temporary tags that needed to be included in the HTML fragments by the XSLT transform due to python lxml XSLT not able to handle multiple root elements 
     associationTypes_codelist_html_fragment = re.sub(r"<delete_this_tag>", "", associationTypes_codelist_html_fragment)
     associationTypes_codelist_html_fragment = re.sub(r"</delete_this_tag>", "", associationTypes_codelist_html_fragment)
-    onlineFunctions_codelist_html_fragment = transform_to_html_codelist(onlineFunctions_codelist_xml_fragment)
     onlineFunctions_codelist_html_fragment = re.sub(r"<delete_this_tag>", "", onlineFunctions_codelist_html_fragment)
     onlineFunctions_codelist_html_fragment = re.sub(r"</delete_this_tag>", "", onlineFunctions_codelist_html_fragment)
-    protocolTypes_codelist_html_fragment = transform_to_html_codelist(protocolTypes_codelist_xml_fragment)
     protocolTypes_codelist_html_fragment = re.sub(r"<delete_this_tag>", "", protocolTypes_codelist_html_fragment)
     protocolTypes_codelist_html_fragment = re.sub(r"</delete_this_tag>", "", protocolTypes_codelist_html_fragment)
-    serviceTypes_codelist_html_fragment = transform_to_html_codelist(serviceTypes_codelist_xml_fragment)
     serviceTypes_codelist_html_fragment = re.sub(r"<delete_this_tag>", "", serviceTypes_codelist_html_fragment)
     serviceTypes_codelist_html_fragment = re.sub(r"</delete_this_tag>", "", serviceTypes_codelist_html_fragment)
 
