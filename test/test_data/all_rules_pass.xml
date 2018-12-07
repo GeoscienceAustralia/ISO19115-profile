@@ -952,7 +952,14 @@
           </mco:classification>
         </mco:MD_SecurityConstraints>
       </mri:resourceConstraints>
-      <srv:serviceType xsi:type="gapm:gapMD_ServiceTypeCode_PropertyType" codeList="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/serviceTypeCode_codelist.xml#gapSV_ServiceTypeCode" codeListValue="OGC:WMS">
+      <mri:associatedResource>
+        <mri:MD_AssociatedResource>
+          <mri:associationType>
+            <mri:DS_AssociationTypeCode codeList="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml#gapSV_ServiceTypeCode" codeListValue="crossReference">crossReference</mri:DS_AssociationTypeCode>
+          </mri:associationType>
+        </mri:MD_AssociatedResource>
+      </mri:associatedResource>
+      <srv:serviceType xsi:type="gapm:gapMD_ServiceTypeCode_PropertyType" codeList="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml#gapSV_ServiceTypeCode" codeListValue="OGC:WMS">
         <gco:ScopedName>OGC:WMS</gco:ScopedName>
       </srv:serviceType>
       <srv:serviceTypeVersion>
@@ -1167,7 +1174,7 @@
                                  <cit:linkage>
                                     <gco:CharacterString>http://services.ga.gov.au/gis/services/DEM_LiDAR_25m/MapServer/WMSServer?request=GetCapabilities&amp;service=WMS</gco:CharacterString>
                                  </cit:linkage>
-                                 <cit:protocol xsi:type="gapm:gapCI_ProtocolTypeCode_PropertyType" codeList="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/protocolTypeCode_codelist.xml#gapCI_ProtocolTypeCode" codeListValue="OGC:WMS">
+                                 <cit:protocol xsi:type="gapm:gapCI_ProtocolTypeCode_PropertyType" codeList="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml#gapCI_ProtocolTypeCode" codeListValue="OGC:WMS">
                                     <gco:CharacterString>OGC:WMS</gco:CharacterString>
                                  </cit:protocol>
                                  <cit:name>
@@ -1177,7 +1184,7 @@
                                     <gco:CharacterString>Digital Elevation Model (DEM) of Australia derived from LiDAR 25 Metre Grid - WMS</gco:CharacterString>
                                  </cit:description>
                                  <cit:function>
-                                    <cit:CI_OnLineFunctionCode codeList="" codeListValue="download"/>
+                                   <cit:CI_OnLineFunctionCode codeList="" codeListValue="download">download</cit:CI_OnLineFunctionCode>
                                  </cit:function>
                               </cit:CI_OnlineResource>
                            </mrd:onLine>
