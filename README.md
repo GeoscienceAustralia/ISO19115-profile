@@ -58,7 +58,7 @@ Two new codelists have been implemented to constrain ISO 19115-1 elements that a
 * **Service Type (serviceType -> gapMD_ServiceTypeCode_PropertyType)**
 * **Protocol (protocol -> gapCI_ProtocolTypeCode_PropertyType)**
 
-The authoritative values in the above codelists are maintained in [SKOS vocabularies](https://www.w3.org/2004/02/skos/) hosted by [Research Vocabularies Australia](https://vocabs.ands.org.au/).  The codelists are extracted from the vocabularies and written to an XML codelist catalog file conforming to the ISO 19115-3 CAT 1.0 schema.  The resulting codelist catalog file, as well as the scripts used to generate the codelists are stored in the [codelist/](codelist/) folder.
+The authoritative values in the above codelists are maintained in [SKOS vocabularies](https://www.w3.org/2004/02/skos/) hosted by [Research Vocabularies Australia](https://vocabs.ands.org.au/).  The codelists are extracted from the vocabularies and written to an XML codelist catalog file conforming to the ISO 19115-3 CAT 1.0 schema.  The resulting codelist catalog, as well as the scripts used to generate the codelists are stored in the [codelist/](codelist/) folder.
 
 
 ### Schema
