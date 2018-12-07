@@ -90,27 +90,7 @@ DATE			VERSION		AUTHOR				DESCRIPTION
     <!-- ========================================================================================================================= -->
     <sch:pattern>
         <sch:title xml:lang="en">Online function code and text must have must have a corresponding entry in the gapCI_OnLineFunctionCode codelist.</sch:title>
-        
-        <sch:rule context= "cit:function/cit:CI_OnLineFunctionCode"  >
-            
-            <sch:let name="functionCode" value="@codeListValue"/>
-            
-            <sch:let name="URI" value= "'http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml'" />
-            
-            <sch:let name="code-list-document" value="document( $URI )"/>
-            
-            <sch:let name="functionCodeList" value=" $code-list-document//cat:CT_Codelist[ @id='gapCI_OnLineFunctionCode' ]" />
 
-            <sch:assert test="$functionCodeList/cat:codeEntry/cat:CT_CodelistValue/cat:identifier[ gco:ScopedName = $functionCode ]">
-                Online function code "<sch:value-of select="normalize-space(@codeListValue)"/>" not found in gapCI_OnLineFunctionCode codelist.
-            </sch:assert>
-            
-            <sch:report test="$functionCodeList/cat:codeEntry/cat:CT_CodelistValue/cat:identifier[ gco:ScopedName = $functionCode ]">
-                Online function code "<sch:value-of select="normalize-space(@codeListValue)"/>" found in gapCI_OnLineFunctionCode codelist.
-            </sch:report>
-            
-        </sch:rule>
-        
         <sch:rule context= "cit:function[cit:CI_OnLineFunctionCode[text()]]">
             
             <sch:let name="URI" value="'http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml'"/>
