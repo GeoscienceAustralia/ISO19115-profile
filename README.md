@@ -55,7 +55,7 @@ This profile extends two ISO 19115-1 codelists:
 * **Online Function (CI_OnLineFunctionCode)**
 
 Two new codelists have been implemented to constrain ISO 19115-1 elements that are free text in the base standard:
-* **Service Type (serviceType -> gapMD_ServiceTypeCode_PropertyType)**
+* **Service Type (serviceType -> gapSV_ServiceTypeCode_PropertyType)**
 * **Protocol (protocol -> gapCI_ProtocolTypeCode_PropertyType)**
 
 The authoritative values in the above codelists are maintained in [SKOS vocabularies](https://www.w3.org/2004/02/skos/) hosted by [Research Vocabularies Australia](https://vocabs.ands.org.au/).  The codelists are extracted from the vocabularies and written to an XML codelist catalog file conforming to the ISO 19115-3 CAT 1.0 schema.  The resulting codelist catalog, as well as the scripts used to generate the codelists are stored in the [codelist/](codelist/) folder.
@@ -76,7 +76,7 @@ Schematron schema and XML Schema have been developed to implement and faciliate 
 | --- | --- |
 | gapm.xsd | defines the XML Schema components of the ISO19115-3 XML schema profile of the GA Metadata profile of ISO19115-1:2014 |
 | gapmCharacterString.xsd | defines the gapMD_ProtocolTypeCode_PropertyType XML type, an extension of the gco:CharacterString_PropertyType XML type, for the purpose of constraining the cit:protocol element to a codelist |
-| gapmGenericName.xsd | defines the gapMD_ServiceTypeCode_PropertyType XML type, an extension of the gco:GenericName_PropertyType XML type, for the purpose of constraining the srv:serviceType element to a codelist |
+| gapmGenericName.xsd | defines the gapSV_ServiceTypeCode_PropertyType XML type, an extension of the gco:GenericName_PropertyType XML type, for the purpose of constraining the srv:serviceType element to a codelist |
 
 The Schematron schema and XML Schema files are stored in the root directory of [This code repository](https://github.com/GeoscienceAustralia/ISO19115-profile).
 
