@@ -371,7 +371,7 @@ DATE            VERSION     AUTHOR              DESCRIPTION
         
         <sch:rule context="/mdb:MD_Metadata/mdb:identificationInfo/srv:SV_ServiceIdentification/srv:serviceType">
 
-            <sch:let name="hasTypeExtension" value="count (@*[local-name()='type' and namespace-uri()='http://www.w3.org/2001/XMLSchema-instance' and .='gapm:gapMD_ServiceTypeCode_PropertyType'])"/>
+            <sch:let name="hasTypeExtension" value="count (@*[local-name()='type' and namespace-uri()='http://www.w3.org/2001/XMLSchema-instance' and .='gapm:gapSV_ServiceTypeCode_PropertyType'])"/>
             
             <sch:assert test="$hasTypeExtension">Service type is not extended by the GA Profile XML Schema extension that constrains it to a codelist.</sch:assert>
             <sch:report test="$hasTypeExtension">Service type is extended by the GA Profile XML Schema extension that constrain it to a codelist.</sch:report>
@@ -385,7 +385,7 @@ DATE            VERSION     AUTHOR              DESCRIPTION
     <sch:pattern id="rule.ga.srv.servicetypecodelist">
         <sch:title>Service type must be constrained by the GA Profile service type codelist.</sch:title>
         
-        <sch:rule context="/mdb:MD_Metadata/mdb:identificationInfo/srv:SV_ServiceIdentification/srv:serviceType[@*[local-name()='type' and namespace-uri()='http://www.w3.org/2001/XMLSchema-instance' and .='gapm:gapMD_ServiceTypeCode_PropertyType']]">
+        <sch:rule context="/mdb:MD_Metadata/mdb:identificationInfo/srv:SV_ServiceIdentification/srv:serviceType[@*[local-name()='type' and namespace-uri()='http://www.w3.org/2001/XMLSchema-instance' and .='gapm:gapSV_ServiceTypeCode_PropertyType']]">
             
             <sch:let name="hasServiceTypeCodeCodelist" value="count (@*[local-name()='codeList' and .='http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/serviceTypeCode_codelist.xml#gapSV_ServiceTypeCode'])"/>
             

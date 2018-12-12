@@ -952,7 +952,7 @@
           </mco:classification>
         </mco:MD_SecurityConstraints>
       </mri:resourceConstraints>
-        <srv:serviceType xsi:type="gapm:gapMD_ServiceTypeCode_PropertyType" codeList="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/some_other_codelist" codeListValue="OGC:WMS">
+        <srv:serviceType xsi:type="gapm:gapSV_ServiceTypeCode_PropertyType" codeList="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/some_other_codelist" codeListValue="OGC:WMS">
             <gco:ScopedName>OGC:WMS</gco:ScopedName>
         </srv:serviceType>
       <srv:serviceTypeVersion>
