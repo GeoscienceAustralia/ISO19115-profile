@@ -13,7 +13,7 @@
     <gco:CharacterString>see repository version (https://github.com/GeoscienceAustralia/ISO19115-profile)</gco:CharacterString>
   </cat:versionNumber>
   <cat:versionDate>
-    <gco:Date>2018-12-07</gco:Date>
+    <gco:Date>2018-12-12</gco:Date>
   </cat:versionDate>
   <cat:locale>
     <lan:PT_Locale>
@@ -393,6 +393,22 @@
         </cat:CT_CodelistValue>
       </cat:codeEntry>
       <cat:codeEntry>
+        <cat:CT_CodelistValue id="gapCI_OnLineFunctionCode_emailService">
+          <cat:identifier>
+            <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">emailService</gco:ScopedName>
+          </cat:identifier>
+          <cat:name>
+            <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">emailService</gco:ScopedName>
+          </cat:name>
+          <cat:definition>
+            <gco:CharacterString>online email service provided</gco:CharacterString>
+          </cat:definition>
+          <cat:description>
+            <gco:CharacterString>online email service provided</gco:CharacterString>
+          </cat:description>
+        </cat:CT_CodelistValue>
+      </cat:codeEntry>
+      <cat:codeEntry>
         <cat:CT_CodelistValue id="gapCI_OnLineFunctionCode_fileAccess">
           <cat:identifier>
             <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">fileAccess</gco:ScopedName>
@@ -481,10 +497,10 @@
             <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016">upload</gco:ScopedName>
           </cat:name>
           <cat:definition>
-            <gco:CharacterString>online resource upload capability provided 9. emailService emailService online email service provided</gco:CharacterString>
+            <gco:CharacterString>online resource upload capability provided</gco:CharacterString>
           </cat:definition>
           <cat:description>
-            <gco:CharacterString>online resource upload capability provided 9. emailService emailService online email service provided</gco:CharacterString>
+            <gco:CharacterString>online resource upload capability provided</gco:CharacterString>
           </cat:description>
         </cat:CT_CodelistValue>
       </cat:codeEntry>
