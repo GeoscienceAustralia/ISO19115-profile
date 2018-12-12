@@ -355,7 +355,7 @@ DATE            VERSION     AUTHOR              DESCRIPTION
         
         <sch:rule context="//cit:CI_OnlineResource/cit:protocol[@*[local-name()='type' and namespace-uri()='http://www.w3.org/2001/XMLSchema-instance' and .='gapm:gapCI_ProtocolTypeCode_PropertyType']]">
             
-            <sch:let name="hasProtocolTypeCodeCodelist" value="count (@*[local-name()='codeList' and .='http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/protocolTypeCode_codelist.xml#gapCI_ProtocolTypeCode'])"/>
+            <sch:let name="hasProtocolTypeCodeCodelist" value="count (@*[local-name()='codeList' and .='http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml#gapCI_ProtocolTypeCode'])"/>
             
             <sch:assert test="$hasProtocolTypeCodeCodelist">Online resource protocol does not use to the GA Profile protocolTypeCode codelist, as defined by the codeList attribute in the cit:protocol element.</sch:assert>           
             <sch:report test="$hasProtocolTypeCodeCodelist">Online resource protocol uses the GA Profile protocolTypeCode codelist, as defined by the codeList attribute in the cit:protocol element.</sch:report>
@@ -387,7 +387,7 @@ DATE            VERSION     AUTHOR              DESCRIPTION
         
         <sch:rule context="/mdb:MD_Metadata/mdb:identificationInfo/srv:SV_ServiceIdentification/srv:serviceType[@*[local-name()='type' and namespace-uri()='http://www.w3.org/2001/XMLSchema-instance' and .='gapm:gapSV_ServiceTypeCode_PropertyType']]">
             
-            <sch:let name="hasServiceTypeCodeCodelist" value="count (@*[local-name()='codeList' and .='http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/serviceTypeCode_codelist.xml#gapSV_ServiceTypeCode'])"/>
+            <sch:let name="hasServiceTypeCodeCodelist" value="count (@*[local-name()='codeList' and .='http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml#gapSV_ServiceTypeCode'])"/>
             
             <sch:assert test="$hasServiceTypeCodeCodelist">Service type does not use the GA Profile serviceTypeCode codelist, as defined by the codeList attribute in the srv:serviceType element.</sch:assert>           
             <sch:report test="$hasServiceTypeCodeCodelist">Service type uses the GA Profile serviceTypeCode codelist, as defined by the codeList attribute in the srv:serviceType element.</sch:report>
