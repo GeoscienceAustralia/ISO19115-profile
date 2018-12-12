@@ -83,7 +83,6 @@ def main():
 
     # Remove the DS_AssociationTypeCode codelist from the gn codelists document
     DS_AssociationTypeCode_node = gn_iso_codelists_et.find(".//codelist[@name='mri:DS_AssociationTypeCode']")
-    
     parent = DS_AssociationTypeCode_node.getparent()
     index = parent.index(DS_AssociationTypeCode_node)
     parent.remove(DS_AssociationTypeCode_node)
