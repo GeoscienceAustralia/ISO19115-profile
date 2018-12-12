@@ -43,7 +43,13 @@ def main():
         :return: Returns a parsed version of the arguments.
         """
         parser = argparse.ArgumentParser(
-            description='Adds ISO 19115-1:2014 GA Profile codelists in the ISO 19115-1:2014 CAT 1.0 XML format to the geonetwork formatted ISO 19115-1:2014 codelists.')
+            description='Adds ISO 19115-1:2014 GA Profile codelists in the ISO 19115-1:2014 CAT 1.0 XML format to the geoneGeoNetwork formatted ISO 19115-1:2014 codelists.')
+        parser.add_argument("gnCodelists",
+                            help="Original GeoNetwork codelists file to be modified")
+        parser.add_argument("-g", "--gaProfileCodelists",
+                            help="GA Profile codelists with which to modify the GeoNetwork codelists (default is ga_profile_codelists.xml in current working directory)",
+                            dest="gaProfileCodelists",
+                            default="ga_profile_codelists.xml")
         parser.add_argument("-o", "--outputDir",
                             help="Output directory for updated GeoNetwork codelist XML file (default is current working directory)",
                             dest="outputDir",
@@ -59,10 +65,14 @@ def main():
     # Set logging level    
     logger.setLevel(args.logging_level)
     
+    # Ensure the files provided exist
+    assert os.path.isfile(args.gaProfileCodelists),"File provided for GA Profile codelists %r does not exist!" % args.gaProfileCodelists
+    assert os.path.isfile(args.gnCodelists),"File provided for GeoNetwork codelists %r does not exist!" % args.gnCodelists
+    
     # Convert each of the GA Profile codelists from ISO 19115-1 CAT 1.0 format to the GeoNetwork format
     
     # Read the ISO codelists file insto a string
-    with open('ga_profile_codelists.xml', 'r') as ga_profile_codelist_file:
+    with open(args.gaProfileCodelists, 'r') as ga_profile_codelist_file:
         ga_iso_codelists_string = ga_profile_codelist_file.read().replace('\n', '')
     
     # Convert the ISO codelists to GeoNetwork formatted codelists
@@ -72,7 +82,7 @@ def main():
     ga_gn_codelists_et = transform(ga_iso_codelists_et)
     
     # Load the gn codelists file into string
-    with open('codelists_geonetwork.xml', "r") as gn_iso_codelists_file:
+    with open(args.gnCodelists, "r") as gn_iso_codelists_file:
         gn_iso_codelists_string = gn_iso_codelists_file.read()
         
     # Add the gapm namespace declaration
