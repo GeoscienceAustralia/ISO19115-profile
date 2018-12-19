@@ -3,93 +3,128 @@
     xmlns:cat="http://standards.iso.org/iso/19115/-3/cat/1.0"
     xmlns:gco="http://standards.iso.org/iso/19115/-3/gco/1.0"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    exclude-result-prefixes="xs"
+    exclude-result-prefixes="cat gco xs"
     version="1.0">
     
     <xsl:output method="xml" encoding="utf-8" version="" indent="yes" standalone="no" media-type="text/html" omit-xml-declaration="yes" />
     <xsl:strip-space elements="*"/>
-  
+    
+    <xsl:param name="codelistName"/>
+    
     <xsl:template match="/">
-        
-        <codelists xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xmlns:cat="http://standards.iso.org/iso/19115/-3/cat/1.0"
-            xmlns:cit="http://standards.iso.org/iso/19115/-3/cit/1.0"
-            xmlns:gcx="http://standards.iso.org/iso/19115/-3/gcx/1.0"
-            xmlns:gex="http://standards.iso.org/iso/19115/-3/gex/1.0"
-            xmlns:lan="http://standards.iso.org/iso/19115/-3/lan/1.0"
-            xmlns:srv="http://standards.iso.org/iso/19115/-3/srv/2.0"
-            xmlns:mas="http://standards.iso.org/iso/19115/-3/mas/1.0"
-            xmlns:mcc="http://standards.iso.org/iso/19115/-3/mcc/1.0"
-            xmlns:mco="http://standards.iso.org/iso/19115/-3/mco/1.0"
-            xmlns:mda="http://standards.iso.org/iso/19115/-3/mda/1.0"
-            xmlns:mdb="http://standards.iso.org/iso/19115/-3/mdb/1.0"
-            xmlns:mds="http://standards.iso.org/iso/19115/-3/mds/1.0"
-            xmlns:reg="http://standards.iso.org/iso/19135/-2/reg/1.0"
-            xmlns:mdt="http://standards.iso.org/iso/19115/-3/mdt/1.0"
-            xmlns:mex="http://standards.iso.org/iso/19115/-3/mex/1.0"
-            xmlns:mmi="http://standards.iso.org/iso/19115/-3/mmi/1.0"
-            xmlns:mpc="http://standards.iso.org/iso/19115/-3/mpc/1.0"
-            xmlns:mrc="http://standards.iso.org/iso/19115/-3/mrc/1.0"
-            xmlns:mrd="http://standards.iso.org/iso/19115/-3/mrd/1.0"
-            xmlns:mri="http://standards.iso.org/iso/19115/-3/mri/1.0"
-            xmlns:mrl="http://standards.iso.org/iso/19115/-3/mrl/1.0"
-            xmlns:mrs="http://standards.iso.org/iso/19115/-3/mrs/1.0"
-            xmlns:msr="http://standards.iso.org/iso/19115/-3/msr/1.0"
-            xmlns:mdq="http://standards.iso.org/iso/19157/-2/mdq/1.0"
-            xmlns:mac="http://standards.iso.org/iso/19115/-3/mac/1.0"
-            xmlns:gco="http://standards.iso.org/iso/19115/-3/gco/1.0"
-            xmlns:gml="http://www.opengis.net/gml/3.2"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            xsi:noNamespaceSchemaLocation="../../../../../../../schema-labels.xsd">
-            
-            <xsl:apply-templates select=".//cat:codelistItem"/>
-            
-        </codelists>
-        
+        <xsl:apply-templates select=".//cat:codelistItem"/>
     </xsl:template>
     
     <xsl:template match="cat:codelistItem">
+        <xsl:choose>
+            <xsl:when test="$codelistName='gapCI_ProtocolTypeCode'">
+                <xsl:apply-templates select="cat:CT_Codelist[@id='gapCI_ProtocolTypeCode']"/>
+            </xsl:when>
+            <xsl:when test="$codelistName='gapSV_ServiceTypeCode'">
+                <xsl:apply-templates select="cat:CT_Codelist[@id='gapSV_ServiceTypeCode']"/>
+            </xsl:when>
+            <xsl:when test="$codelistName='gapDS_AssociationTypeCode'">
+                <xsl:apply-templates select="cat:CT_Codelist[@id='gapDS_AssociationTypeCode']"/>
+            </xsl:when>
+            <xsl:when test="$codelistName='gapCI_OnLineFunctionCode'">
+                <xsl:apply-templates select="cat:CT_Codelist[@id='gapCI_OnLineFunctionCode']"/>
+            </xsl:when>
+        </xsl:choose>
+    </xsl:template>
+    
+    <xsl:template match="cat:CT_Codelist[@id='gapCI_ProtocolTypeCode']">
         
-        <codelist name="{cat:CT_Codelist/@id}">
-            <xsl:apply-templates select=".//cat:codeEntry"/>
+        <!-- Set first letter of description to uppercase -->
+        <xsl:variable name="firstChar" select="substring(cat:description/gco:CharacterString,1,1)"/>
+        <xsl:variable name="description">
+            <xsl:value-of select="translate($firstChar,'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/><xsl:value-of select="substring-after(cat:description/gco:CharacterString,$firstChar)"/>
+        </xsl:variable>
+        
+        <element name="cit:protocol" context="/mdb:MD_Metadata/mdb:distributionInfo/mrd:MD_Distribution/mrd:transferOptions/mrd:MD_DigitalTransferOptions/mrd:onLine/cit:CI_OnlineResource/cit:protocol">
+            <label>Protocol</label>
+            <description><xsl:value-of select="$description"/></description>
+            <helper>
+                <xsl:apply-templates select="cat:codeEntry">
+                    <xsl:with-param name="output">labels</xsl:with-param>
+                </xsl:apply-templates>
+            </helper>
+        </element>
+    </xsl:template>
+
+    <xsl:template match="cat:CT_Codelist[@id='gapSV_ServiceTypeCode']">
+        
+        <!-- Set first letter of description to uppercase -->
+        <xsl:variable name="firstChar" select="substring(cat:description/gco:CharacterString,1,1)"/>
+        <xsl:variable name="description">
+            <xsl:value-of select="translate($firstChar,'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/><xsl:value-of select="substring-after(cat:description/gco:CharacterString,$firstChar)"/>
+        </xsl:variable>
+        
+        <element name="cit:serviceType" context="/mdb:MD_Metadata/mdb:distributionInfo/mrd:MD_Distribution/mrd:transferOptions/mrd:MD_DigitalTransferOptions/mrd:onLine/cit:CI_OnlineResource/cit:protocol">
+            <label>Service Type</label>
+            <description><xsl:value-of select="$description"/></description>
+            <helper>
+                <xsl:apply-templates select="cat:codeEntry">
+                    <xsl:with-param name="output">labels</xsl:with-param>
+                </xsl:apply-templates>
+            </helper>
+        </element>
+    </xsl:template>
+
+    <xsl:template match="cat:CT_Codelist[@id='gapDS_AssociationTypeCode']">
+        
+        <codelist name="gapm:{./@id}">
+            <xsl:apply-templates select="cat:codeEntry">
+                <xsl:with-param name="output">codelists</xsl:with-param>
+            </xsl:apply-templates>
         </codelist>
         
     </xsl:template>
 
+    <xsl:template match="cat:CT_Codelist[@id='gapCI_OnLineFunctionCode']">
+        
+        <codelist name="gapm:{./@id}">
+            <xsl:apply-templates select="cat:codeEntry">
+                <xsl:with-param name="output">codelists</xsl:with-param>
+            </xsl:apply-templates>
+        </codelist>
+        
+    </xsl:template>
+    
     <xsl:template match="cat:codeEntry">
+        <xsl:param name="output"/>
         
-        <entry>
-            <code><xsl:value-of select='./cat:CT_CodelistValue/cat:identifier/gco:ScopedName'/></code>
+        <!-- Set first letter of description to uppercase -->
+        <xsl:variable name="firstChar" select="substring(cat:CT_CodelistValue/cat:description/gco:CharacterString,1,1)"/>
+        <xsl:variable name="description">
+            <xsl:value-of select="translate($firstChar,'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/><xsl:value-of select="substring-after(cat:CT_CodelistValue/cat:description/gco:CharacterString,$firstChar)"/>
+        </xsl:variable>
         
-            <xsl:choose>
-                <xsl:when test="(../@id='gapDS_AssociationTypeCode') or (../@id='gapCI_OnLineFunctionCode')">
-                    <!-- Convert name from camelcase to spaced -->
+        <xsl:choose>
+            <xsl:when test="$output='labels'">
+                <option value="{cat:CT_CodelistValue/cat:identifier/gco:ScopedName}"><xsl:value-of select="$description"/></option>
+            </xsl:when>
+            <xsl:otherwise>
+                <entry>
+                    <code><xsl:value-of select='cat:CT_CodelistValue/cat:identifier/gco:ScopedName'/></code>
+                    
+                    <!-- Convert name, to be used in the label, from camelcase to spaced -->
                     <xsl:variable name="label_preliminary">
                         <xsl:call-template name="SplitCamelCase">
                             <xsl:with-param name="text" select="./cat:CT_CodelistValue/cat:name/gco:ScopedName"/>
-                        </xsl:call-template>            
+                        </xsl:call-template>
                     </xsl:variable>
                     
-                    <!-- Set first letter to uppercase -->
-                    <xsl:variable name="firstChar" select="substring($label_preliminary,1,1)"/>
+                    <!-- Set first letter of label to uppercase -->
+                    <xsl:variable name="labelFirstChar" select="substring($label_preliminary,1,1)"/>
                     <xsl:variable name="label">
-                        <xsl:value-of select="translate($firstChar,'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/><xsl:value-of select="substring-after($label_preliminary,$firstChar)"/>
+                        <xsl:value-of select="translate($labelFirstChar,'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/><xsl:value-of select="substring-after($label_preliminary,$labelFirstChar)"/>
                     </xsl:variable>
                     
-                        <label><xsl:value-of select='$label'/></label>
-                    
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:variable name="label" select='./cat:CT_CodelistValue/cat:name/gco:ScopedName'/>
-                    
-                        <label><xsl:value-of select='$label'/></label>
-                    
-                </xsl:otherwise>
-            </xsl:choose>
-        
-            <description><xsl:value-of select='./cat:CT_CodelistValue/cat:description/gco:CharacterString'/></description>
-        </entry>
-        
+                    <label><xsl:value-of select='$label'/></label>
+                    <description><xsl:value-of select='$description'/></description>
+                </entry>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
     <xsl:template name="SplitCamelCase">
@@ -124,5 +159,5 @@
             </xsl:call-template>
         </xsl:if>
     </xsl:template>
-    
+ 
 </xsl:stylesheet>
