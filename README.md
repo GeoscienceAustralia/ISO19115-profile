@@ -54,7 +54,7 @@ This profile extends two ISO 19115-1 codelists:
 * **Association Type (DS_AssociationTypeCode)**
 * **Online Function (CI_OnLineFunctionCode)**
 
-##### The codeList attribute on ISO 19115-3 element instances of the above ISO 19115-1 codelists points to the GA Profile extended codelist:
+##### The codeList attribute on ISO 19115-3 element instances of the above ISO 19115-1 codelists must point to the GA Profile extended codelist:
 | ISO 19115-3 codelist element | GA Profile extended codelist |
 | --- | --- |
 | mri:DS_AssociationTypeCode | http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml#gapDS_AssociationTypeCode |
@@ -67,14 +67,14 @@ Two new codelists have been implemented by this profile to constrain the followi
 * **Service Type (serviceType)**
 * **Protocol (protocol)**
 
-The srv:serviceType/gco:ScopedName element in ISO 19115-3 instance documents must include the codeScope attribute indicating the GA Profile gapSV_ServiceTypeCode codelist.  Text values for the element must conform to the identifiers in the gapSV_ServiceTypeCode codelist. For Example:
+The srv:serviceType/gco:ScopedName element in ISO 19115-3 instance documents must include the codeScope attribute indicating the GA Profile gapSV_ServiceTypeCode codelist.  Text values for the element must conform to the identifiers in the gapSV_ServiceTypeCode codelist. For example:
 ``` xml
   <srv:serviceType>
     <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml#gapSV_ServiceTypeCode">OGC:WMS</gco:ScopedName>
   </srv:serviceType>
 ```
 
-The cit:protocol/gco:CharacterString element in ISO 19115-3 instance documents must be soft-typed to the gco:CodeType type so that the codeSpace attribute can be included.  The codeScope attribute must then be set to indicate the GA Profile gapCI_ProtocolTypeCode codelist, and text values for the element must conform to the identifiers in the gapCI_ProtocolTypeCode codelist.  For Example:
+The cit:protocol/gco:CharacterString element in ISO 19115-3 instance documents must be soft-typed to the gco:CodeType type so that the codeSpace attribute can be included.  The codeScope attribute must then be set to indicate the GA Profile gapCI_ProtocolTypeCode codelist, and text values for the element must conform to the identifiers in the gapCI_ProtocolTypeCode codelist.  For example:
 ``` xml
   <cit:protocol>
    <gco:CharacterString xsi:type="gco:CodeType" codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml#gapCI_ProtocolTypeCode">OGC:WMS</gco:CharacterString>
