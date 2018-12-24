@@ -62,13 +62,24 @@ This profile extends two ISO 19115-1 codelists:
 
 ISO 19115-3 element text values, and values provided in the element's codeListValue attribute, must conform to the identifiers in the GA Profile extended codelist.
 
+
 Two new codelists have been implemented by this profile to constrain the following ISO 19115-1 metadata elements:
 * **Service Type (serviceType)**
 * **Protocol (protocol)**
 
-The srv:serviceType/gco:ScopedName element in ISO 19115-3 instance documents must include the codeScope attribute indicating the GA Profile gapSV_ServiceTypeCode codelist.  Text values for the element must conform to the identifiers in the gapSV_ServiceTypeCode codelist.
+The srv:serviceType/gco:ScopedName element in ISO 19115-3 instance documents must include the codeScope attribute indicating the GA Profile gapSV_ServiceTypeCode codelist.  Text values for the element must conform to the identifiers in the gapSV_ServiceTypeCode codelist. For Example:
+``` xml
+  <srv:serviceType>
+    <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml#gapSV_ServiceTypeCode">OGC:WMS</gco:ScopedName>
+  </srv:serviceType>
+```
 
-The cit:protocol/gco:CharacterString element in ISO 19115-3 instance documents must be soft-typed to the gco:CodeType type so that the codeSpace attribute can be included.  The codeScope attribute must then be set to indicate the GA Profile gapCI_ProtocolTypeCode codelist, and text values for the element must conform to the identifiers in the gapCI_ProtocolTypeCode codelist.
+The cit:protocol/gco:CharacterString element in ISO 19115-3 instance documents must be soft-typed to the gco:CodeType type so that the codeSpace attribute can be included.  The codeScope attribute must then be set to indicate the GA Profile gapCI_ProtocolTypeCode codelist, and text values for the element must conform to the identifiers in the gapCI_ProtocolTypeCode codelist.  For Example:
+``` xml
+  <cit:protocol>
+   <gco:CharacterString xsi:type="gco:CodeType" codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml#gapCI_ProtocolTypeCode">OGC:WMS</gco:CharacterString>
+  </cit:protocol>
+```
 
 The authoritative values in the above codelists are maintained in [SKOS vocabularies](https://www.w3.org/2004/02/skos/) hosted by [Research Vocabularies Australia](https://vocabs.ands.org.au/).  The codelists are extracted from the vocabularies and written to an XML codelist catalog file conforming to the ISO 19115-3 CAT 1.0 schema.  The resulting codelist catalog, as well as the scripts used to generate the codelists are stored in the [codelist/](codelist/) folder.
 
