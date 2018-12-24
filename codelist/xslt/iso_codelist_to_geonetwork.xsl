@@ -6,6 +6,26 @@
     exclude-result-prefixes="cat gco xs"
     version="1.0">
     
+    <!-- ================================================================================================================
+    This template transforms Geoscience Australia Profile of ISO 19115-1:2014 codelists from the ISO CAT 1.0 XML 
+    format to GeoNetwork specific XML formats that enable the codelists to be implemented as pick lists in the GeoNetwork
+    metadata entry forms.
+    
+    The template generates four different outputs, one for each of the four codelists extended or introduced by the GA 
+    Profile.  Outputs for the extended codelists (gapDS_AssociationTypeCode, gapCI_OnLineFunctionCode) comprise XML 
+    fragments to replace the corresponding codelist entries in the codelists.xml file within the GN application.  Outputs 
+    for codelists introduced by the GA Profile (gapCI_ProtocolTypeCode, gapSV_ServiceTypeCode) comprise XML fragments to 
+    be appended to the labels.xml file within the GN application.  
+        
+    This script was developed by Geoscience Australia, initial version December 2018.
+    =====================================================================================================================
+    History:
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    DATE            VERSION     AUTHOR              DESCRIPTION
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    2018-12-20      0.1         Aaron Sedgmen       Initial Version.
+    ===================================================================================================================== -->
+    
     <xsl:output method="xml" encoding="utf-8" version="" indent="yes" standalone="no" media-type="text/html" omit-xml-declaration="yes" />
     <xsl:strip-space elements="*"/>
     
@@ -59,7 +79,7 @@
             <xsl:value-of select="translate($firstChar,'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/><xsl:value-of select="substring-after(cat:description/gco:CharacterString,$firstChar)"/>
         </xsl:variable>
         
-        <element name="cit:serviceType" context="/mdb:MD_Metadata/mdb:distributionInfo/mrd:MD_Distribution/mrd:transferOptions/mrd:MD_DigitalTransferOptions/mrd:onLine/cit:CI_OnlineResource/cit:protocol">
+        <element name="srv:serviceType" context="srv:SV_ServiceIdentification">
             <label>Service Type</label>
             <description><xsl:value-of select="$description"/></description>
             <helper>
@@ -72,7 +92,7 @@
 
     <xsl:template match="cat:CT_Codelist[@id='gapDS_AssociationTypeCode']">
         
-        <codelist name="gapm:{./@id}">
+        <codelist name="mri:DS_AssociationTypeCode">
             <xsl:apply-templates select="cat:codeEntry">
                 <xsl:with-param name="output">codelists</xsl:with-param>
             </xsl:apply-templates>
@@ -82,7 +102,7 @@
 
     <xsl:template match="cat:CT_Codelist[@id='gapCI_OnLineFunctionCode']">
         
-        <codelist name="gapm:{./@id}">
+        <codelist name="cit:CI_OnLineFunctionCode">
             <xsl:apply-templates select="cat:codeEntry">
                 <xsl:with-param name="output">codelists</xsl:with-param>
             </xsl:apply-templates>

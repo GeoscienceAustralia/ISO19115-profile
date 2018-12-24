@@ -63,7 +63,7 @@ The authoritative values in the above codelists are maintained in [SKOS vocabula
 
 ### Schema
 
-Schematron schema and XML Schema have been developed to implement and faciliate validation of the extensions defined by the GA profile.
+Schematron schema have been developed to validate the extensions defined by the GA profile.
 ##### Schematron schema
 | Name | Purpose |
 | --- | --- |
@@ -71,14 +71,7 @@ Schematron schema and XML Schema have been developed to implement and faciliate 
 | schematron-rules-ga_codelists.sch | validation of codelist values for elements that have new or extended codelists imposed by the GA profile |
 | schematron-rules-all_codelists.sch | validation of codelist values for all elements that are constrained by a codelist (ISO 19115-1 or a profile extension) |
 
-##### XML Schema
-| Name | Purpose |
-| --- | --- |
-| gapm.xsd | defines the XML Schema components of the ISO19115-3 XML schema profile of the GA Metadata profile of ISO19115-1:2014 |
-| gapmCharacterString.xsd | defines the gapMD_ProtocolTypeCode_PropertyType XML type, an extension of the gco:CharacterString_PropertyType XML type, for the purpose of constraining the cit:protocol element to a codelist |
-| gapmGenericName.xsd | defines the gapSV_ServiceTypeCode_PropertyType XML type, an extension of the gco:GenericName_PropertyType XML type, for the purpose of constraining the srv:serviceType element to a codelist |
-
-The Schematron schema and XML Schema files are stored in the root directory of [This code repository](https://github.com/GeoscienceAustralia/ISO19115-profile).
+The Schematron schema files are stored in the root directory of [This code repository](https://github.com/GeoscienceAustralia/ISO19115-profile).
 
 
 

@@ -1,24 +1,23 @@
 """
-Routine to add the ISO 19115-1:2014 GA Profile codelists in the ISO 19115-1:2014 CAT 1.0 XML format
-to the geonetwork formatted ISO 19115-1:2014 codelists.
+Routine to convert the ISO 19115-1:2014 GA Profile codelists in the ISO 19115-1:2014 CAT 1.0 XML format
+to geonetwork formatted codelists, enabling the codelists to be implemented as pick lists in 
+the GeoNetwork metadata entry forms.
+
+The codelists.xml file used by the GN application is updated with the codelists extended by the 
+GA Profile (DS_AssociationTypeCode, CI_OnLineFunctionCode).  Codelists introduced by the GA Profile 
+(gapCI_ProtocolTypeCode, gapSV_ServiceTypeCode) are appended to the labels.xml file used by the GN 
+application.  
 
 Created on 10 December 2018
 
 @author: Aaron Sedgmen
 """
 
-from SPARQLWrapper import SPARQLWrapper
 import os
 import sys
 import logging
 import lxml.etree as ET
 import argparse
-import datetime
-import re
-from io import StringIO
-
-# Set the global variables
-
 
 # Set handler for root logger to standard output if no handler exists
 if not logging.root.handlers:
@@ -43,11 +42,11 @@ def main():
         :return: Returns a parsed version of the arguments.
         """
         parser = argparse.ArgumentParser(
-            description='Adds ISO 19115-1:2014 GA Profile codelists in the ISO 19115-1:2014 CAT 1.0 XML format to the geoneGeoNetwork formatted ISO 19115-1:2014 codelists.')
+            description='Adds ISO 19115-1:2014 GA Profile codelists to the GeoNetwork codelist XML files.')
         parser.add_argument("gnCodelists",
-                            help="Original GeoNetwork codelists file to be modified")
+                            help="Original GeoNetwork codelists.xml file to be modified")
         parser.add_argument("gnLabels",
-                            help="Original GeoNetwork labels file to be modified")
+                            help="Original GeoNetwork labels.xml file to be modified")
         parser.add_argument("-g", "--gaProfileCodelists",
                             help="GA Profile codelists with which to modify the GeoNetwork codelists (default is ga_profile_codelists.xml in current working directory)",
                             dest="gaProfileCodelists",
@@ -67,14 +66,15 @@ def main():
     # Set logging level    
     logger.setLevel(args.logging_level)
     
-    # Ensure the files provided exist
+    # Ensure the files and output dir provided exist
     assert os.path.isfile(args.gaProfileCodelists),"File provided for GA Profile codelists %r does not exist!" % args.gaProfileCodelists
     assert os.path.isfile(args.gnCodelists),"File provided for GeoNetwork codelists %r does not exist!" % args.gnCodelists
     assert os.path.isfile(args.gnLabels),"File provided for GeoNetwork labels %r does not exist!" % args.gnLabels
+    assert os.path.isdir(args.outputDir),"Output directory %r does not exist!" % args.outputDir
     
     # Convert each of the GA Profile codelists from ISO 19115-1 CAT 1.0 format to the GeoNetwork format
     
-    # Read the ISO codelists file insto a string
+    # Read the ISO codelists file into a string
     with open(args.gaProfileCodelists, 'r') as ga_profile_codelist_file:
         ga_iso_codelists_string = ga_profile_codelist_file.read().replace('\n', '')
     
@@ -116,7 +116,6 @@ def main():
     parent.remove(DS_AssociationTypeCode_node)
     
     # Insert the gapDS_AssociationTypeCode codelist into the gn codelists document
-    gapDS_AssociationTypeCode_codelist_et.find('.').set('name', 'mri:DS_AssociationTypeCode')
     parent.insert(index, gapDS_AssociationTypeCode_codelist_et.find('.'))
     
     # Remove the CI_OnLineFunctionCode codelist from the gn codelists.xml document
@@ -126,7 +125,6 @@ def main():
     parent.remove(CI_OnLineFunctionCode_node)
     
     # Insert the gapCI_OnLineFunctionCode codelist into the gn codelists.xml document
-    gapCI_OnLineFunctionCode_codelist_et.find('.').set('name', 'cit:CI_OnLineFunctionCode')
     parent.insert(index, gapCI_OnLineFunctionCode_codelist_et.find('.'))
     
     # Append the gapCI_ProtocolTypeCode codelist into the gn labels.xml document
@@ -143,6 +141,8 @@ def main():
     output_xml = ET.tostring(output_xml_et, pretty_print=True).decode('utf-8')
     with open(os.path.join(args.outputDir, "codelists_geonetwork_ga_profile.xml"), "w") as text_file:
         text_file.write(output_xml)
+    
+    logger.info("Extended codelists written to file'{}'".format(os.path.join(args.outputDir, "codelists_geonetwork_ga_profile.xml")))
 
     # Write the updated GeoNetwork labels file to the file system (have to write then read using parser and rewrite to force pretty print)
     with open(os.path.join(args.outputDir, "labels_geonetwork_ga_profile.xml"), "w") as text_file:
@@ -152,7 +152,8 @@ def main():
     output_xml = ET.tostring(output_xml_et, pretty_print=True).decode('utf-8')
     with open(os.path.join(args.outputDir, "labels_geonetwork_ga_profile.xml"), "w") as text_file:
         text_file.write(output_xml)
-   
+
+    logger.info("New codelists written to file'{}'".format(os.path.join(args.outputDir, "labels_geonetwork_ga_profile.xml")))
     
 if __name__ == "__main__":
     main()
