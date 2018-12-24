@@ -50,9 +50,15 @@ Following are the ISO 19115-1:2014 elements that have been extended by the GA pr
 | distributionFormat | provides a description of the format of the data to be distributed | Optional -> Mandatory |
 
 #### Codelists
-This profile extends two ISO 19115-1 codelists:
+This profile extends the ISO 19115-1 codelists:
 * **Association Type (DS_AssociationTypeCode)**
 * **Online Function (CI_OnLineFunctionCode)**
+
+The codeList attribute on instances of the above ISO 19115-1 codelist elements point to the extended codelist:
+| ISO 19115-1 Codelist element | GA Profile Codelist |
+| --- | --- |
+| DS_AssociationTypeCode | http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml#gapDS_AssociationTypeCode |
+| CI_OnLineFunctionCode | http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml#gapCI_OnLineFunctionCode |
 
 Two new codelists have been implemented to constrain ISO 19115-1 elements that are free text in the base standard:
 * **Service Type (serviceType -> gapSV_ServiceTypeCode_PropertyType)**
