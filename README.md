@@ -50,19 +50,25 @@ Following are the ISO 19115-1:2014 elements that have been extended by the GA pr
 | distributionFormat | provides a description of the format of the data to be distributed | Optional -> Mandatory |
 
 #### Codelists
-This profile extends the ISO 19115-1 codelists:
+This profile extends two ISO 19115-1 codelists:
 * **Association Type (DS_AssociationTypeCode)**
 * **Online Function (CI_OnLineFunctionCode)**
 
-The codeList attribute on instances of the above ISO 19115-1 codelist elements point to the extended codelist:
-| ISO 19115-1 Codelist element | GA Profile Codelist |
+##### The codeList attribute on ISO 19115-3 element instances of the above ISO 19115-1 codelists points to the GA Profile extended codelist:
+| ISO 19115-3 codelist element | GA Profile extended codelist |
 | --- | --- |
-| DS_AssociationTypeCode | http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml#gapDS_AssociationTypeCode |
-| CI_OnLineFunctionCode | http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml#gapCI_OnLineFunctionCode |
+| mri:DS_AssociationTypeCode | http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml#gapDS_AssociationTypeCode |
+| cit:CI_OnLineFunctionCode | http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml#gapCI_OnLineFunctionCode |
 
-Two new codelists have been implemented to constrain ISO 19115-1 elements that are free text in the base standard:
-* **Service Type (serviceType -> gapSV_ServiceTypeCode_PropertyType)**
-* **Protocol (protocol -> gapCI_ProtocolTypeCode_PropertyType)**
+ISO 19115-3 element text values, and values provided in the element's codeListValue attribute, must conform to the identifiers in the GA Profile extended codelist.
+
+Two new codelists have been implemented by this profile to constrain the following ISO 19115-1 metadata elements:
+* **Service Type (serviceType)**
+* **Protocol (protocol)**
+
+The srv:serviceType/gco:ScopedName element in ISO 19115-3 instance documents must include the codeScope attribute indicating the GA Profile gapSV_ServiceTypeCode codelist.  Text values for the element must conform to the identifiers in the gapSV_ServiceTypeCode codelist.
+
+The cit:protocol/gco:CharacterString element in ISO 19115-3 instance documents must be soft-typed to the gco:CodeType type so that the codeSpace attribute can be included.  The codeScope attribute must then be set to indicate the GA Profile gapCI_ProtocolTypeCode codelist, and text values for the element must conform to the identifiers in the gapCI_ProtocolTypeCode codelist.
 
 The authoritative values in the above codelists are maintained in [SKOS vocabularies](https://www.w3.org/2004/02/skos/) hosted by [Research Vocabularies Australia](https://vocabs.ands.org.au/).  The codelists are extracted from the vocabularies and written to an XML codelist catalog file conforming to the ISO 19115-3 CAT 1.0 schema.  The resulting codelist catalog, as well as the scripts used to generate the codelists are stored in the [codelist/](codelist/) folder.
 
