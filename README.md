@@ -60,8 +60,17 @@ This profile extends two ISO 19115-1 codelists:
 | mri:DS_AssociationTypeCode | http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml#gapDS_AssociationTypeCode |
 | cit:CI_OnLineFunctionCode | http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml#gapCI_OnLineFunctionCode |
 
-ISO 19115-3 element text values, and values provided in the element's codeListValue attribute, must conform to the identifiers in the GA Profile extended codelist.
-
+ISO 19115-3 codelist element text values, and values provided in the element's codeListValue attribute, must conform to the identifiers in the GA Profile extended codelist.  For Example:
+``` xml
+  <mri:associationType>
+    <mri:DS_AssociationTypeCode codeList="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml#gapDS_AssociationTypeCode" codeListValue="generated">generated</mri:DS_AssociationTypeCode>
+  </mri:associationType>
+```
+``` xml
+  <cit:function>
+    <cit:CI_OnLineFunctionCode codeList="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml#gapCI_OnLineFunctionCode" codeListValue="provenanceQueryService ">provenanceQueryService </cit:CI_OnLineFunctionCode>
+  </cit:function>
+```
 
 Two new codelists have been implemented by this profile to constrain the following ISO 19115-1 metadata elements:
 * **Service Type (serviceType)**
