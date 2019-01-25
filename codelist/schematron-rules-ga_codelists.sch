@@ -23,11 +23,11 @@ DATE			VERSION		AUTHOR				DESCRIPTION
     
     <sch:title>Geoscience Australia profile Schematron schema for checking that codes in ISO 19115-1:2014 metadata documents correspond to the respective GA profile codelists</sch:title>
     
-    <sch:ns prefix="cat" uri="http://standards.iso.org/iso/19115/-3/cat/1.0"  />
-    <sch:ns prefix="cit" uri="http://standards.iso.org/iso/19115/-3/cit/1.0"  />
-    <sch:ns prefix="gco" uri="http://standards.iso.org/iso/19115/-3/gco/1.0"  />
-    <sch:ns prefix="mri" uri="http://standards.iso.org/iso/19115/-3/mri/1.0"  />
-    <sch:ns prefix="srv" uri="http://standards.iso.org/iso/19115/-3/srv/2.0"  />
+    <sch:ns prefix="cat" uri="http://standards.iso.org/iso/19115/-3/cat/1.0"/>
+    <sch:ns prefix="cit" uri="http://standards.iso.org/iso/19115/-3/cit/1.0"/>
+    <sch:ns prefix="gco" uri="http://standards.iso.org/iso/19115/-3/gco/1.0"/>
+    <sch:ns prefix="mri" uri="http://standards.iso.org/iso/19115/-3/mri/1.0"/>
+    <sch:ns prefix="srv" uri="http://standards.iso.org/iso/19115/-3/srv/2.0"/>
 
     
     <!-- mri:associationType/mri:DS_AssociationTypeCode -->
@@ -135,14 +135,15 @@ DATE			VERSION		AUTHOR				DESCRIPTION
     <!-- srv:serviceType -->
     
     <!-- ====================================================================================================== -->
-    <!-- Assert that the metadata service type codes are present and correspond to values in the                -->
-    <!-- gapSV_ServiceTypeCode codelist                                                                         -->
+    <!-- Assert that metadata service type terms correspond to values in the gapSV_ServiceTypeCode codelist     -->
     <!--                                                                                                        -->
-    <!-- The gapSV_ServiceTypeCode codelist in the GA Profile is an addition to the ISO19115-1:2014 standard,   -->
-    <!-- for constraining the srv:serviceType free text element.                                                -->
+    <!-- The GA Profile gapSV_ServiceTypeCode codelist is an addition to the ISO19115-1:2014 standard,          -->
+    <!-- for constraining the srv:serviceType/gco:ScopedName element.  The gco:ScopedName element's codeSpace   -->
+    <!-- attribute should indicate that the gapSV_ServiceTypeCode codelist applies (not asserted by this        -->
+    <!-- Schematron).                                                                                           -->
     <!-- ====================================================================================================== -->
     <sch:pattern>
-        <sch:title xml:lang="en">Service type code and text must have a corresponding entry in the gapSV_ServiceTypeCode codelist.</sch:title>
+        <sch:title xml:lang="en">Service type terms must have a corresponding entry in the gapSV_ServiceTypeCode codelist.</sch:title>
 
         <sch:rule context= "srv:serviceType/gco:ScopedName">
             
@@ -163,39 +164,21 @@ DATE			VERSION		AUTHOR				DESCRIPTION
             
         </sch:rule>
         
-        <sch:rule context= "srv:serviceType[@codeListValue]">
-            
-            <sch:let name="URI" value="'http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml'"/>
-            
-            <sch:let name="code-list-document" value="document( $URI )"/>
-            
-            <sch:let name="code-list" value=" $code-list-document//cat:CT_Codelist[ @id='gapSV_ServiceTypeCode' ]" />
-            
-            <sch:let name="attr-code" value="@codeListValue" />
-            
-            <sch:assert test="$code-list/cat:codeEntry/cat:CT_CodelistValue/cat:identifier[ gco:ScopedName = $attr-code ]">
-                Service type code "<sch:value-of select="normalize-space(@codeListValue)"/>" not found in gapSV_ServiceTypeCode codelist.
-            </sch:assert>
-            <sch:report test="$code-list/cat:codeEntry/cat:CT_CodelistValue/cat:identifier[ gco:ScopedName = $attr-code ]">
-                Service type code "<sch:value-of select="normalize-space(@codeListValue)"/>" found in gapSV_ServiceTypeCode codelist.
-            </sch:report>
-            
-        </sch:rule>
-        
     </sch:pattern>
 
 
     <!-- cit:protocol -->
     
     <!-- ========================================================================================================= -->
-    <!-- Assert that the metadata protocol type codes are present and correspond to values in the                  -->
-    <!-- gapCI_ProtocolTypeCode codelist.                                                                          -->
+    <!-- Assert that metadata protocol terms correspond to values in the  gapCI_ProtocolTypeCode codelist.         -->
     <!--                                                                                                           -->
-    <!-- The gapCI_ProtocolTypeCode codelist in the GA Profile is an addition to the ISO19115-1:2014 standard,     -->
-    <!-- for constraining the cit:protocol free text element.                                                      -->
+    <!-- The GA Profile gapCI_ProtocolTypeCode codelist is an addition to the ISO19115-1:2014 standard,            -->
+    <!-- for constraining the cit:protocol/gco:CharacterString element.  The gco:CharacterString element should be -->
+    <!-- dynamically typed as gco:CodeType and include the codeSpace attribute indicating that the                 -->
+    <!-- gapCI_ProtocolTypeCode codelist applies (not asserted by this Schematron).                                -->
     <!-- ========================================================================================================= -->
     <sch:pattern>
-        <sch:title xml:lang="en">Protocol type code and text must have a corresponding entry in the gapCI_ProtocolTypeCode codelist.</sch:title>
+        <sch:title xml:lang="en">Protocol terms must have a corresponding entry in the gapCI_ProtocolTypeCode codelist.</sch:title>
         
         <sch:rule context= "cit:protocol/gco:CharacterString">
             
@@ -208,29 +191,10 @@ DATE			VERSION		AUTHOR				DESCRIPTION
             <sch:let name="text-code" value="." />
             
             <sch:assert test="$code-list/cat:codeEntry/cat:CT_CodelistValue/cat:identifier[ gco:ScopedName = $text-code ] or string-length(.) = 0">
-                Protocol type text value "<sch:value-of select="normalize-space(.)"/>" not found in gapCI_ProtocolTypeCode codelist.
+                Protocol text value "<sch:value-of select="normalize-space(.)"/>" not found in gapCI_ProtocolTypeCode codelist.
             </sch:assert>
             <sch:report test="$code-list/cat:codeEntry/cat:CT_CodelistValue/cat:identifier[ gco:ScopedName = $text-code ] or string-length(.) = 0">
-                Protocol type text value "<sch:value-of select="normalize-space(.)"/>" found in gapCI_ProtocolTypeCode codelist.
-            </sch:report>
-            
-        </sch:rule>
-        
-        <sch:rule context= "cit:protocol[@codeListValue]">
-            
-            <sch:let name="URI" value="'http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml'"/>
-            
-            <sch:let name="code-list-document" value="document( $URI )"/>
-            
-            <sch:let name="code-list" value=" $code-list-document//cat:CT_Codelist[ @id='gapCI_ProtocolTypeCode' ]" />
-            
-            <sch:let name="attr-code" value="@codeListValue" />
-            
-            <sch:assert test="$code-list/cat:codeEntry/cat:CT_CodelistValue/cat:identifier[ gco:ScopedName = $attr-code ]">
-                Protocol type code "<sch:value-of select="normalize-space(@codeListValue)"/>" not found in gapCI_ProtocolTypeCode codelist.
-            </sch:assert>
-            <sch:report test="$code-list/cat:codeEntry/cat:CT_CodelistValue/cat:identifier[ gco:ScopedName = $attr-code ]">
-                Protocol type code "<sch:value-of select="normalize-space(@codeListValue)"/>" found in gapCI_ProtocolTypeCode codelist.
+                Protocol text value "<sch:value-of select="normalize-space(.)"/>" found in gapCI_ProtocolTypeCode codelist.
             </sch:report>
             
         </sch:rule>
