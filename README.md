@@ -8,8 +8,11 @@ This profile extends the base ISO19115-1:2014 standard in accordance with Annex 
 
 Some elements of this profile allow us to relate elements modelled here to other models. For example, the 'derivedFrom' relationship mentioned above can be interpreted as a 'wasDerivedFrom' relationship as used in the [PROV ontology](https://www.w3.org/TR/prov-o/) for provenance.
 
-### Profile Extensions
-Following are the ISO 19115-1:2014 elements that have been extended by the GA profile.
+## Profile Extensions
+
+### Metadata Elements
+
+Following are the ISO 19115-1:2014 metadata elements that have been extended by the GA profile.
 
 ##### Metadata entity set information (MD_Metadata)
 
@@ -49,7 +52,9 @@ Following are the ISO 19115-1:2014 elements that have been extended by the GA pr
 | --- | --- | --- |
 | distributionFormat | provides a description of the format of the data to be distributed | Optional -> Mandatory |
 
-#### Codelists
+### Codelists
+
+#### Extended ISO 19115-1 codelists
 This profile extends two ISO 19115-1 codelists:
 * **Association Type (DS_AssociationTypeCode)**
 * **Online Function (CI_OnLineFunctionCode)**
@@ -72,7 +77,8 @@ ISO 19115-3 codelist element text values, and values provided in the element's c
   </cit:function>
 ```
 
-Two new codelists have been implemented by this profile to constrain the following ISO 19115-1 metadata elements:
+#### New codelists
+This profile defines two new codelists that constrain the following ISO 19115-1 metadata elements:
 * **Service Type (serviceType)**
 * **Protocol (protocol)**
 
