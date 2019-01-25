@@ -52,18 +52,17 @@ Following are the ISO 19115-1:2014 metadata elements that have been extended by 
 | --- | --- | --- |
 | distributionFormat | provides a description of the format of the data to be distributed | Optional -> Mandatory |
 
+<br>
+
 ### Codelists
 
 #### Extended ISO 19115-1 codelists
 This profile extends two ISO 19115-1 codelists:
-* **Association Type (DS_AssociationTypeCode)**
-* **Online Function (CI_OnLineFunctionCode)**
 
-##### The codeList attribute on ISO 19115-3 element instances of the above ISO 19115-1 codelists must point to the GA Profile extended codelist:
-| ISO 19115-3 codelist element | GA Profile extended codelist |
+| ISO 19115-1 codelist | GA Profile extended codelist location |
 | --- | --- |
-| mri:DS_AssociationTypeCode | http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml#gapDS_AssociationTypeCode |
-| cit:CI_OnLineFunctionCode | http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml#gapCI_OnLineFunctionCode |
+| **DS_AssociationTypeCode** | http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml#gapDS_AssociationTypeCode |
+| **CI_OnLineFunctionCode** | http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml#gapCI_OnLineFunctionCode |
 
 ISO 19115-3 codelist element text values, and values provided in the element's codeListValue attribute, must conform to the identifiers in the GA Profile extended codelist.  For Example:
 ``` xml
@@ -78,9 +77,12 @@ ISO 19115-3 codelist element text values, and values provided in the element's c
 ```
 
 #### New codelists
-This profile defines two new codelists that constrain the following ISO 19115-1 metadata elements:
-* **Service Type (serviceType)**
-* **Protocol (protocol)**
+This profile defines two new codelists to constrain ISO 19115-1 metadata elements:
+
+| ISO 19115-1 metadata element | GA Profile codelist location |
+| --- | --- |
+| **serviceType** | http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml#gapSV_ServiceTypeCode |
+| **protocol** | http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml#gapCI_ProtocolTypeCode |
 
 The srv:serviceType/gco:ScopedName element in ISO 19115-3 instance documents must include the codeScope attribute indicating the GA Profile gapSV_ServiceTypeCode codelist.  Text values for the element must conform to the identifiers in the gapSV_ServiceTypeCode codelist. For example:
 ``` xml
