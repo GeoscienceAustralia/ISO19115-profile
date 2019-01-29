@@ -15,9 +15,7 @@ attribute is empty or contains the string 'codeListLocation', the official ISO 1
 that element is applied.  URLs for community profile codelists may be provided, although the codelists must conform to 
 the CAT 1.0 schema. 
 
-The code attribute and text value of the element being validated is checked against the relevant codelist. To 
-conform with the naming convention of codes in CAT 1.0 codelists, the codelist id is prepended to the code, 
-seperated by an underscore (_), to form the string that is checked against the codelist.
+The code attribute and text value of the element being validated is checked against the relevant codelist.
 
 Note that this Schematron only validates elements which are constrained by the codelists defined in the base
 ISO 19115-1:2014 standard (or profiles there of) - new codelists produced by constraining free text elements, 
@@ -50,7 +48,7 @@ DATE			VERSION		AUTHOR				DESCRIPTION
     <sch:ns prefix="mmi" uri="http://standards.iso.org/iso/19115/-3/mmi/1.0"  />
     <sch:ns prefix="gml" uri="http://www.opengis.net/gml/3.2"  />
     
-    <sch:let name="default_codelist_uri" value="'http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml'"/>
+    <sch:let name="default_codelist_uri" value="'http://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml'"/>
     
     <!-- cit:CI_DateTypeCode -->
 
@@ -89,9 +87,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
             
             <sch:let name="code-list" value=" $code-list-document//cat:CT_Codelist[ @id=$code-list-name ]" />
                         
-            <sch:let name="attr-code" value="concat($code-list-name, '_', @codeListValue)" />
+            <sch:let name="attr-code" value="@codeListValue" />
             
-            <sch:let name="text-code" value="concat($code-list-name, '_', .)" />
+            <sch:let name="text-code" value="." />
             
             <sch:assert test="string-length($URI) > 0 and string-length($code-list-name) > 0"
                 diagnostics="rule.cit.validdatetypecodelist-failure-en" >Fail.</sch:assert>
@@ -159,9 +157,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
             
             <sch:let name="code-list" value=" $code-list-document//cat:CT_Codelist[ @id=$code-list-name ]" />
             
-            <sch:let name="attr-code" value="concat($code-list-name, '_', @codeListValue)" />
+            <sch:let name="attr-code" value="@codeListValue" />
 
-            <sch:let name="text-code" value="concat($code-list-name, '_', .)" />
+            <sch:let name="text-code" value="." />
             
             <sch:assert test="string-length($URI) > 0 and string-length($code-list-name) > 0"
                 diagnostics="rule.cit.validonlinefunctioncodelist-failure-en" >Fail.</sch:assert>
@@ -228,9 +226,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
             
             <sch:let name="code-list" value=" $code-list-document//cat:CT_Codelist[ @id=$code-list-name ]" />
             
-            <sch:let name="attr-code" value="concat($code-list-name, '_', @codeListValue)" />
+            <sch:let name="attr-code" value="@codeListValue" />
             
-            <sch:let name="text-code" value="concat($code-list-name, '_', .)" />
+            <sch:let name="text-code" value="." />
             
             <sch:assert test="string-length($URI) > 0 and string-length($code-list-name) > 0"
                 diagnostics="rule.cit.validpresentationformcodelist-failure-en" >Fail.</sch:assert>
@@ -297,9 +295,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
             
             <sch:let name="code-list" value=" $code-list-document//cat:CT_Codelist[ @id=$code-list-name ]" />
             
-            <sch:let name="attr-code" value="concat($code-list-name, '_', @codeListValue)" />
+            <sch:let name="attr-code" value="@codeListValue" />
             
-            <sch:let name="text-code" value="concat($code-list-name, '_', .)" />
+            <sch:let name="text-code" value="." />
             
             <sch:assert test="string-length($URI) > 0 and string-length($code-list-name) > 0"
                 diagnostics="rule.cit.validrolecodelist-failure-en" >Fail.</sch:assert>
@@ -366,9 +364,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
             
             <sch:let name="code-list" value=" $code-list-document//cat:CT_Codelist[ @id=$code-list-name ]" />
             
-            <sch:let name="attr-code" value="concat($code-list-name, '_', @codeListValue)" />
+            <sch:let name="attr-code" value="@codeListValue" />
             
-            <sch:let name="text-code" value="concat($code-list-name, '_', .)" />
+            <sch:let name="text-code" value="." />
             
             <sch:assert test="string-length($URI) > 0 and string-length($code-list-name) > 0"
                 diagnostics="rule.cit.validtelephonetypecodelist-failure-en" >Fail.</sch:assert>
@@ -436,9 +434,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
             
             <sch:let name="code-list" value=" $code-list-document//cat:CT_Codelist[ @id=$code-list-name ]" />
             
-            <sch:let name="attr-code" value="concat($code-list-name, '_', @codeListValue)" />
+            <sch:let name="attr-code" value="@codeListValue" />
             
-            <sch:let name="text-code" value="concat($code-list-name, '_', .)" />
+            <sch:let name="text-code" value="." />
             
             <sch:assert test="string-length($URI) > 0 and string-length($code-list-name) > 0"
                 diagnostics="rule.mri.validassociationtypecodelist-failure-en" >Fail.</sch:assert>
@@ -505,9 +503,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
             
             <sch:let name="code-list" value=" $code-list-document//cat:CT_Codelist[ @id=$code-list-name ]" />
             
-            <sch:let name="attr-code" value="concat($code-list-name, '_', @codeListValue)" />
+            <sch:let name="attr-code" value="@codeListValue" />
             
-            <sch:let name="text-code" value="concat($code-list-name, '_', .)" />
+            <sch:let name="text-code" value="." />
             
             <sch:assert test="string-length($URI) > 0 and string-length($code-list-name) > 0"
                 diagnostics="rule.srv.validdcplistcodelist-failure-en" >Fail.</sch:assert>
@@ -574,9 +572,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
             
             <sch:let name="code-list" value=" $code-list-document//cat:CT_Codelist[ @id=$code-list-name ]" />
             
-            <sch:let name="attr-code" value="concat($code-list-name, '_', @codeListValue)" />
+            <sch:let name="attr-code" value="@codeListValue" />
             
-            <sch:let name="text-code" value="concat($code-list-name, '_', .)" />
+            <sch:let name="text-code" value="." />
             
             <sch:assert test="string-length($URI) > 0 and string-length($code-list-name) > 0"
                 diagnostics="rule.mri.validinitiativetypecodelist-failure-en" >Fail.</sch:assert>
@@ -647,9 +645,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
             
             <sch:let name="code-list" value=" $code-list-document//cat:CT_Codelist[ @id=$code-list-name ]" />
             
-            <sch:let name="attr-code" value="concat($code-list-name, '_', @codeListValue)" />
+            <sch:let name="attr-code" value="@codeListValue" />
             
-            <sch:let name="text-code" value="concat($code-list-name, '_', .)" />
+            <sch:let name="text-code" value="." />
             
             <sch:assert test="string-length($URI) > 0 and string-length($code-list-name) > 0"
                 diagnostics="rule.msr.validcellgeometrycodelist-failure-en" >Fail.</sch:assert>
@@ -716,9 +714,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
             
             <sch:let name="code-list" value=" $code-list-document//cat:CT_Codelist[ @id=$code-list-name ]" />
             
-            <sch:let name="attr-code" value="concat($code-list-name, '_', @codeListValue)" />
+            <sch:let name="attr-code" value="@codeListValue" />
             
-            <sch:let name="text-code" value="concat($code-list-name, '_', .)" />
+            <sch:let name="text-code" value="." />
             
             <sch:assert test="string-length($URI) > 0 and string-length($code-list-name) > 0"
                 diagnostics="rule.mco.validclassificationcodelist-failure-en" >Fail.</sch:assert>
@@ -788,9 +786,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
             
             <sch:let name="code-list" value=" $code-list-document//cat:CT_Codelist[ @id=$code-list-name ]" />
             
-            <sch:let name="attr-code" value="concat($code-list-name, '_', @codeListValue)" />
+            <sch:let name="attr-code" value="@codeListValue" />
             
-            <sch:let name="text-code" value="concat($code-list-name, '_', .)" />
+            <sch:let name="text-code" value="." />
             
             <sch:assert test="string-length($URI) > 0 and string-length($code-list-name) > 0"
                 diagnostics="rule.mrc.validcoveragecontenttypecodelist-failure-en" >Fail.</sch:assert>
@@ -857,9 +855,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
             
             <sch:let name="code-list" value=" $code-list-document//cat:CT_Codelist[ @id=$code-list-name ]" />
             
-            <sch:let name="attr-code" value="concat($code-list-name, '_', @codeListValue)" />
+            <sch:let name="attr-code" value="@codeListValue" />
             
-            <sch:let name="text-code" value="concat($code-list-name, '_', .)" />
+            <sch:let name="text-code" value="." />
             
             <sch:assert test="string-length($URI) > 0 and string-length($code-list-name) > 0"
                 diagnostics="rule.mex.validdatatypecodelist-failure-en" >Fail.</sch:assert>
@@ -926,9 +924,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
             
             <sch:let name="code-list" value=" $code-list-document//cat:CT_Codelist[ @id=$code-list-name ]" />
             
-            <sch:let name="attr-code" value="concat($code-list-name, '_', @codeListValue)" />
+            <sch:let name="attr-code" value="@codeListValue" />
             
-            <sch:let name="text-code" value="concat($code-list-name, '_', .)" />
+            <sch:let name="text-code" value="." />
             
             <sch:assert test="string-length($URI) > 0 and string-length($code-list-name) > 0"
                 diagnostics="rule.msr.validdimensionnamecodelist-failure-en" >Fail.</sch:assert>
@@ -995,9 +993,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
             
             <sch:let name="code-list" value=" $code-list-document//cat:CT_Codelist[ @id=$code-list-name ]" />
             
-            <sch:let name="attr-code" value="concat($code-list-name, '_', @codeListValue)" />
+            <sch:let name="attr-code" value="@codeListValue" />
             
-            <sch:let name="text-code" value="concat($code-list-name, '_', .)" />
+            <sch:let name="text-code" value="." />
             
             <sch:assert test="string-length($URI) > 0 and string-length($code-list-name) > 0"
                 diagnostics="rule.msr.validgeometricobjecttypecodelist-failure-en" >Fail.</sch:assert>
@@ -1064,9 +1062,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
             
             <sch:let name="code-list" value=" $code-list-document//cat:CT_Codelist[ @id=$code-list-name ]" />
             
-            <sch:let name="attr-code" value="concat($code-list-name, '_', @codeListValue)" />
+            <sch:let name="attr-code" value="@codeListValue" />
             
-            <sch:let name="text-code" value="concat($code-list-name, '_', .)" />
+            <sch:let name="text-code" value="." />
             
             <sch:assert test="string-length($URI) > 0 and string-length($code-list-name) > 0"
                 diagnostics="rule.mrc.validimageconditioncodelist-failure-en" >Fail.</sch:assert>
@@ -1133,9 +1131,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
             
             <sch:let name="code-list" value=" $code-list-document//cat:CT_Codelist[ @id=$code-list-name ]" />
             
-            <sch:let name="attr-code" value="concat($code-list-name, '_', @codeListValue)" />
+            <sch:let name="attr-code" value="@codeListValue" />
             
-            <sch:let name="text-code" value="concat($code-list-name, '_', .)" />
+            <sch:let name="text-code" value="." />
             
             <sch:assert test="string-length($URI) > 0 and string-length($code-list-name) > 0"
                 diagnostics="rule.mri.validkeywordtypecodelist-failure-en" >Fail.</sch:assert>
@@ -1202,9 +1200,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
             
             <sch:let name="code-list" value=" $code-list-document//cat:CT_Codelist[ @id=$code-list-name ]" />
             
-            <sch:let name="attr-code" value="concat($code-list-name, '_', @codeListValue)" />
+            <sch:let name="attr-code" value="@codeListValue" />
             
-            <sch:let name="text-code" value="concat($code-list-name, '_', .)" />
+            <sch:let name="text-code" value="." />
             
             <sch:assert test="string-length($URI) > 0 and string-length($code-list-name) > 0"
                 diagnostics="rule.mmi.validmaintenancefrequencycodelist-failure-en" >Fail.</sch:assert>
@@ -1271,9 +1269,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
             
             <sch:let name="code-list" value=" $code-list-document//cat:CT_Codelist[ @id=$code-list-name ]" />
             
-            <sch:let name="attr-code" value="concat($code-list-name, '_', @codeListValue)" />
+            <sch:let name="attr-code" value="@codeListValue" />
             
-            <sch:let name="text-code" value="concat($code-list-name, '_', .)" />
+            <sch:let name="text-code" value="." />
             
             <sch:assert test="string-length($URI) > 0 and string-length($code-list-name) > 0"
                 diagnostics="rule.mrd.validmediumformatcodelist-failure-en" >Fail.</sch:assert>
@@ -1346,9 +1344,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
             
             <sch:let name="code-list" value=" $code-list-document//cat:CT_Codelist[ @id=$code-list-name ]" />
             
-            <sch:let name="attr-code" value="concat($code-list-name, '_', @codeListValue)" />
+            <sch:let name="attr-code" value="@codeListValue" />
             
-            <sch:let name="text-code" value="concat($code-list-name, '_', .)" />
+            <sch:let name="text-code" value="." />
             
             <sch:assert test="string-length($URI) > 0 and string-length($code-list-name) > 0"
                 diagnostics="rule.mcc.validprogresscodelist-failure-en" >Fail.</sch:assert>
@@ -1415,9 +1413,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
             
             <sch:let name="code-list" value=" $code-list-document//cat:CT_Codelist[ @id=$code-list-name ]" />
             
-            <sch:let name="attr-code" value="concat($code-list-name, '_', @codeListValue)" />
+            <sch:let name="attr-code" value="@codeListValue" />
             
-            <sch:let name="text-code" value="concat($code-list-name, '_', .)" />
+            <sch:let name="text-code" value="." />
             
             <sch:assert test="string-length($URI) > 0 and string-length($code-list-name) > 0"
                 diagnostics="rule.mrs.validrefsystypecodelist-failure-en" >Fail.</sch:assert>
@@ -1484,9 +1482,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
             
             <sch:let name="code-list" value=" $code-list-document//cat:CT_Codelist[ @id=$code-list-name ]" />
             
-            <sch:let name="attr-code" value="concat($code-list-name, '_', @codeListValue)" />
+            <sch:let name="attr-code" value="@codeListValue" />
             
-            <sch:let name="text-code" value="concat($code-list-name, '_', .)" />
+            <sch:let name="text-code" value="." />
             
             <sch:assert test="string-length($URI) > 0 and string-length($code-list-name) > 0"
                 diagnostics="rule.mrs.validrestrictioncodelist-failure-en" >Fail.</sch:assert>
@@ -1553,9 +1551,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
             
             <sch:let name="code-list" value=" $code-list-document//cat:CT_Codelist[ @id=$code-list-name ]" />
             
-            <sch:let name="attr-code" value="concat($code-list-name, '_', @codeListValue)" />
+            <sch:let name="attr-code" value="@codeListValue" />
             
-            <sch:let name="text-code" value="concat($code-list-name, '_', .)" />
+            <sch:let name="text-code" value="." />
             
             <sch:assert test="string-length($URI) > 0 and string-length($code-list-name) > 0"
                 diagnostics="rule.mcc.validscopecodelist-failure-en" >Fail.</sch:assert>
@@ -1622,9 +1620,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
             
             <sch:let name="code-list" value=" $code-list-document//cat:CT_Codelist[ @id=$code-list-name ]" />
             
-            <sch:let name="attr-code" value="concat($code-list-name, '_', @codeListValue)" />
+            <sch:let name="attr-code" value="@codeListValue" />
             
-            <sch:let name="text-code" value="concat($code-list-name, '_', .)" />
+            <sch:let name="text-code" value="." />
             
             <sch:assert test="string-length($URI) > 0 and string-length($code-list-name) > 0"
                 diagnostics="rule.mcc.validspatialrepresentationtypecodelist-failure-en" >Fail.</sch:assert>
@@ -1694,9 +1692,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
             
             <sch:let name="code-list" value=" $code-list-document//cat:CT_Codelist[ @id=$code-list-name ]" />
             
-            <sch:let name="attr-code" value="concat($code-list-name, '_', @codeListValue)" />
+            <sch:let name="attr-code" value="@codeListValue" />
             
-            <sch:let name="text-code" value="concat($code-list-name, '_', .)" />
+            <sch:let name="text-code" value="." />
             
             <sch:assert test="string-length($URI) > 0 and string-length($code-list-name) > 0"
                 diagnostics="rule.msr.validspatialtopologylevelcodelist-failure-en" >Fail.</sch:assert>
@@ -1763,9 +1761,9 @@ DATE			VERSION		AUTHOR				DESCRIPTION
             
             <sch:let name="code-list" value=" $code-list-document//cat:CT_Codelist[ @id=$code-list-name ]" />
             
-            <sch:let name="attr-code" value="concat($code-list-name, '_', @codeListValue)" />
+            <sch:let name="attr-code" value="@codeListValue" />
             
-            <sch:let name="text-code" value="concat($code-list-name, '_', .)" />
+            <sch:let name="text-code" value="." />
             
             <sch:assert test="string-length($URI) > 0 and string-length($code-list-name) > 0"
                 diagnostics="rule.srv.validcouplingtypecodelist-failure-en" >Fail.</sch:assert>

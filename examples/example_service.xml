@@ -27,7 +27,7 @@
   xmlns:gco="http://standards.iso.org/iso/19115/-3/gco/1.0"
   xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xlink="http://www.w3.org/1999/xlink"
   xmlns:gapm="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016"
-  xsi:schemaLocation="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016 http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/gapm.xsd http://standards.iso.org/iso/19115/-3/cat/1.0 http://standards.iso.org/iso/19115/-3/cat/1.0/cat.xsd http://standards.iso.org/iso/19115/-3/cit/1.0 http://standards.iso.org/iso/19115/-3/cit/1.0/cit.xsd http://standards.iso.org/iso/19115/-3/gcx/1.0 http://standards.iso.org/iso/19115/-3/gcx/1.0/gcx.xsd http://standards.iso.org/iso/19115/-3/gex/1.0 http://standards.iso.org/iso/19115/-3/gex/1.0/gex.xsd http://standards.iso.org/iso/19115/-3/lan/1.0 http://standards.iso.org/iso/19115/-3/lan/1.0/lan.xsd http://standards.iso.org/iso/19115/-3/srv/2.0 http://standards.iso.org/iso/19115/-3/srv/2.0/srv.xsd http://standards.iso.org/iso/19115/-3/mas/1.0 http://standards.iso.org/iso/19115/-3/mas/1.0/mas.xsd http://standards.iso.org/iso/19115/-3/mcc/1.0 http://standards.iso.org/iso/19115/-3/mcc/1.0/mcc.xsd http://standards.iso.org/iso/19115/-3/mco/1.0 http://standards.iso.org/iso/19115/-3/mco/1.0/mco.xsd http://standards.iso.org/iso/19115/-3/mda/1.0 http://standards.iso.org/iso/19115/-3/mda/1.0/mda.xsd http://standards.iso.org/iso/19115/-3/mdb/1.0 http://standards.iso.org/iso/19115/-3/mdb/1.0/mdb.xsd http://standards.iso.org/iso/19115/-3/mds/1.0 http://standards.iso.org/iso/19115/-3/mds/1.0/mds.xsd http://standards.iso.org/iso/19115/-3/mdt/1.0 http://standards.iso.org/iso/19115/-3/mdt/1.0/mdt.xsd http://standards.iso.org/iso/19115/-3/mex/1.0 http://standards.iso.org/iso/19115/-3/mex/1.0/mex.xsd http://standards.iso.org/iso/19115/-3/mmi/1.0 http://standards.iso.org/iso/19115/-3/mmi/1.0/mmi.xsd http://standards.iso.org/iso/19115/-3/mpc/1.0 http://standards.iso.org/iso/19115/-3/mpc/1.0/mpc.xsd http://standards.iso.org/iso/19115/-3/mrc/1.0 http://standards.iso.org/iso/19115/-3/mrc/1.0/mrc.xsd http://standards.iso.org/iso/19115/-3/mrd/1.0 http://standards.iso.org/iso/19115/-3/mrd/1.0/mrd.xsd http://standards.iso.org/iso/19115/-3/mri/1.0 http://standards.iso.org/iso/19115/-3/mri/1.0/mri.xsd http://standards.iso.org/iso/19115/-3/mrl/1.0 http://standards.iso.org/iso/19115/-3/mrl/1.0/mrl.xsd http://standards.iso.org/iso/19115/-3/mrs/1.0 http://standards.iso.org/iso/19115/-3/mrs/1.0/mrs.xsd http://standards.iso.org/iso/19115/-3/msr/1.0 http://standards.iso.org/iso/19115/-3/msr/1.0/msr.xsd http://standards.iso.org/iso/19157/-2/mdq/1.0 http://standards.iso.org/iso/19157/-2/mdq/1.0/mdq.xsd http://standards.iso.org/iso/19115/-3/mac/1.0 http://standards.iso.org/iso/19115/-3/mac/1.0/mac.xsd http://standards.iso.org/iso/19115/-3/gco/1.0 http://standards.iso.org/iso/19115/-3/gco/1.0/gco.xsd http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd http://www.w3.org/1999/xlink http://www.w3.org/1999/xlink.xsd">
+  xsi:schemaLocation="http://standards.iso.org/iso/19115/-3/cat/1.0 http://standards.iso.org/iso/19115/-3/cat/1.0/cat.xsd http://standards.iso.org/iso/19115/-3/cit/1.0 http://standards.iso.org/iso/19115/-3/cit/1.0/cit.xsd http://standards.iso.org/iso/19115/-3/gcx/1.0 http://standards.iso.org/iso/19115/-3/gcx/1.0/gcx.xsd http://standards.iso.org/iso/19115/-3/gex/1.0 http://standards.iso.org/iso/19115/-3/gex/1.0/gex.xsd http://standards.iso.org/iso/19115/-3/lan/1.0 http://standards.iso.org/iso/19115/-3/lan/1.0/lan.xsd http://standards.iso.org/iso/19115/-3/srv/2.0 http://standards.iso.org/iso/19115/-3/srv/2.0/srv.xsd http://standards.iso.org/iso/19115/-3/mas/1.0 http://standards.iso.org/iso/19115/-3/mas/1.0/mas.xsd http://standards.iso.org/iso/19115/-3/mcc/1.0 http://standards.iso.org/iso/19115/-3/mcc/1.0/mcc.xsd http://standards.iso.org/iso/19115/-3/mco/1.0 http://standards.iso.org/iso/19115/-3/mco/1.0/mco.xsd http://standards.iso.org/iso/19115/-3/mda/1.0 http://standards.iso.org/iso/19115/-3/mda/1.0/mda.xsd http://standards.iso.org/iso/19115/-3/mdb/1.0 http://standards.iso.org/iso/19115/-3/mdb/1.0/mdb.xsd http://standards.iso.org/iso/19115/-3/mds/1.0 http://standards.iso.org/iso/19115/-3/mds/1.0/mds.xsd http://standards.iso.org/iso/19115/-3/mdt/1.0 http://standards.iso.org/iso/19115/-3/mdt/1.0/mdt.xsd http://standards.iso.org/iso/19115/-3/mex/1.0 http://standards.iso.org/iso/19115/-3/mex/1.0/mex.xsd http://standards.iso.org/iso/19115/-3/mmi/1.0 http://standards.iso.org/iso/19115/-3/mmi/1.0/mmi.xsd http://standards.iso.org/iso/19115/-3/mpc/1.0 http://standards.iso.org/iso/19115/-3/mpc/1.0/mpc.xsd http://standards.iso.org/iso/19115/-3/mrc/1.0 http://standards.iso.org/iso/19115/-3/mrc/1.0/mrc.xsd http://standards.iso.org/iso/19115/-3/mrd/1.0 http://standards.iso.org/iso/19115/-3/mrd/1.0/mrd.xsd http://standards.iso.org/iso/19115/-3/mri/1.0 http://standards.iso.org/iso/19115/-3/mri/1.0/mri.xsd http://standards.iso.org/iso/19115/-3/mrl/1.0 http://standards.iso.org/iso/19115/-3/mrl/1.0/mrl.xsd http://standards.iso.org/iso/19115/-3/mrs/1.0 http://standards.iso.org/iso/19115/-3/mrs/1.0/mrs.xsd http://standards.iso.org/iso/19115/-3/msr/1.0 http://standards.iso.org/iso/19115/-3/msr/1.0/msr.xsd http://standards.iso.org/iso/19157/-2/mdq/1.0 http://standards.iso.org/iso/19157/-2/mdq/1.0/mdq.xsd http://standards.iso.org/iso/19115/-3/mac/1.0 http://standards.iso.org/iso/19115/-3/mac/1.0/mac.xsd http://standards.iso.org/iso/19115/-3/gco/1.0 http://standards.iso.org/iso/19115/-3/gco/1.0/gco.xsd http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd http://www.w3.org/1999/xlink http://www.w3.org/1999/xlink.xsd">
   <mdb:metadataIdentifier>
     <mcc:MD_Identifier>
       <mcc:authority>
@@ -70,7 +70,7 @@
   <mdb:metadataScope xmlns:csw="http://www.opengis.net/cat/csw/2.0.2">
     <mdb:MD_MetadataScope>
       <mdb:resourceScope>
-        <mcc:MD_ScopeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_ScopeCode" codeListValue="service"/>
+        <mcc:MD_ScopeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_ScopeCode" codeListValue="service"/>
       </mdb:resourceScope>
       <mdb:name>
         <gco:CharacterString>service</gco:CharacterString>
@@ -80,7 +80,7 @@
   <mdb:contact xmlns:csw="http://www.opengis.net/cat/csw/2.0.2">
     <cit:CI_Responsibility>
       <cit:role>
-        <cit:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="pointOfContact"/>
+        <cit:CI_RoleCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_RoleCode" codeListValue="pointOfContact"/>
       </cit:role>
       <cit:party>
         <cit:CI_Organisation>
@@ -105,7 +105,7 @@
                     <gco:CharacterString>02 6249 9960</gco:CharacterString>
                   </cit:number>
                   <cit:numberType>
-                    <cit:CI_TelephoneTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_TelephoneTypeCode" codeListValue="fax"/>
+                    <cit:CI_TelephoneTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_TelephoneTypeCode" codeListValue="fax"/>
                   </cit:numberType>
                 </cit:CI_Telephone>
               </cit:phone>
@@ -146,7 +146,7 @@
         <gco:DateTime>2017-12-06T02:52:40</gco:DateTime>
       </cit:date>
       <cit:dateType>
-        <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="creation"/>
+        <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="creation"/>
       </cit:dateType>
     </cit:CI_Date>
   </mdb:dateInfo>
@@ -156,7 +156,7 @@
         <gco:DateTime>2015-10-23T00:00:00</gco:DateTime>
       </cit:date>
       <cit:dateType>
-        <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="creation"/>
+        <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="creation"/>
       </cit:dateType>
     </cit:CI_Date>
   </mdb:dateInfo>
@@ -206,7 +206,7 @@
         <gco:CharacterString>Point-of-truth metadata URL</gco:CharacterString>
       </cit:description>
       <cit:function>
-        <cit:CI_OnLineFunctionCode codeList="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/onlineFunctionCode_codelist.xml#gapCI_OnLineFunctionCode" codeListValue="provenanceQueryService"/>
+        <cit:CI_OnLineFunctionCode codeList="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml#gapCI_OnLineFunctionCode" codeListValue="provenanceQueryService"/>
       </cit:function>
     </cit:CI_OnlineResource>
   </mdb:metadataLinkage>
@@ -216,7 +216,7 @@
       <msr:axisDimensionProperties>
         <msr:MD_Dimension>
           <msr:dimensionName>
-            <msr:MD_DimensionNameTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_DimensionNameTypeCode" codeListValue="row">row</msr:MD_DimensionNameTypeCode>
+            <msr:MD_DimensionNameTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_DimensionNameTypeCode" codeListValue="row">row</msr:MD_DimensionNameTypeCode>
           </msr:dimensionName>
           <msr:dimensionSize></msr:dimensionSize>
         </msr:MD_Dimension>
@@ -230,12 +230,12 @@
   <mdb:spatialRepresentationInfo>
     <msr:MD_VectorSpatialRepresentation>
       <msr:topologyLevel>
-        <msr:MD_TopologyLevelCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_TopologyLevelCode" codeListValue="geometryOnly">geometryOnly</msr:MD_TopologyLevelCode>
+        <msr:MD_TopologyLevelCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_TopologyLevelCode" codeListValue="geometryOnly">geometryOnly</msr:MD_TopologyLevelCode>
       </msr:topologyLevel>
       <msr:geometricObjects>
         <msr:MD_GeometricObjects>
           <msr:geometricObjectType>
-            <msr:MD_GeometricObjectTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_GeometricObjectTypeCode" codeListValue="complex">complex</msr:MD_GeometricObjectTypeCode>
+            <msr:MD_GeometricObjectTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_GeometricObjectTypeCode" codeListValue="complex">complex</msr:MD_GeometricObjectTypeCode>
           </msr:geometricObjectType>
         </msr:MD_GeometricObjects>
       </msr:geometricObjects>
@@ -293,7 +293,7 @@
                 <gco:DateTime>2015-01-01T00:00:00</gco:DateTime>
               </cit:date>
               <cit:dateType>
-                <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="publication"/>
+                <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="publication"/>
               </cit:dateType>
             </cit:CI_Date>
           </cit:date>
@@ -303,7 +303,7 @@
                 <gco:DateTime>2017-12-07T23:52:10</gco:DateTime>
               </cit:date>
               <cit:dateType>
-                <cit:CI_DateTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_DateTypeCode" codeListValue="revision"/>
+                <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="revision"/>
               </cit:dateType>
             </cit:CI_Date>
           </cit:date>
@@ -378,7 +378,7 @@
             </cit:CI_Responsibility>
           </cit:citedResponsibleParty>
           <cit:presentationForm>
-            <cit:CI_PresentationFormCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_PresentationFormCode" codeListValue="documentDigital"/>
+            <cit:CI_PresentationFormCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_PresentationFormCode" codeListValue="documentDigital"/>
           </cit:presentationForm>
         </cit:CI_Citation>
       </mri:citation>
@@ -386,12 +386,12 @@
         <gco:CharacterString>This Service represents the 25 metre Digital Elevation Model (DEM), with national coverage. It is derived from merged LiDAR and various projects. New data will be added to the service as it becomes available.</gco:CharacterString>
       </mri:abstract>
       <mri:status>
-        <mcc:MD_ProgressCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_ProgressCode" codeListValue="completed"/>
+        <mcc:MD_ProgressCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_ProgressCode" codeListValue="completed"/>
       </mri:status>
       <mri:pointOfContact>
         <cit:CI_Responsibility uuid="urn:ga-authors:c3778f32-c9a0-4e14-a0e5-a7e6df1d42da">
           <cit:role>
-            <cit:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="custodian"/>
+            <cit:CI_RoleCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_RoleCode" codeListValue="custodian"/>
           </cit:role>
           <cit:party>
             <cit:CI_Individual>
@@ -406,7 +406,7 @@
                         <gco:CharacterString>12341234</gco:CharacterString>
                       </cit:number>
                       <cit:numberType>
-                        <cit:CI_TelephoneTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_TelephoneTypeCode" codeListValue="voice"/>
+                        <cit:CI_TelephoneTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_TelephoneTypeCode" codeListValue="voice"/>
                       </cit:numberType>
                     </cit:CI_Telephone>
                   </cit:phone>
@@ -420,7 +420,7 @@
         </cit:CI_Responsibility>
       </mri:pointOfContact>
       <mri:spatialRepresentationType>
-        <mcc:MD_SpatialRepresentationTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_SpatialRepresentationTypeCode" codeListValue="vector"/>
+        <mcc:MD_SpatialRepresentationTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_SpatialRepresentationTypeCode" codeListValue="vector"/>
       </mri:spatialRepresentationType>
       <mri:topicCategory>
         <mri:MD_TopicCategoryCode>geoscientificInformation</mri:MD_TopicCategoryCode>
@@ -451,7 +451,7 @@
       <mri:resourceMaintenance>
         <mmi:MD_MaintenanceInformation>
           <mmi:maintenanceAndUpdateFrequency>
-            <mmi:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_MaintenanceFrequencyCode" codeListValue="unknown">unknown</mmi:MD_MaintenanceFrequencyCode>
+            <mmi:MD_MaintenanceFrequencyCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_MaintenanceFrequencyCode" codeListValue="unknown">unknown</mmi:MD_MaintenanceFrequencyCode>
           </mmi:maintenanceAndUpdateFrequency>
         </mmi:MD_MaintenanceInformation>
       </mri:resourceMaintenance>
@@ -497,7 +497,7 @@
             <gco:CharacterString>web service</gco:CharacterString>
           </mri:keyword>
           <mri:type>
-            <mri:MD_KeywordTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_KeywordTypeCode" codeListValue="discipline">discipline</mri:MD_KeywordTypeCode>
+            <mri:MD_KeywordTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_KeywordTypeCode" codeListValue="discipline">discipline</mri:MD_KeywordTypeCode>
           </mri:type>
         </mri:MD_Keywords>
       </mri:descriptiveKeywords>
@@ -507,7 +507,7 @@
             <gco:CharacterString>ECOLOGY Landscape</gco:CharacterString>
           </mri:keyword>
           <mri:type>
-            <mri:MD_KeywordTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_KeywordTypeCode" codeListValue="theme"/>
+            <mri:MD_KeywordTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_KeywordTypeCode" codeListValue="theme"/>
           </mri:type>
         </mri:MD_Keywords>
       </mri:descriptiveKeywords>
@@ -517,7 +517,7 @@
             <gco:CharacterString>DEM</gco:CharacterString>
           </mri:keyword>
           <mri:type>
-            <mri:MD_KeywordTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_KeywordTypeCode" codeListValue="theme"/>
+            <mri:MD_KeywordTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_KeywordTypeCode" codeListValue="theme"/>
           </mri:type>
         </mri:MD_Keywords>
       </mri:descriptiveKeywords>
@@ -527,7 +527,7 @@
             <gco:CharacterString>LAND Topography Models</gco:CharacterString>
           </mri:keyword>
           <mri:type>
-            <mri:MD_KeywordTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_KeywordTypeCode" codeListValue="theme"/>
+            <mri:MD_KeywordTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_KeywordTypeCode" codeListValue="theme"/>
           </mri:type>
         </mri:MD_Keywords>
       </mri:descriptiveKeywords>
@@ -554,7 +554,7 @@
               <cit:citedResponsibleParty>
                 <cit:CI_Responsibility>
                   <cit:role>
-                    <cit:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="owner"/>
+                    <cit:CI_RoleCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_RoleCode" codeListValue="owner"/>
                   </cit:role>
                   <cit:party>
                     <cit:CI_Organisation>
@@ -596,7 +596,7 @@
             <gco:CharacterString>WMS</gco:CharacterString>
           </mri:keyword>
           <mri:type>
-            <mri:MD_KeywordTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_KeywordTypeCode" codeListValue="service">service</mri:MD_KeywordTypeCode>
+            <mri:MD_KeywordTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_KeywordTypeCode" codeListValue="service">service</mri:MD_KeywordTypeCode>
           </mri:type>
         </mri:MD_Keywords>
       </mri:descriptiveKeywords>
@@ -608,10 +608,10 @@
             </cit:CI_Citation>
           </mco:reference>
           <mco:accessConstraints>
-            <mco:MD_RestrictionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_RestrictionCode" codeListValue="licence">licence</mco:MD_RestrictionCode>
+            <mco:MD_RestrictionCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_RestrictionCode" codeListValue="licence">licence</mco:MD_RestrictionCode>
           </mco:accessConstraints>
           <mco:useConstraints>
-            <mco:MD_RestrictionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_RestrictionCode" codeListValue="licence">licence</mco:MD_RestrictionCode>
+            <mco:MD_RestrictionCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_RestrictionCode" codeListValue="licence">licence</mco:MD_RestrictionCode>
           </mco:useConstraints>
         </mco:MD_LegalConstraints>
       </mri:resourceConstraints>
@@ -623,10 +623,10 @@
             </cit:CI_Citation>
           </mco:reference>
           <mco:accessConstraints>
-            <mco:MD_RestrictionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_RestrictionCode" codeListValue="licence"></mco:MD_RestrictionCode>
+            <mco:MD_RestrictionCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_RestrictionCode" codeListValue="licence"></mco:MD_RestrictionCode>
           </mco:accessConstraints>
           <mco:useConstraints>
-            <mco:MD_RestrictionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_RestrictionCode" codeListValue="licence">licence</mco:MD_RestrictionCode>
+            <mco:MD_RestrictionCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_RestrictionCode" codeListValue="licence">licence</mco:MD_RestrictionCode>
           </mco:useConstraints>
           <mco:otherConstraints>
             <gco:CharacterString>Creative Commons Attribution 4.0 International Licence</gco:CharacterString>
@@ -641,25 +641,25 @@
             </cit:CI_Citation>
           </mco:reference>
           <mco:classification>
-            <mco:MD_ClassificationCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_ClassificationCode" codeListValue="unclassified"/>
+            <mco:MD_ClassificationCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_ClassificationCode" codeListValue="unclassified"/>
           </mco:classification>
         </mco:MD_SecurityConstraints>
       </mri:resourceConstraints>
       <mri:associatedResource>
         <mri:MD_AssociatedResource>
           <mri:associationType>
-            <mri:DS_AssociationTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#DS_AssociationTypeCode" codeListValue="crossReference">crossReference</mri:DS_AssociationTypeCode>
+            <mri:DS_AssociationTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#DS_AssociationTypeCode" codeListValue="crossReference">crossReference</mri:DS_AssociationTypeCode>
           </mri:associationType>
           <mri:initiativeType>
-            <mri:DS_InitiativeTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#DS_InitiativeTypeCode" codeListValue="collection">collection</mri:DS_InitiativeTypeCode>
+            <mri:DS_InitiativeTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#DS_InitiativeTypeCode" codeListValue="collection">collection</mri:DS_InitiativeTypeCode>
           </mri:initiativeType>
         </mri:MD_AssociatedResource>
       </mri:associatedResource>
 <!--      <srv:serviceType>
         <gco:ScopedName>OGC:WMS</gco:ScopedName>
       </srv:serviceType>-->
-      <srv:serviceType xsi:type="gapm:gapSV_ServiceTypeCode_PropertyType" codeList="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/serviceTypeCode_codelist.xml#gapSV_ServiceTypeCode" codeListValue="OGC:WMS">
-        <gco:ScopedName>OGC:WMS</gco:ScopedName>
+      <srv:serviceType>
+        <gco:ScopedName codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml#gapSV_ServiceTypeCode">OGC:WMS</gco:ScopedName>
       </srv:serviceType>
       <srv:serviceTypeVersion>
         <gco:CharacterString>1.3.0</gco:CharacterString>
@@ -668,7 +668,7 @@
         <gco:CharacterString>1.1.1</gco:CharacterString>
       </srv:serviceTypeVersion>
       <srv:couplingType>
-        <srv:SV_CouplingType codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#SV_CouplingType" codeListValue="tight"/>
+        <srv:SV_CouplingType codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#SV_CouplingType" codeListValue="tight"/>
       </srv:couplingType>
       <srv:containsOperations>
         <srv:SV_OperationMetadata>
@@ -676,7 +676,7 @@
             <gco:CharacterString>GetCapabilities</gco:CharacterString>
           </srv:operationName>
           <srv:distributedComputingPlatform>
-            <srv:DCPList codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#DCPList" codeListValue="WebServices"/>
+            <srv:DCPList codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#DCPList" codeListValue="WebServices"/>
           </srv:distributedComputingPlatform>
           <srv:connectPoint>
             <cit:CI_OnlineResource>
@@ -788,7 +788,7 @@
       <mrc:attributeGroup>
         <mrc:MD_AttributeGroup>
           <mrc:contentType>
-            <mrc:MD_CoverageContentTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_CoverageContentTypeCode" codeListValue="image"/>
+            <mrc:MD_CoverageContentTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_CoverageContentTypeCode" codeListValue="image"/>
           </mrc:contentType>
         </mrc:MD_AttributeGroup>
       </mrc:attributeGroup>
@@ -798,7 +798,7 @@
     <mrc:MD_ImageDescription>
       <mrc:attributeDescription></mrc:attributeDescription>
       <mrc:imagingCondition>
-        <mrc:MD_ImagingConditionCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_ImagingConditionCode" codeListValue="cloud">cloud</mrc:MD_ImagingConditionCode>
+        <mrc:MD_ImagingConditionCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_ImagingConditionCode" codeListValue="cloud">cloud</mrc:MD_ImagingConditionCode>
       </mrc:imagingCondition>
     </mrc:MD_ImageDescription>
   </mdb:contentInfo>
@@ -832,7 +832,7 @@
           <mrd:distributorContact>
             <cit:CI_Responsibility>
               <cit:role>
-                <cit:CI_RoleCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_RoleCode" codeListValue="distributor"/>
+                <cit:CI_RoleCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_RoleCode" codeListValue="distributor"/>
               </cit:role>
               <cit:party>
                 <cit:CI_Organisation>
@@ -847,7 +847,7 @@
                             <gco:CharacterString>02 6249 9966</gco:CharacterString>
                           </cit:number>
                           <cit:numberType>
-                            <cit:CI_TelephoneTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_TelephoneTypeCode" codeListValue="voice"/>
+                            <cit:CI_TelephoneTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_TelephoneTypeCode" codeListValue="voice"/>
                           </cit:numberType>
                         </cit:CI_Telephone>
                       </cit:phone>
@@ -857,7 +857,7 @@
                             <gco:CharacterString>02 6249 9960</gco:CharacterString>
                           </cit:number>
                           <cit:numberType>
-                            <cit:CI_TelephoneTypeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#CI_TelephoneTypeCode" codeListValue="fax"/>
+                            <cit:CI_TelephoneTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_TelephoneTypeCode" codeListValue="fax"/>
                           </cit:numberType>
                         </cit:CI_Telephone>
                       </cit:phone>
@@ -911,7 +911,7 @@
                     </cit:CI_Citation>
                   </mrd:name>
                   <mrd:mediumFormat>
-                    <mrd:MD_MediumFormatCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_MediumFormatCode" codeListValue="cpio"/>
+                    <mrd:MD_MediumFormatCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_MediumFormatCode" codeListValue="cpio"/>
                   </mrd:mediumFormat>
                 </mrd:MD_Medium>
               </mrd:offLine>
@@ -929,8 +929,8 @@
 <!--              <cit:protocol>
                 <gco:CharacterString>OGC:WMS</gco:CharacterString>
               </cit:protocol>-->
-              <cit:protocol xsi:type="gapm:gapCI_ProtocolTypeCode_PropertyType" codeList="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/protocolTypeCode_codelist.xml#gapCI_ProtocolTypeCode" codeListValue="OGC:WMS">
-                <gco:CharacterString>OGC:WMS</gco:CharacterString>
+              <cit:protocol>
+                <gco:CharacterString xsi:type="gco:CodeType" codeSpace="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/ga_profile_codelists.xml#gapCI_ProtocolTypeCode">OGC:WMS</gco:CharacterString>
               </cit:protocol>
               <cit:name>
                 <gco:CharacterString>Digital Elevation Model (DEM) of Australia derived from LiDAR 25 Metre Grid - WMS</gco:CharacterString>
@@ -963,7 +963,7 @@
       <mrl:scope>
         <mcc:MD_Scope>
           <mcc:level>
-            <mcc:MD_ScopeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_ScopeCode" codeListValue="service"/>
+            <mcc:MD_ScopeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_ScopeCode" codeListValue="service"/>
           </mcc:level>
           <mcc:levelDescription>
             <mcc:MD_ScopeDescription>
@@ -1000,7 +1000,7 @@
         </cit:CI_Citation>
       </mco:reference>
       <mco:classification>
-        <mco:MD_ClassificationCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_ClassificationCode" codeListValue="unclassified">unclassified</mco:MD_ClassificationCode>
+        <mco:MD_ClassificationCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_ClassificationCode" codeListValue="unclassified">unclassified</mco:MD_ClassificationCode>
       </mco:classification>
     </mco:MD_SecurityConstraints>
   </mdb:metadataConstraints>
