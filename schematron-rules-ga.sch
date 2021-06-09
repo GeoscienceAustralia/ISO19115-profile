@@ -15,7 +15,10 @@ DATE            VERSION     AUTHOR              DESCRIPTION
 2018-09-26      1.0         Aaron Sedgmen       Revision based on finalisation of the GA Profile
 2018-11-07      1.1         Aaron Sedgmen       Implemented rules for protocol and service type codelist extensions
 2018-12-21      1.2         Aaron Sedgmen       Revision of rules for protocol and service type codelist extensions
+2019-03-06      1.3         Aaron Sedgmen       Inclusion of top level title
 ===================================================================================================================== -->
+    
+    <sch:title xmlns="http://www.w3.org/2001/XMLSchema" xml:lang="en">Schematron validation for Geoscience Australia Profile of ISO 19115-1:2014</sch:title>
 	
     <sch:ns prefix="gml" uri="http://www.opengis.net/gml/3.2"/>
     <sch:ns prefix="srv" uri="http://standards.iso.org/iso/19115/-3/srv/2.0"/>
