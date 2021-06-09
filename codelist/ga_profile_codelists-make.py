@@ -26,7 +26,7 @@ from io import StringIO
 
 associationType_vocab_sparql_endpoint = "http://vocabs.ands.org.au/repository/api/sparql/ga_association-type_v1-2"
 onlineFunction_vocab_sparql_endpoint = "http://vocabs.ands.org.au/repository/api/sparql/ga_online-function_v1-0"
-protocolType_vocab_sparql_endpoint = "http://vocabs.ands.org.au/repository/api/sparql/ga_protocol-type_v1-2"
+protocolType_vocab_sparql_endpoint = "http://vocabs.ands.org.au/repository/api/sparql/ga_protocol-type_v1-3"
 serviceType_vocab_sparql_endpoint = "http://vocabs.ands.org.au/repository/api/sparql/ga_service-type_v1-1"
 
 codelist_catalogue_xml_template = '''<cat:CT_CodelistCatalogue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
