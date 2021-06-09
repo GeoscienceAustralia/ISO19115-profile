@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdb:MD_Metadata
+	xmlns:mdb="http://standards.iso.org/iso/19115/-3/mdb/2.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:cat="http://standards.iso.org/iso/19115/-3/cat/1.0"
+	xmlns:gfc="http://standards.iso.org/iso/19110/gfc/1.1"
+	xmlns:cit="http://standards.iso.org/iso/19115/-3/cit/2.0"
+	xmlns:gcx="http://standards.iso.org/iso/19115/-3/gcx/1.0"
+	xmlns:gex="http://standards.iso.org/iso/19115/-3/gex/1.0"
+	xmlns:lan="http://standards.iso.org/iso/19115/-3/lan/1.0"
+	xmlns:srv="http://standards.iso.org/iso/19115/-3/srv/2.0"
+	xmlns:mas="http://standards.iso.org/iso/19115/-3/mas/1.0"
+	xmlns:mcc="http://standards.iso.org/iso/19115/-3/mcc/1.0"
+	xmlns:mco="http://standards.iso.org/iso/19115/-3/mco/1.0"
+	xmlns:mda="http://standards.iso.org/iso/19115/-3/mda/2.0"
+	xmlns:mds="http://standards.iso.org/iso/19115/-3/mds/2.0"
+	xmlns:mdt="http://standards.iso.org/iso/19115/-3/mdt/2.0"
+	xmlns:mex="http://standards.iso.org/iso/19115/-3/mex/1.0"
+	xmlns:mmi="http://standards.iso.org/iso/19115/-3/mmi/1.0"
+	xmlns:mpc="http://standards.iso.org/iso/19115/-3/mpc/1.0"
+	xmlns:mrc="http://standards.iso.org/iso/19115/-3/mrc/1.0"
+	xmlns:mrd="http://standards.iso.org/iso/19115/-3/mrd/1.0"
+	xmlns:mri="http://standards.iso.org/iso/19115/-3/mri/1.0"
+	xmlns:mrl="http://standards.iso.org/iso/19115/-3/mrl/2.0"
+	xmlns:mrs="http://standards.iso.org/iso/19115/-3/mrs/1.0"
+	xmlns:msr="http://standards.iso.org/iso/19115/-3/msr/2.0"
+	xmlns:mdq="http://standards.iso.org/iso/19157/-2/mdq/1.0"
+	xmlns:mac="http://standards.iso.org/iso/19115/-3/mac/2.0"
+	xmlns:gco="http://standards.iso.org/iso/19115/-3/gco/1.0"
+	xmlns:gml="http://www.opengis.net/gml/3.2"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	xsi:schemaLocation="
+                 http://standards.iso.org/iso/19115/-3/cat/1.0 https://schemas.isotc211.org/19115/-3/cat/1.0/cat.xsd 
+                 http://standards.iso.org/iso/19115/-3/cit/2.0 https://schemas.isotc211.org/19115/-3/cit/2.0/cit.xsd 
+                 http://standards.iso.org/iso/19115/-3/gcx/1.0 https://schemas.isotc211.org/19115/-3/gcx/1.0/gcx.xsd 
+                 http://standards.iso.org/iso/19115/-3/gex/1.0 https://schemas.isotc211.org/19115/-3/gex/1.0/gex.xsd 
+                 http://standards.iso.org/iso/19115/-3/lan/1.0 https://schemas.isotc211.org/19115/-3/lan/1.0/lan.xsd 
+                 http://standards.iso.org/iso/19115/-3/srv/2.0 https://schemas.isotc211.org/19115/-3/srv/2.0/srv.xsd 
+                 http://standards.iso.org/iso/19115/-3/mas/1.0 https://schemas.isotc211.org/19115/-3/mas/1.0/mas.xsd 
+                 http://standards.iso.org/iso/19115/-3/mcc/1.0 https://schemas.isotc211.org/19115/-3/mcc/1.0/mcc.xsd 
+                 http://standards.iso.org/iso/19115/-3/mco/1.0 https://schemas.isotc211.org/19115/-3/mco/1.0/mco.xsd 
+                 http://standards.iso.org/iso/19115/-3/mda/2.0 https://schemas.isotc211.org/19115/-3/mda/2.0/mda.xsd 
+                 http://standards.iso.org/iso/19115/-3/mdb/2.0 https://schemas.isotc211.org/19115/-3/mdb/2.0/mdb.xsd 
+                 http://standards.iso.org/iso/19115/-3/mds/2.0 https://schemas.isotc211.org/19115/-3/mds/2.0/mds.xsd 
+                 http://standards.iso.org/iso/19115/-3/mdt/1.0 https://schemas.isotc211.org/19115/-3/mdt/1.0/mdt.xsd 
+                 http://standards.iso.org/iso/19115/-3/mex/1.0 https://schemas.isotc211.org/19115/-3/mex/1.0/mex.xsd 
+                 http://standards.iso.org/iso/19115/-3/mmi/1.0 https://schemas.isotc211.org/19115/-3/mmi/1.0/mmi.xsd 
+                 http://standards.iso.org/iso/19115/-3/mpc/1.0 https://schemas.isotc211.org/19115/-3/mpc/1.0/mpc.xsd 
+                 http://standards.iso.org/iso/19115/-3/mrc/1.0 https://schemas.isotc211.org/19115/-3/mrc/1.0/mrc.xsd 
+                 http://standards.iso.org/iso/19115/-3/mrd/1.0 https://schemas.isotc211.org/19115/-3/mrd/1.0/mrd.xsd 
+                 http://standards.iso.org/iso/19115/-3/mri/1.0 https://schemas.isotc211.org/19115/-3/mri/1.0/mri.xsd 
+                 http://standards.iso.org/iso/19115/-3/mrl/2.0 https://schemas.isotc211.org/19115/-3/mrl/2.0/mrl.xsd 
+                 http://standards.iso.org/iso/19115/-3/mrs/1.0 https://schemas.isotc211.org/19115/-3/mrs/1.0/mrs.xsd 
+                 http://standards.iso.org/iso/19115/-3/msr/2.0 https://schemas.isotc211.org/19115/-3/msr/2.0/msr.xsd 
+                 http://standards.iso.org/iso/19157/-2/mdq/1.0 https://schemas.isotc211.org/19157/-2/mdq/1.0/mdq.xsd 
+                 http://standards.iso.org/iso/19115/-3/mac/2.0 https://schemas.isotc211.org/19115/-3/mac/2.0/mac.xsd 
+                 http://standards.iso.org/iso/19115/-3/gco/1.0 https://schemas.isotc211.org/19115/-3/gco/1.0/gco.xsd 
+                 http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd 
+                 http://www.w3.org/1999/xlink http://www.w3.org/1999/xlink.xsd">
+   <mdb:metadataIdentifier>
+      <mcc:MD_Identifier>
+         <mcc:authority>
+            <cit:CI_Citation>
+               <cit:title>
+                  <gco:CharacterString>GeoNetwork UUID</gco:CharacterString>
+               </cit:title>
+            </cit:CI_Citation>
+         </mcc:authority>
+         <mcc:code>
+            <gco:CharacterString>c4b5e74a-46d4-4b7d-9fe7-271b36b495d8</gco:CharacterString>
+         </mcc:code>
+         <mcc:codeSpace>
+            <gco:CharacterString>urn:uuid</gco:CharacterString>
+         </mcc:codeSpace>
+      </mcc:MD_Identifier>
+   </mdb:metadataIdentifier>
+   <mdb:metadataScope xmlns:gmw="http://standards.iso.org/iso/19115/-3/gmw/1.0"
+      xmlns:geonet="http://www.fao.org/geonetwork">
+      <mdb:MD_MetadataScope>
+         <mdb:resourceScope>
+            <mcc:MD_ScopeCode codeList="codeListLocation#MD_ScopeCode" codeListValue="dataset"/>
+         </mdb:resourceScope>
+         <mdb:name>
+            <gco:CharacterString>L208 Southeast Lachlan Seismic Data</gco:CharacterString>
+         </mdb:name>
+      </mdb:MD_MetadataScope>
+   </mdb:metadataScope>
+   <mdb:contact xmlns:gmw="http://standards.iso.org/iso/19115/-3/gmw/1.0"
+      xmlns:geonet="http://www.fao.org/geonetwork"
+      xlink:href="local://subtemplate?uuid=urn:ga-contacts:11&amp;process=cit:role/cit:CI_RoleCode/@codeListValue~author"/>
+   <mdb:contact xmlns:geonet="http://www.fao.org/geonetwork">
+      <cit:CI_Responsibility xmlns:util="java:java.util.UUID"
+         uuid="urn:ga-authors:ced424a2-ed0f-4b1d-b0dc-a600b8d18974">
+         <cit:role>
+            <cit:CI_RoleCode codeList="codeListLocation#CI_RoleCode" codeListValue="pointOfContact"/>
+         </cit:role>
+         <cit:party>
+            <cit:CI_Individual>
+               <cit:name>
+                  <gco:CharacterString>Fomin, T.</gco:CharacterString>
+               </cit:name>
+            </cit:CI_Individual>
+         </cit:party>
+      </cit:CI_Responsibility>
+   </mdb:contact>
+   <mdb:dateInfo xmlns:geonet="http://www.fao.org/geonetwork">
+      <cit:CI_Date>
+         <cit:date>
+            <gco:DateTime>2018-09-07T05:38:40</gco:DateTime>
+         </cit:date>
+         <cit:dateType>
+            <cit:CI_DateTypeCode codeList="codeListLocation#CI_DateTypeCode" codeListValue="creation"/>
+         </cit:dateType>
+      </cit:CI_Date>
+   </mdb:dateInfo>
+   <mdb:dateInfo xmlns:geonet="http://www.fao.org/geonetwork">
+      <cit:CI_Date>
+         <cit:date>
+            <gco:DateTime>2018-09-07T05:38:40</gco:DateTime>
+         </cit:date>
+         <cit:dateType>
+            <cit:CI_DateTypeCode codeList="codeListLocation#CI_DateTypeCode" codeListValue="revision"/>
+         </cit:dateType>
+      </cit:CI_Date>
+   </mdb:dateInfo>
+   <mdb:metadataStandard xmlns:gmw="http://standards.iso.org/iso/19115/-3/gmw/1.0"
+      xmlns:geonet="http://www.fao.org/geonetwork">
+      <cit:CI_Citation>
+         <cit:title>
+            <gco:CharacterString>AU/NZS ISO 19115-1:2014</gco:CharacterString>
+         </cit:title>
+      </cit:CI_Citation>
+   </mdb:metadataStandard>
+   <mdb:metadataStandard xmlns:gmw="http://standards.iso.org/iso/19115/-3/gmw/1.0"
+      xmlns:geonet="http://www.fao.org/geonetwork">
+      <cit:CI_Citation>
+         <cit:title>
+            <gco:CharacterString>ISO 19115-1:2014</gco:CharacterString>
+         </cit:title>
+      </cit:CI_Citation>
+   </mdb:metadataStandard>
+   <mdb:metadataStandard xmlns:gmw="http://standards.iso.org/iso/19115/-3/gmw/1.0"
+      xmlns:geonet="http://www.fao.org/geonetwork">
+      <cit:CI_Citation>
+         <cit:title>
+            <gco:CharacterString>ISO 19115-3 (Draft Schemas 2015)</gco:CharacterString>
+         </cit:title>
+         <cit:editionDate>
+            <gco:DateTime>2015-07-01T00:00:00</gco:DateTime>
+         </cit:editionDate>
+      </cit:CI_Citation>
+   </mdb:metadataStandard>
+   <mdb:metadataProfile xmlns:geonet="http://www.fao.org/geonetwork">
+      <cit:CI_Citation>
+         <cit:title>
+            <gco:CharacterString>Geoscience Australia Community Metadata Profile of ISO 19115-1:2014</gco:CharacterString>
+         </cit:title>
+         <cit:edition>
+            <gco:CharacterString>Version 2.0, April 2015</gco:CharacterString>
+         </cit:edition>
+      </cit:CI_Citation>
+   </mdb:metadataProfile>
+   <mdb:alternativeMetadataReference xmlns:geonet="http://www.fao.org/geonetwork">
+      <cit:CI_Citation>
+         <cit:title>
+            <gco:CharacterString>Geoscience Australia - short identifier for metadata record with uuid c4b5e74a-46d4-4b7d-9fe7-271b36b495d8</gco:CharacterString>
+         </cit:title>
+         <cit:identifier>
+            <mcc:MD_Identifier>
+               <mcc:code>
+                  <gco:CharacterString>122684</gco:CharacterString>
+               </mcc:code>
+               <mcc:codeSpace>
+                  <gco:CharacterString>http://www.ga.gov.au/eCatId</gco:CharacterString>
+               </mcc:codeSpace>
+            </mcc:MD_Identifier>
+         </cit:identifier>
+      </cit:CI_Citation>
+   </mdb:alternativeMetadataReference>
+   <mdb:metadataLinkage xmlns:geonet="http://www.fao.org/geonetwork">
+      <cit:CI_OnlineResource>
+         <cit:linkage>
+            <gco:CharacterString>https://ecat.ga.gov.au/geonetwork/srv/eng//metadata/c4b5e74a-46d4-4b7d-9fe7-271b36b495d8</gco:CharacterString>
+         </cit:linkage>
+         <cit:function>
+            <cit:CI_OnLineFunctionCode codeList="codeListLocation#CI_OnLineFunctionCode" codeListValue="completeMetadata"/>
+         </cit:function>
+      </cit:CI_OnlineResource>
+   </mdb:metadataLinkage>
+   <mdb:referenceSystemInfo xmlns:csw="http://www.opengis.net/cat/csw/2.0.2"
+      xmlns:geonet="http://www.fao.org/geonetwork">
+      <mrs:MD_ReferenceSystem>
+         <mrs:referenceSystemIdentifier>
+            <mcc:MD_Identifier>
+               <mcc:authority>
+                  <cit:CI_Citation>
+                     <cit:title>
+                        <gco:CharacterString>European Petroleum Survey Group (EPSG) Geodetic Parameter Registry</gco:CharacterString>
+                     </cit:title>
+                     <cit:date>
+                        <cit:CI_Date>
+                           <cit:date>
+                              <gco:DateTime>2008-11-12T00:00:00</gco:DateTime>
+                           </cit:date>
+                           <cit:dateType>
+                              <cit:CI_DateTypeCode codeList="codeListLocation#CI_DateTypeCode" codeListValue="publication"/>
+                           </cit:dateType>
+                        </cit:CI_Date>
+                     </cit:date>
+                     <cit:citedResponsibleParty>
+                        <cit:CI_Responsibility>
+                           <cit:role gco:nilReason="missing"/>
+                           <cit:party>
+                              <cit:CI_Organisation>
+                                 <cit:name>
+                                    <gco:CharacterString>European Petroleum Survey Group</gco:CharacterString>
+                                 </cit:name>
+                                 <cit:contactInfo>
+                                    <cit:CI_Contact>
+                                       <cit:onlineResource>
+                                          <cit:CI_OnlineResource>
+                                             <cit:linkage>
+                                                <gco:CharacterString>http://www.epsg-registry.org/</gco:CharacterString>
+                                             </cit:linkage>
+                                          </cit:CI_OnlineResource>
+                                       </cit:onlineResource>
+                                    </cit:CI_Contact>
+                                 </cit:contactInfo>
+                              </cit:CI_Organisation>
+                           </cit:party>
+                        </cit:CI_Responsibility>
+                     </cit:citedResponsibleParty>
+                  </cit:CI_Citation>
+               </mcc:authority>
+               <mcc:code>
+                  <gco:CharacterString>GDA94 (EPSG:4283)</gco:CharacterString>
+               </mcc:code>
+               <mcc:codeSpace>
+                  <gco:CharacterString>EPSG</gco:CharacterString>
+               </mcc:codeSpace>
+               <mcc:version>
+                  <gco:CharacterString>7.9</gco:CharacterString>
+               </mcc:version>
+            </mcc:MD_Identifier>
+         </mrs:referenceSystemIdentifier>
+      </mrs:MD_ReferenceSystem>
+   </mdb:referenceSystemInfo>
+   <mdb:identificationInfo xmlns:gmw="http://standards.iso.org/iso/19115/-3/gmw/1.0"
+      xmlns:geonet="http://www.fao.org/geonetwork">
+      <mri:MD_DataIdentification>
+         <mri:citation>
+            <cit:CI_Citation>
+               <cit:title>
+                  <gco:CharacterString>L208 Southeast Lachlan Seismic Survey 2018</gco:CharacterString>
+               </cit:title>
+               <cit:date>
+                  <cit:CI_Date>
+                     <cit:date>
+                        <gco:DateTime>2018-09-12T01:58:35</gco:DateTime>
+                     </cit:date>
+                     <cit:dateType>
+                        <cit:CI_DateTypeCode codeList="codeListLocation#CI_DateTypeCode" codeListValue="creation"/>
+                     </cit:dateType>
+                  </cit:CI_Date>
+               </cit:date>
+               <cit:date>
+                  <cit:CI_Date>
+                     <cit:date>
+                        <gco:DateTime>2018-09-12T01:58:35</gco:DateTime>
+                     </cit:date>
+                     <cit:dateType>
+                        <cit:CI_DateTypeCode codeList="codeListLocation#CI_DateTypeCode" codeListValue="publication"/>
+                     </cit:dateType>
+                  </cit:CI_Date>
+               </cit:date>
+               <cit:identifier>
+                  <mcc:MD_Identifier>
+                     <mcc:code>
+                        <gco:CharacterString>Link to be added by administrator</gco:CharacterString>
+                     </mcc:code>
+                     <mcc:codeSpace>
+                        <gco:CharacterString>ga-dataSetURI</gco:CharacterString>
+                     </mcc:codeSpace>
+                  </mcc:MD_Identifier>
+               </cit:identifier>
+               <cit:citedResponsibleParty>
+                  <cit:CI_Responsibility xmlns:util="java:java.util.UUID"
+                     uuid="urn:ga-authors:ced424a2-ed0f-4b1d-b0dc-a600b8d18974">
+                     <cit:role>
+                        <cit:CI_RoleCode codeList="codeListLocation#CI_RoleCode" codeListValue="author"/>
+                     </cit:role>
+                     <cit:party>
+                        <cit:CI_Individual>
+                           <cit:name>
+                              <gco:CharacterString>Fomin, T.</gco:CharacterString>
+                           </cit:name>
+                        </cit:CI_Individual>
+                     </cit:party>
+                  </cit:CI_Responsibility>
+               </cit:citedResponsibleParty>
+               <cit:citedResponsibleParty>
+                  <cit:CI_Responsibility xmlns:util="java:java.util.UUID"
+                     uuid="urn:ga-authors:19815e12-089a-4adb-ab12-f27dc537d1fb">
+                     <cit:role>
+                        <cit:CI_RoleCode codeList="codeListLocation#CI_RoleCode" codeListValue="author"/>
+                     </cit:role>
+                     <cit:party>
+                        <cit:CI_Individual>
+                           <cit:name>
+                              <gco:CharacterString>Costello, R.</gco:CharacterString>
+                           </cit:name>
+                        </cit:CI_Individual>
+                     </cit:party>
+                  </cit:CI_Responsibility>
+               </cit:citedResponsibleParty>
+               <cit:series>
+                  <cit:CI_Series>
+                     <cit:name gco:nilReason="missing">
+                        <gco:CharacterString/>
+                     </cit:name>
+                     <cit:issueIdentification gco:nilReason="missing">
+                        <gco:CharacterString/>
+                     </cit:issueIdentification>
+                  </cit:CI_Series>
+               </cit:series>
+            </cit:CI_Citation>
+         </mri:citation>
+         <mri:abstract>
+            <gco:CharacterString>Six hundred and twenty nine km of deep crustal reflection data were collected for the Southeast Lachlan 2D seismic survey along three transects: 18GA-SL1 (302 km), 18GA-SL2 (163 km)  and 18GA-SL3 (164 km) during March to April 2018. The purpose of the survey was to image the Tabberabbera, Omeo, Deddick, Kuark and Mallacoota Zones (west to east) of the Lachlan Orogen at a high angle to their structural grain, as a key reference section for the study of the Palaeozoic geology, geodynamic evolution and mineral potential of Victoria and New South Wales with implications for eastern Australia mineral exploration as well as natural hazard mapping. The Project is a collaboration between Geoscience Australia (GA), the Geological Survey of Victoria (GSV), the Geological Survey of New South Wales (GSNSW), and AuScope. The data processing is being undertaken by a contractor on behalf of GA, GSV, GSNSW and AUScope and is expected to be released in early 2019. Raw data are available on request from clientservices@ga.gov.au.</gco:CharacterString>
+         </mri:abstract>
+         <mri:purpose gco:nilReason="missing">
+            <gco:CharacterString/>
+         </mri:purpose>
+         <mri:status>
+            <mcc:MD_ProgressCode codeList="codeListLocation#MD_ProgressCode" codeListValue="completed"/>
+         </mri:status>
+         <mri:spatialRepresentationType>
+            <mcc:MD_SpatialRepresentationTypeCode codeList="codeListLocation#MD_SpatialRepresentationTypeCode" codeListValue=""/>
+         </mri:spatialRepresentationType>
+         <mri:spatialResolution>
+            <mri:MD_Resolution>
+               <mri:levelOfDetail gco:nilReason="missing">
+                  <gco:CharacterString/>
+               </mri:levelOfDetail>
+            </mri:MD_Resolution>
+         </mri:spatialResolution>
+         <mri:topicCategory>
+            <mri:MD_TopicCategoryCode>geoscientificInformation</mri:MD_TopicCategoryCode>
+         </mri:topicCategory>
+         <mri:extent>
+            <gex:EX_Extent>
+               <gex:temporalElement>
+                  <gex:EX_TemporalExtent>
+                     <gex:extent>
+                        <gml:TimePeriod gml:id="A1234">
+                           <gml:beginPosition>2018-03-01</gml:beginPosition>
+                           <gml:endPosition>2018-04-30</gml:endPosition>
+                        </gml:TimePeriod>
+                     </gex:extent>
+                  </gex:EX_TemporalExtent>
+               </gex:temporalElement>
+            </gex:EX_Extent>
+         </mri:extent>
+         <mri:extent>
+            <gex:EX_Extent>
+               <gex:geographicElement>
+                  <gex:EX_GeographicBoundingBox>
+                     <gex:westBoundLongitude>
+                        <gco:Decimal>146</gco:Decimal>
+                     </gex:westBoundLongitude>
+                     <gex:eastBoundLongitude>
+                        <gco:Decimal>150.5</gco:Decimal>
+                     </gex:eastBoundLongitude>
+                     <gex:southBoundLatitude>
+                        <gco:Decimal>-37.5</gco:Decimal>
+                     </gex:southBoundLatitude>
+                     <gex:northBoundLatitude>
+                        <gco:Decimal>-36</gco:Decimal>
+                     </gex:northBoundLatitude>
+                  </gex:EX_GeographicBoundingBox>
+               </gex:geographicElement>
+            </gex:EX_Extent>
+         </mri:extent>
+         <mri:resourceMaintenance>
+            <mmi:MD_MaintenanceInformation>
+               <mmi:maintenanceAndUpdateFrequency>
+                  <mmi:MD_MaintenanceFrequencyCode codeListValue="asNeeded" codeList="codeListLocation#MD_MaintenanceFrequencyCode"/>
+               </mmi:maintenanceAndUpdateFrequency>
+            </mmi:MD_MaintenanceInformation>
+         </mri:resourceMaintenance>
+         <mri:resourceFormat>
+            <mrd:MD_Format>
+               <mrd:formatSpecificationCitation>
+                  <cit:CI_Citation>
+                     <cit:title>
+                        <gco:CharacterString>Raw data segy</gco:CharacterString>
+                     </cit:title>
+                     <cit:date>
+                        <cit:CI_Date>
+                           <cit:date gco:nilReason="missing"/>
+                           <cit:dateType gco:nilReason="missing"/>
+                        </cit:CI_Date>
+                     </cit:date>
+                     <cit:edition>
+                        <gco:CharacterString>1.0</gco:CharacterString>
+                     </cit:edition>
+                  </cit:CI_Citation>
+               </mrd:formatSpecificationCitation>
+               <mrd:formatDistributor>
+                  <mrd:MD_Distributor>
+                     <mrd:distributorContact>
+                        <cit:CI_Responsibility>
+                           <cit:role>
+                              <cit:CI_RoleCode codeList="codeListLocation#CI_RoleCode" codeListValue="distributor"/>
+                           </cit:role>
+                           <cit:party>
+                              <cit:CI_Organisation>
+                                 <cit:name>
+                                    <gco:CharacterString>Geoscience Australia</gco:CharacterString>
+                                 </cit:name>
+                                 <cit:contactInfo>
+                                    <cit:CI_Contact>
+                                       <cit:phone>
+                                          <cit:CI_Telephone>
+                                             <cit:number>
+                                                <gco:CharacterString>+61 2 6249 9966</gco:CharacterString>
+                                             </cit:number>
+                                             <cit:numberType>
+                                                <cit:CI_TelephoneTypeCode codeList="codeListLocation#CI_TelephoneTypeCode" codeListValue="voice"/>
+                                             </cit:numberType>
+                                          </cit:CI_Telephone>
+                                       </cit:phone>
+                                       <cit:phone>
+                                          <cit:CI_Telephone>
+                                             <cit:number>
+                                                <gco:CharacterString>+61 2 6249 9960</gco:CharacterString>
+                                             </cit:number>
+                                             <cit:numberType>
+                                                <cit:CI_TelephoneTypeCode codeList="codeListLocation#CI_TelephoneTypeCode" codeListValue="facsimile"/>
+                                             </cit:numberType>
+                                          </cit:CI_Telephone>
+                                       </cit:phone>
+                                       <cit:address>
+                                          <cit:CI_Address>
+                                             <cit:deliveryPoint>
+                                                <gco:CharacterString>GPO Box 378</gco:CharacterString>
+                                             </cit:deliveryPoint>
+                                             <cit:city>
+                                                <gco:CharacterString>Canberra</gco:CharacterString>
+                                             </cit:city>
+                                             <cit:administrativeArea>
+                                                <gco:CharacterString>ACT</gco:CharacterString>
+                                             </cit:administrativeArea>
+                                             <cit:postalCode>
+                                                <gco:CharacterString>2601</gco:CharacterString>
+                                             </cit:postalCode>
+                                             <cit:country>
+                                                <gco:CharacterString>Australia</gco:CharacterString>
+                                             </cit:country>
+                                             <cit:electronicMailAddress>
+                                                <gco:CharacterString>clientservices@ga.gov.au</gco:CharacterString>
+                                             </cit:electronicMailAddress>
+                                          </cit:CI_Address>
+                                       </cit:address>
+                                    </cit:CI_Contact>
+                                 </cit:contactInfo>
+                              </cit:CI_Organisation>
+                           </cit:party>
+                        </cit:CI_Responsibility>
+                     </mrd:distributorContact>
+                  </mrd:MD_Distributor>
+               </mrd:formatDistributor>
+            </mrd:MD_Format>
+         </mri:resourceFormat>
+         <mri:descriptiveKeywords>
+            <mri:MD_Keywords>
+               <mri:keyword>
+                  <gco:CharacterString>deep crustal reflection data</gco:CharacterString>
+               </mri:keyword>
+               <mri:type>
+                  <mri:MD_KeywordTypeCode codeList="codeListLocation#MD_KeywordTypeCode" codeListValue="product"/>
+               </mri:type>
+            </mri:MD_Keywords>
+         </mri:descriptiveKeywords>
+         <mri:descriptiveKeywords>
+            <mri:MD_Keywords>
+               <mri:keyword>
+                  <gco:CharacterString>Published_External</gco:CharacterString>
+               </mri:keyword>
+               <mri:type>
+                  <mri:MD_KeywordTypeCode codeList="codeListLocation#MD_KeywordTypeCode" codeListValue="product"/>
+               </mri:type>
+            </mri:MD_Keywords>
+         </mri:descriptiveKeywords>
+         <mri:resourceConstraints>
+            <mco:MD_Constraints>
+               <mco:reference>
+                  <cit:CI_Citation>
+                     <cit:title>
+                        <gco:CharacterString>Test</gco:CharacterString>
+                     </cit:title>
+                     <cit:alternateTitle>
+                        <gco:CharacterString>Test</gco:CharacterString>
+                     </cit:alternateTitle>
+                     <cit:edition>
+                        <gco:CharacterString>Test</gco:CharacterString>
+                     </cit:edition>
+                     <cit:onlineResource>
+                        <cit:CI_OnlineResource>
+                           <cit:linkage>
+                              <gco:CharacterString>http://www.ga.gov.au</gco:CharacterString>
+                           </cit:linkage>
+                        </cit:CI_OnlineResource>
+                     </cit:onlineResource>
+                  </cit:CI_Citation>
+               </mco:reference>
+            </mco:MD_Constraints>
+         </mri:resourceConstraints>
+         <mri:resourceConstraints>
+            <mco:MD_LegalConstraints uuid="urn:ga-licences:232">
+               <mco:reference>
+                  <cit:CI_Citation>
+                     <cit:title>
+                        <gco:CharacterString>Creative Commons Attribution 4.0 International Licence</gco:CharacterString>
+                     </cit:title>
+                     <cit:alternateTitle>
+                        <gco:CharacterString>CC-BY</gco:CharacterString>
+                     </cit:alternateTitle>
+                     <cit:edition>
+                        <gco:CharacterString>4.0</gco:CharacterString>
+                     </cit:edition>
+                     <cit:onlineResource>
+                        <cit:CI_OnlineResource>
+                           <cit:linkage>
+                              <gco:CharacterString>http://creativecommons.org/licenses/</gco:CharacterString>
+                           </cit:linkage>
+                        </cit:CI_OnlineResource>
+                     </cit:onlineResource>
+                  </cit:CI_Citation>
+               </mco:reference>
+               <mco:accessConstraints>
+                  <mco:MD_RestrictionCode codeList="codeListLocation#MD_RestrictionCode" codeListValue="license"/>
+               </mco:accessConstraints>
+               <mco:useConstraints>
+                  <mco:MD_RestrictionCode codeList="codeListLocation#MD_RestrictionCode" codeListValue="license"/>
+               </mco:useConstraints>
+            </mco:MD_LegalConstraints>
+         </mri:resourceConstraints>
+         <mri:resourceConstraints>
+            <mco:MD_SecurityConstraints>
+               <mco:reference>
+                  <cit:CI_Citation>
+                     <cit:title>
+                        <gco:CharacterString>Test</gco:CharacterString>
+                     </cit:title>
+                     <cit:alternateTitle>
+                        <gco:CharacterString>Test</gco:CharacterString>
+                     </cit:alternateTitle>
+                     <cit:edition>
+                        <gco:CharacterString>Test</gco:CharacterString>
+                     </cit:edition>
+                     <cit:onlineResource>
+                        <cit:CI_OnlineResource>
+                           <cit:linkage>
+                              <gco:CharacterString>http://www.ga.gov.au</gco:CharacterString>
+                           </cit:linkage>
+                        </cit:CI_OnlineResource>
+                     </cit:onlineResource>
+                  </cit:CI_Citation>
+               </mco:reference>
+               <mco:classification>
+                  <mco:MD_ClassificationCode codeList="codeListLocation#MD_ClassificationCode" codeListValue="unclassified"/>
+               </mco:classification>
+            </mco:MD_SecurityConstraints>
+         </mri:resourceConstraints>
+         <mri:defaultLocale>
+            <lan:PT_Locale>
+               <lan:language>
+                  <lan:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/" codeListValue="eng"/>
+               </lan:language>
+               <lan:characterEncoding>
+                  <lan:MD_CharacterSetCode codeList="codeListLocation#MD_CharacterSetCode" codeListValue="utf8"/>
+               </lan:characterEncoding>
+            </lan:PT_Locale>
+         </mri:defaultLocale>
+      </mri:MD_DataIdentification>
+   </mdb:identificationInfo>
+   <mdb:distributionInfo xmlns:geonet="http://www.fao.org/geonetwork">
+      <mrd:MD_Distribution>
+         <mrd:transferOptions>
+            <mrd:MD_DigitalTransferOptions>
+               <mrd:onLine>
+                  <cit:CI_OnlineResource>
+                     <cit:linkage>
+                        <gco:CharacterString>file://prod.lan/active/ops/cds/geophysics/seismic/active/L208_SELachlan_2018_ecat_122684</gco:CharacterString>
+                     </cit:linkage>
+                     <cit:protocol xsi:type="gapm:gapCI_ProtocolTypeCode_PropertyType" codeList="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/protocolTypeCode_codelist.xml#gapCI_ProtocolTypeCode" codeListValue="WWW:LINK-1.0-http--link">
+                        <gco:CharacterString>WWW:LINK-1.0-http--link</gco:CharacterString>
+                     </cit:protocol>
+                     <cit:name>
+                        <gco:CharacterString>CDS data location</gco:CharacterString>
+                     </cit:name>
+                     <cit:description>
+                        <gco:CharacterString>CDS data location</gco:CharacterString>
+                     </cit:description>
+                     <cit:function>
+                        <cit:CI_OnLineFunctionCode codeList="codeListLocation#CI_OnLineFunctionCode" codeListValue="information"/>
+                     </cit:function>
+                  </cit:CI_OnlineResource>
+               </mrd:onLine>
+               <mrd:onLine>
+                  <cit:CI_OnlineResource>
+                     <cit:linkage>
+                        <gco:CharacterString>http://www.earthresources.vic.gov.au/earth-resources/geology-of-victoria/gsv-projects/Eastern-Victoria-Geoscience-Initiative</gco:CharacterString>
+                     </cit:linkage>
+                     <cit:protocol xsi:type="gapm:gapCI_ProtocolTypeCode_PropertyType" codeList="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/protocolTypeCode_codelist.xml#gapCI_ProtocolTypeCode" codeListValue="WWW:LINK-1.0-http--link">
+                        <gco:CharacterString>WWW:LINK-1.0-http--link</gco:CharacterString>
+                     </cit:protocol>
+                     <cit:name>
+                        <gco:CharacterString>Geological Survey of Victoria</gco:CharacterString>
+                     </cit:name>
+                     <cit:description>
+                        <gco:CharacterString>Geological Survey of Victoria</gco:CharacterString>
+                     </cit:description>
+                  </cit:CI_OnlineResource>
+               </mrd:onLine>
+               <mrd:onLine>
+                  <cit:CI_OnlineResource>
+                     <cit:linkage>
+                        <gco:CharacterString>http://www.resourcesandenergy.nsw.gov.au/miners-and-explorers/geoscience-information/projects/the-south-east-lachlan-crustal-transect-seismic-survey</gco:CharacterString>
+                     </cit:linkage>
+                     <cit:protocol xsi:type="gapm:gapCI_ProtocolTypeCode_PropertyType" codeList="http://pid.geoscience.gov.au/def/schema/ga/ISO19115-3-2016/codelist/protocolTypeCode_codelist.xml#gapCI_ProtocolTypeCode" codeListValue="WWW:LINK-1.0-http--link">
+                        <gco:CharacterString>WWW:LINK-1.0-http--link</gco:CharacterString>
+                     </cit:protocol>
+                     <cit:name>
+                        <gco:CharacterString>Geological Survey of New South Wales</gco:CharacterString>
+                     </cit:name>
+                     <cit:description>
+                        <gco:CharacterString>Geological Survey of New South Wales</gco:CharacterString>
+                     </cit:description>
+                  </cit:CI_OnlineResource>
+               </mrd:onLine>
+            </mrd:MD_DigitalTransferOptions>
+         </mrd:transferOptions>
+      </mrd:MD_Distribution>
+   </mdb:distributionInfo>
+   <mdb:resourceLineage xmlns:gmw="http://standards.iso.org/iso/19115/-3/gmw/1.0"
+      xmlns:geonet="http://www.fao.org/geonetwork">
+      <mrl:LI_Lineage>
+         <mrl:statement>
+            <gco:CharacterString>test</gco:CharacterString>
+         </mrl:statement>
+         <mrl:scope>
+            <mcc:MD_Scope>
+               <mcc:level>
+                  <mcc:MD_ScopeCode codeList="codeListLocation#MD_ScopeCode" codeListValue="dataset"/>
+               </mcc:level>
+            </mcc:MD_Scope>
+         </mrl:scope>
+      </mrl:LI_Lineage>
+   </mdb:resourceLineage>
+   <mdb:metadataConstraints>
+      <mco:MD_Constraints>
+         <mco:reference>
+            <cit:CI_Citation>
+               <cit:title>
+                  <gco:CharacterString>Test</gco:CharacterString>
+               </cit:title>
+               <cit:alternateTitle>
+                  <gco:CharacterString>Test</gco:CharacterString>
+               </cit:alternateTitle>
+               <cit:edition>
+                  <gco:CharacterString>Test</gco:CharacterString>
+               </cit:edition>
+               <cit:onlineResource>
+                  <cit:CI_OnlineResource>
+                     <cit:linkage>
+                        <gco:CharacterString>http://www.ga.gov.au</gco:CharacterString>
+                     </cit:linkage>
+                  </cit:CI_OnlineResource>
+               </cit:onlineResource>
+            </cit:CI_Citation>
+         </mco:reference>
+      </mco:MD_Constraints>
+   </mdb:metadataConstraints>
+   <mdb:metadataConstraints>
+      <mco:MD_LegalConstraints uuid="urn:ga-licences:232">
+         <mco:reference>
+            <cit:CI_Citation>
+               <cit:title>
+                  <gco:CharacterString>Creative Commons Attribution 4.0 International Licence</gco:CharacterString>
+               </cit:title>
+               <cit:alternateTitle>
+                  <gco:CharacterString>CC-BY</gco:CharacterString>
+               </cit:alternateTitle>
+               <cit:edition>
+                  <gco:CharacterString>4.0</gco:CharacterString>
+               </cit:edition>
+               <cit:onlineResource>
+                  <cit:CI_OnlineResource>
+                     <cit:linkage>
+                        <gco:CharacterString>http://creativecommons.org/licenses/</gco:CharacterString>
+                     </cit:linkage>
+                  </cit:CI_OnlineResource>
+               </cit:onlineResource>
+            </cit:CI_Citation>
+         </mco:reference>
+         <mco:accessConstraints>
+            <mco:MD_RestrictionCode codeList="codeListLocation#MD_RestrictionCode" codeListValue="license"/>
+         </mco:accessConstraints>
+         <mco:useConstraints>
+            <mco:MD_RestrictionCode codeList="codeListLocation#MD_RestrictionCode" codeListValue="license"/>
+         </mco:useConstraints>
+      </mco:MD_LegalConstraints>
+   </mdb:metadataConstraints>
+   <mdb:metadataConstraints>
+      <mco:MD_SecurityConstraints>
+         <mco:reference>
+            <cit:CI_Citation>
+               <cit:title>
+                  <gco:CharacterString>Test</gco:CharacterString>
+               </cit:title>
+               <cit:alternateTitle>
+                  <gco:CharacterString>Test</gco:CharacterString>
+               </cit:alternateTitle>
+               <cit:edition>
+                  <gco:CharacterString>Test</gco:CharacterString>
+               </cit:edition>
+               <cit:onlineResource>
+                  <cit:CI_OnlineResource>
+                     <cit:linkage>
+                        <gco:CharacterString>http://www.ga.gov.au</gco:CharacterString>
+                     </cit:linkage>
+                  </cit:CI_OnlineResource>
+               </cit:onlineResource>
+            </cit:CI_Citation>
+         </mco:reference>
+         <mco:classification>
+            <mco:MD_ClassificationCode codeList="codeListLocation#MD_ClassificationCode" codeListValue="unclassified"/>
+         </mco:classification>
+      </mco:MD_SecurityConstraints>
+   </mdb:metadataConstraints>
+</mdb:MD_Metadata>
